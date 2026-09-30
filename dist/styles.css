@@ -6,3 +6,50 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}@media print{.topbar,.sidebar,.reading-progress,.skip,button,.back-top{display:none!important}main{margin:0;max-width:none}.chapter{padding:25px 0;break-inside:auto}.chapter-title,h1{font-size:32px}.token-lab,.opening-diagram,.next-week{background:#eee;color:#111}.token-lab p,.next-week p{color:#333}details>div{display:block!important}.table-scroll{overflow:visible}table{min-width:0}.chapter{scroll-margin:0}footer{padding:20px 0}}
 
 .brand-logo{display:block;width:57px;height:48px;object-fit:contain;flex-shrink:0}@media(max-width:560px){.brand-logo{width:48px;height:42px}}
+
+/* Reference-page teaching, using the existing Cornell red and flat layout. */
+.reference-intro{font-size:18px;margin:30px 0;line-height:1.8}
+.section-bridge{border-top:1px solid var(--line);margin-top:38px;padding-top:22px}
+.section-bridge p{font-size:16px;color:#444;margin:0 0 10px}
+.section-bridge a{color:var(--red);font-size:14px;font-weight:700;text-decoration:none}
+.section-bridge a:hover{text-decoration:underline}
+.failure-list details>div h4{margin:22px 0 8px}
+.failure-list details>div p{font-size:16px;line-height:1.8}
+.failure-list .week-reference{display:block;margin:18px 0 0;white-space:normal;font-size:14px}
+.failure-short{max-width:215px;text-align:right}
+.prompt-card{border-top:2px solid var(--ink);padding:25px 0;margin:35px 0}
+.prompt-heading{display:flex;align-items:baseline;justify-content:space-between;gap:18px}
+.prompt-heading h3{font-size:24px;line-height:1.4}
+.copy-prompt{flex-shrink:0;min-height:44px}
+.prompt-text{font:15px/1.8 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--wash);border-left:3px solid var(--red);padding:22px;margin:18px 0;user-select:text}
+.copy-status{font-size:14px;color:var(--red);margin:0;min-height:0}
+.copy-status:not(:empty){margin:12px 0}
+.answer-reveal{border-bottom:1px solid var(--line);margin:18px 0 0}
+.answer-reveal summary,.self-checks summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:17px 0;font-weight:700;font-size:16px;line-height:1.6}
+.answer-reveal summary>span,.self-checks summary>span{font-size:24px;color:var(--red);flex-shrink:0}
+.answer-reveal[open] summary>span,.self-checks details[open] summary>span{transform:rotate(45deg)}
+.answer-reveal>div{padding:0 0 12px}.answer-reveal p{font-size:16px}
+.workflow-path{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:var(--wash);padding:24px;margin:30px 0;font-size:15px}
+.workflow-path span{flex:1;min-width:110px}.workflow-path b{color:var(--red);font-weight:400}
+.capability-card{padding:28px 0;border-top:1px solid var(--line)}
+.capability-card>.small-label{color:var(--red)}
+.capability-card h3{font-size:25px;line-height:1.4;margin:12px 0 20px}
+.capability-card fieldset button{min-height:48px}
+.sort-feedback{background:#faf2f1;border-left:3px solid var(--red);padding:22px;margin:20px 0 0}
+.sort-feedback h4{font-size:19px;color:var(--red)}
+.sort-feedback p{font-size:16px}.sort-feedback .choice-result{font-size:14px;margin:0 0 12px}
+#sort-reset-status{font-size:14px}
+.confidentiality-callout{margin:40px clamp(32px,6.5vw,110px) 0;padding:30px;background:#faf2f1;border-left:4px solid var(--red);scroll-margin-top:110px}
+.confidentiality-callout .small-label{color:var(--red)}
+.confidentiality-callout h2{font-size:30px;letter-spacing:-1px;margin-top:14px}
+.confidentiality-callout p{font-size:16px}
+.alternative{font-size:14px!important;line-height:1.7;padding-top:12px;border-top:1px solid var(--line);margin-top:14px}
+.alternative strong{display:block;margin-bottom:4px;color:var(--red)}
+.self-checks details{border-bottom:1px solid var(--line)}
+.self-checks details>p{padding:0 0 15px;font-size:16px}
+.sidebar-bottom{padding-top:30px}
+@media(max-width:1150px){.confidentiality-callout{margin-left:42px;margin-right:42px}}
+@media(max-width:850px){.confidentiality-callout{margin-left:35px;margin-right:35px;scroll-margin-top:145px}}
+@media(max-width:560px){.prompt-heading{align-items:flex-start;flex-direction:column;gap:4px}.prompt-heading h3{font-size:22px}.prompt-text{padding:18px;font-size:14px}.workflow-path{flex-direction:column;align-items:stretch}.workflow-path b{transform:rotate(90deg);width:20px;margin:0 auto}.capability-card h3{font-size:23px}.confidentiality-callout{margin-left:22px;margin-right:22px;padding:23px}.confidentiality-callout h2{font-size:25px}.failure-list details>div{padding-left:0}.sort-feedback{padding:18px}.self-checks summary{font-size:16px}.reference-intro{font-size:17px}}
+@media print{.sort-feedback[hidden]{display:block!important}.confidentiality-callout{margin:25px 0}.prompt-card{break-inside:avoid}}
+@media(max-width:560px){.modes{grid-template-columns:1fr}.modes p{font-size:16px}.modes h3{margin-top:7px}}

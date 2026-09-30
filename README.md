@@ -19,10 +19,14 @@ Only `dist/` is published. The PowerPoint and development notes are not uploaded
 
 - Lesson content and final resource links: `dist/index.html`
 - Colors, layout, animation, and mobile design: `dist/styles.css`
-- Scripted token demonstration and six practice tasks: `dist/app.js`
+- Token animation, prompt-copy controls, and capability-sort behavior: `dist/app.js`
 
-The original deck has placeholders for the assignment submission link, survey, reading/video, and contact channel. These appear as pending information, not broken links. Add the final URLs and reading title before sending the lesson to members.
+The deliverable submission link points to the club's supplied Drive folder. The background survey and grading language have been removed. Reading/video and contact details are still pending.
 
-The three in-class failure prompts and capability-sort cards were not included in the presentation. The website refers to the supplied class card for the failure activity and uses the six Hearthstone example subtasks for its interactive practice. The token animation is explicitly illustrative, not a real tokenizer or live model. The class-test evidence in the worked example is labeled as sample evidence. Model families reflect the supplied lesson rather than a live market listing.
+The page is a post-session reference with expanded explanations of four failure modes, defenses, workflow integration, and a confidentiality callout before the deliverable. Week references follow the deck; character-level validation is explicitly labeled as related coverage in Weeks 4 and 6, since the deck gives no separate week for it.
+
+The three main prompts (hallucination, consistency, and math) and bonus exact-string prompt reproduce the user's supplied script verbatim. Answers are collapsed until revealed. The math answer key was verified with decimal arithmetic. Copy buttons use the Clipboard API and select the prompt for manual copying if access fails. The six capability cards reuse the Hearthstone subtasks and show suggested answers, alternatives, and checks after a selection. No scores or submissions are collected. Four closing questions have revealable answers.
+
+The token animation is illustrative, not a real tokenizer or live model. Model families reflect the supplied lesson rather than a live market listing. Technical background links appear next to relevant explanations. The original PowerPoint has not been modified.
 
 Motion respects `prefers-reduced-motion`. Native links, buttons, accordions, and keyboard focus styles support keyboard access. Practice answers stay in the current page session and are not submitted or stored.

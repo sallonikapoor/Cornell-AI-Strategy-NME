@@ -39,3 +39,46 @@ replay.addEventListener('click', () => {
   tokenStep = 0; status.textContent = 'Context is ready. What comes next?'; predict.innerHTML = 'Predict next token <span aria-hidden="true">→</span>'; predict.hidden = false; replay.hidden = true; predict.focus({preventScroll:true});
 });
 
+for (const button of document.querySelectorAll('.copy-prompt')) {
+  button.addEventListener('click', async () => {
+    const prompt = document.getElementById(button.dataset.copy);
+    const message = button.closest('.prompt-card').querySelector('.copy-status');
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(prompt.textContent);
+      message.textContent = 'Prompt copied. Paste it into your AI tool.';
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(prompt);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      prompt.focus({ preventScroll: true });
+      message.textContent = 'Clipboard access is unavailable. The prompt is selected; copy it with Ctrl+C or Command+C, or use your device’s Copy command.';
+    }
+  });
+}
+
+for (const button of document.querySelectorAll('.pile-choice')) {
+  button.addEventListener('click', () => {
+    const card = button.closest('.capability-card');
+    for (const option of card.querySelectorAll('.pile-choice')) {
+      const selected = option === button;
+      option.setAttribute('aria-pressed', String(selected));
+      option.classList.toggle('chosen', selected);
+      option.classList.toggle('suggested', option.dataset.choice === card.dataset.suggested);
+    }
+    const feedback = card.querySelector('.sort-feedback');
+    feedback.querySelector('.choice-result').textContent = `Your choice: ${button.dataset.choice}. ${button.dataset.choice === card.dataset.suggested ? 'This matches the example.' : 'Compare your reasoning with the example below.'}`;
+    feedback.hidden = false;
+    document.getElementById('sort-reset-status').textContent = '';
+  });
+}
+document.getElementById('reset-sort').addEventListener('click', () => {
+  for (const button of document.querySelectorAll('.pile-choice')) {
+    button.setAttribute('aria-pressed', 'false');
+    button.classList.remove('chosen', 'suggested');
+  }
+  document.querySelectorAll('.sort-feedback').forEach(el => { el.hidden = true; });
+  document.getElementById('sort-reset-status').textContent = 'All six cards reset. Choose a pile to try again.';
+});
