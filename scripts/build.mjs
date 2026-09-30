@@ -61,7 +61,13 @@ for (const page of pages) {
     chapterLinks:page.chapters.map((chapter,i) => `<a href="#${escape(chapter.id)}"${i === 0 ? ' class="active" aria-current="location"' : ''}><span>${escape(chapter.number)}</span> ${escape(chapter.label)}</a>`).join(''),
     styles:page.styles.map(name => `<link rel="stylesheet" href="${assetURL(name)}">`).join(''),
     scripts:page.scripts.map(name => `<script src="${assetURL(name)}" defer></script>`).join(''),
-    content:read(page.source).replace('<!-- SCHEDULE_ROWS -->',schedule).trim()
+    content:read(page.source).replace('<!-- SCHEDULE_ROWS -->',schedule)
+      .replace(/<!-- BLUEPRINT_TEMPLATE_LINK: (.*?) -->/g, (_, url) => {
+        if (url === 'TEMPLATE_URL') return '';
+        if (!/^https?:\/\//.test(url)) throw new Error('Blueprint template must use an HTTP(S) URL');
+        new URL(url);
+        return `<p>Want a head start? <a href="${escape(url)}">Make a copy of the template</a></p>`;
+      }).trim()
   });
   const html = layout.replace(/{{(\w+)}}/g, (_,key) => {
     if (!(key in variables)) throw new Error(`Unknown layout field: ${key}`);

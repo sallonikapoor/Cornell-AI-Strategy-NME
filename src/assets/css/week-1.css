@@ -190,3 +190,14 @@
 #sort .sort-check{margin:4px 0 18px}
 #sort button:disabled{opacity:.45;cursor:not-allowed}
 @media(max-width:850px){#sort .sort-reference-grid{grid-template-columns:1fr;gap:12px}}
+
+/* Illustrative token boundaries and Blueprint checklist. */
+.examples.token-examples{display:flex;flex-direction:column;gap:14px}
+.token-examples .token-example-row{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.token-examples .token-chip{display:inline-block;padding:7px 10px;margin:0;border:1px solid var(--line);background:var(--wash);white-space:pre;font-size:14px}
+.token-examples .token-chip:nth-child(even){background:#faf2f1}
+#portfolio .blueprint-checklist{list-style:none;padding:0;margin:25px 0}
+#portfolio .blueprint-checklist li{border-bottom:1px solid var(--line);padding:13px 0}
+#portfolio .blueprint-checklist label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+#portfolio .blueprint-checklist input{accent-color:var(--red);flex:none;width:18px;height:18px;margin-top:5px}
+#portfolio .blueprint-checklist input:focus-visible{outline:3px solid var(--red);outline-offset:4px}
