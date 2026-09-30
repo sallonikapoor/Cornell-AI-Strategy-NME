@@ -1,44 +1,51 @@
 # Cornell AI Strategy · New Member Education
 
-A responsive Fall 2026 NME hub with the animated Week 1 lesson adapted from `CAIS_Week1_LLMs_and_AI_Landscape.pptx`. Plain HTML, CSS, and JavaScript with a dependency-free Node script that generates the hub schedule. No framework, backend, API keys, or paid services required.
+A dependency-free HTML/CSS/JavaScript site. Node 22 builds every page; GitHub Pages publishes only the generated output.
 
-## Pages
+## Build and preview
 
-- Hub: `https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/`
-- Week 1: `https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-1/`
+```sh
+node scripts/build.mjs
+python -m http.server 4174 --directory dist
+```
 
-Directory indexes provide routing on GitHub Pages. Relative asset and navigation URLs work both locally and beneath the repository URL prefix.
+Open http://localhost:4174/ and http://localhost:4174/week-1/. The same directory routes work under the GitHub Pages repository prefix.
 
-## Preview
+## Source structure
 
-Run `node scripts/build-hub.mjs`, then serve `dist` with a local static server (for example `python -m http.server 4174 --directory dist`). Visit `/` and `/week-1/`. Google Fonts is optional; system fonts work offline. The schedule is generated as HTML and remains readable with JavaScript disabled.
+- `src/hub.html`: landing-page content.
+- `src/weeks/week-1.html`: Week 1 lesson content.
+- `src/weeks/_template.html`: starting structure for new lessons; never published.
+- `src/pages.json`: page registration, metadata, chapter navigation, and asset lists.
+- `src/data/weeks.json`: schedule dates, titles, links, and availability.
+- `src/partials/`: shared layout, header, sidebar shell, and footer, each authored once.
+- `src/assets/css/shared.css`: shared design and responsive styles.
+- `src/assets/js/shared.js`: chapter navigation, reading progress, and copy buttons. Accordions use native HTML details/summary behavior.
+- `src/assets/css/week-1.css` and `src/assets/js/week-1.js`: Week 1 demonstrations, token animation, capability sort, and related styles. Only Week 1 loads these.
+- `src/assets/images/`: shared logo.
+- `scripts/build.mjs`: builds every registered page, copies assets, versions CSS/JS URLs, and validates local links, anchors, and duplicate IDs.
+- `scripts/render-schedule.mjs`: schedule rendering and validation.
+- `dist/`: disposable generated output, ignored by Git. Never edit it.
 
-## Publish on GitHub Pages
+The build reads only `src/`, validates the complete output, then replaces `dist/`. Running it from a clean checkout is sufficient; there is no dependency installation step.
 
-1. Create a GitHub repository and upload this folder's contents, including `.github/workflows/pages.yml`.
-2. In the repository, open **Settings → Pages** and select **GitHub Actions** as the source.
-3. Push to `main`, or run the **Deploy lesson to GitHub Pages** workflow from the Actions tab.
-4. Copy the URL shown by the successful deployment. Repository subpaths work because all site assets use relative paths.
+## Add a week
 
-Only `dist/` is published. The PowerPoint and development notes are not uploaded as website assets.
+1. Copy `src/weeks/_template.html` to `src/weeks/week-2.html` and replace the authoring instructions with the lesson content.
+2. Copy a lesson entry in `src/pages.json`. Set `source` to `weeks/week-2.html`, `output` to `week-2/index.html`, and update the title, description, labels, footer, and chapters to match the lesson's section IDs.
+3. Start its asset lists with only `assets/css/shared.css` and `assets/js/shared.js`. Add dedicated Week 2 assets if needed; do not load Week 1's demonstrations.
+4. Update the corresponding schedule record in `src/data/weeks.json` with its title, `link: "week-2/"`, and `status: "available"`.
+5. Build, preview both the hub and lesson, and commit source changes. Unregistered lesson files and broken links fail the build.
 
-## Editing
+Upcoming weeks use a null link and `coming-soon` status. The Thanksgiving row has a null week number and `break` status. The template is intentionally excluded from the output.
 
-- Hub content: `src/hub.html` (generates `dist/index.html`)
-- Schedule: `data/weeks.json` (week, ISO date, title, link, status)
-- Week 1 content and final resource links: `dist/week-1/index.html`
-- Colors, layout, animation, and mobile design: `dist/styles.css`
-- Shared reading progress and chapter navigation: `dist/navigation.js`
-- Token animation, prompt-copy controls, and capability-sort behavior: `dist/app.js`
+## Publish
 
-To add a lesson, create `dist/week-N/index.html`, update its schedule entry with the title, relative link `week-N/`, and status `available`, then run `node scripts/build-hub.mjs`. Commit the source and generated HTML. GitHub Actions also runs the generator before publishing. Weeks marked `coming-soon` have a null link and render as text. The Thanksgiving break has a null week number and status `break`.
+Push source changes to `main`. `.github/workflows/pages.yml` builds the site and uploads `dist/` to GitHub Pages. Repository Settings → Pages must use **GitHub Actions** as its source. Generated files are never committed.
 
-The deliverable submission link points to the club's supplied Drive folder. The background survey and grading language have been removed. The reading/video remains pending at the user's request. Both pages have the supplied contact email; the hub also lists the attendance contact.
+- Hub: https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/
+- Week 1: https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-1/
 
-The page is a post-session reference with expanded explanations of four failure modes, defenses, workflow integration, and a confidentiality callout before the deliverable. Week references follow the deck; character-level validation is explicitly labeled as related coverage in Weeks 4 and 6, since the deck gives no separate week for it.
+## Lesson notes
 
-The three main prompts (hallucination, consistency, and math) and bonus exact-string prompt reproduce the user's supplied script verbatim. Answers are collapsed until revealed. The math answer key was verified with decimal arithmetic. Copy buttons use the Clipboard API and select the prompt for manual copying if access fails. The six capability cards reuse the Hearthstone subtasks and show suggested answers, alternatives, and checks after a selection. No scores or submissions are collected. Four closing questions have revealable answers.
-
-The token animation is illustrative, not a real tokenizer or live model. Model families reflect the supplied lesson rather than a live market listing. Technical background links appear next to relevant explanations. The original PowerPoint has not been modified.
-
-Motion respects `prefers-reduced-motion`. Native links, buttons, accordions, and keyboard focus styles support keyboard access. Practice answers stay in the current page session and are not submitted or stored.
+Week 1 preserves the supplied lesson, exact practice prompts, submission link, and contact details. The supplemental resource remains pending at the author's request. Tokenization is illustrative rather than a live model. Practice answers are not stored or submitted. Copy buttons fall back to selecting the prompt if clipboard access fails. Google Fonts is optional, motion respects reduced-motion preferences, and native controls support keyboard access.

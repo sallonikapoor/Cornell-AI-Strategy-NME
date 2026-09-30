@@ -1,3 +1,8 @@
+if ('IntersectionObserver' in window) {
+  const reveal = new IntersectionObserver(entries => { for (const entry of entries) if(entry.isIntersecting) { entry.target.classList.add('reveal'); reveal.unobserve(entry.target); } }, {threshold:.12});
+  document.querySelectorAll('.opening-diagram,.token-lab,.model-map,.next-week').forEach(el => reveal.observe(el));
+}
+
 const output = document.querySelector('#token-output');
 const predict = document.querySelector('#next-token');
 const replay = document.querySelector('#reset-token');
@@ -15,26 +20,6 @@ replay.addEventListener('click', () => {
   const blank = document.createElement('span'); blank.className = 'empty-token'; blank.textContent = '?'; output.append(blank);
   tokenStep = 0; status.textContent = 'Context is ready. What comes next?'; predict.innerHTML = 'Predict next token <span aria-hidden="true">→</span>'; predict.hidden = false; replay.hidden = true; predict.focus({preventScroll:true});
 });
-
-for (const button of document.querySelectorAll('.copy-prompt')) {
-  button.addEventListener('click', async () => {
-    const prompt = document.getElementById(button.dataset.copy);
-    const message = button.closest('.prompt-card').querySelector('.copy-status');
-    try {
-      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
-      await navigator.clipboard.writeText(prompt.textContent);
-      message.textContent = 'Prompt copied. Paste it into your AI tool.';
-    } catch {
-      const range = document.createRange();
-      range.selectNodeContents(prompt);
-      const selection = window.getSelection();
-      selection.removeAllRanges();
-      selection.addRange(range);
-      prompt.focus({ preventScroll: true });
-      message.textContent = 'Clipboard access is unavailable. The prompt is selected; copy it with Ctrl+C or Command+C, or use your device’s Copy command.';
-    }
-  });
-}
 
 for (const button of document.querySelectorAll('.pile-choice')) {
   button.addEventListener('click', () => {

@@ -2,3 +2,4 @@
 Thumbs.db
 .preview/
 node_modules/
+/dist/

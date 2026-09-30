@@ -1,0 +1,116 @@
+[
+  {
+    "source": "hub.html",
+    "output": "index.html",
+    "title": "New Member Education | Cornell AI Strategy",
+    "description": "Cornell AI Strategy Fall 2026 New Member Education. Session schedule, lessons, fundraising, and contacts.",
+    "bodyClass": "nme-hub",
+    "skipLabel": "Skip to New Member Education",
+    "brandHref": "./",
+    "courseLabelHtml": "Fall 2026 New Member Education",
+    "actionHref": "#contact",
+    "actionLabel": "Contact",
+    "sidebarLabel": "New Member Education sections",
+    "badge": "NME",
+    "subtitle": "Fall 2026",
+    "subject": "New Member Education",
+    "sidebarContextHtml": "",
+    "chapters": [
+      {
+        "id": "schedule",
+        "number": "01",
+        "label": "Schedule"
+      },
+      {
+        "id": "fundraising",
+        "number": "02",
+        "label": "Fundraising"
+      },
+      {
+        "id": "contact",
+        "number": "03",
+        "label": "Contact"
+      }
+    ],
+    "footerLabel": "FALL 2026 NEW MEMBER EDUCATION",
+    "styles": [
+      "assets/css/shared.css"
+    ],
+    "scripts": [
+      "assets/js/shared.js"
+    ]
+  },
+  {
+    "source": "weeks/week-1.html",
+    "output": "week-1/index.html",
+    "title": "Week 01 · How LLMs Work | Cornell AI Strategy",
+    "description": "Cornell AI Strategy new member education. Explore how LLMs work, their failure modes, the AI landscape, and your first capability deliverable.",
+    "bodyClass": "",
+    "skipLabel": "Skip to lesson",
+    "brandHref": "#overview",
+    "courseLabelHtml": "NEW MEMBER EDUCATION <span>/</span> FALL 2026",
+    "actionHref": "#portfolio",
+    "actionLabel": "Your deliverable",
+    "sidebarLabel": "Lesson chapters",
+    "badge": "01",
+    "subtitle": "Week one",
+    "subject": "LLMs & the AI landscape",
+    "sidebarContextHtml": "<span class=\"small-label\">THIS WEEK’S QUESTION</span><p>What should AI do,<br>and what shouldn’t it?</p>",
+    "chapters": [
+      {
+        "id": "overview",
+        "number": "00",
+        "label": "Overview"
+      },
+      {
+        "id": "mechanics",
+        "number": "01",
+        "label": "How LLMs work"
+      },
+      {
+        "id": "failures",
+        "number": "02",
+        "label": "Failures & defenses"
+      },
+      {
+        "id": "try-it",
+        "number": "03",
+        "label": "Try it yourself"
+      },
+      {
+        "id": "landscape",
+        "number": "04",
+        "label": "Models in workflows"
+      },
+      {
+        "id": "sort",
+        "number": "05",
+        "label": "Capability sort"
+      },
+      {
+        "id": "portfolio",
+        "number": "06",
+        "label": "Portfolio piece #1"
+      },
+      {
+        "id": "takeaways",
+        "number": "07",
+        "label": "The takeaway"
+      },
+      {
+        "id": "next",
+        "number": "08",
+        "label": "Before Week 2"
+      }
+    ],
+    "footerLabel": "NEW MEMBER EDUCATION / WEEK 01",
+    "styles": [
+      "assets/css/shared.css",
+      "assets/css/week-1.css"
+    ],
+    "scripts": [
+      "assets/js/shared.js",
+      "assets/js/week-1.js"
+    ]
+  }
+]

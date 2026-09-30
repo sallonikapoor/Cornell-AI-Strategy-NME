@@ -18,8 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Generate NME schedule
-        run: node scripts/build-hub.mjs
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build and validate NME site
+        run: node scripts/build.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
