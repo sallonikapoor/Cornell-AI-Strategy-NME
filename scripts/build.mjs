@@ -8,7 +8,7 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const src = resolve(root, 'src');
 const dist = resolve(root, 'dist');
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const read = path => readFileSync(resolve(src, path), 'utf8');
+const read = path => readFileSync(resolve(src, path), 'utf8').replace(/\r\n/g, '\n');
 const pages = JSON.parse(read('pages.json'));
 const weeks = JSON.parse(read('data/weeks.json'));
 const files = new Map();
@@ -23,7 +23,11 @@ function collectAssets(directory) {
     const path = resolve(directory, entry.name);
     if (entry.isSymbolicLink()) throw new Error(`Asset symlinks are not supported: ${path}`);
     if (entry.isDirectory()) collectAssets(path);
-    else files.set(relative(src, path).split(sep).join('/'), readFileSync(path));
+    else {
+      const content = readFileSync(path);
+      files.set(relative(src, path).split(sep).join('/'), /\.(css|js)$/.test(path)
+        ? content.toString('utf8').replace(/\r\n/g, '\n') : content);
+    }
   }
 }
 collectAssets(resolve(src, 'assets'));
