@@ -21,26 +21,53 @@ replay.addEventListener('click', () => {
   tokenStep = 0; status.textContent = 'Context is ready. What comes next?'; predict.innerHTML = 'Predict next token <span aria-hidden="true">→</span>'; predict.hidden = false; replay.hidden = true; predict.focus({preventScroll:true});
 });
 
-for (const button of document.querySelectorAll('.pile-choice')) {
-  button.addEventListener('click', () => {
-    const card = button.closest('.capability-card');
-    for (const option of card.querySelectorAll('.pile-choice')) {
-      const selected = option === button;
-      option.setAttribute('aria-pressed', String(selected));
-      option.classList.toggle('chosen', selected);
-      option.classList.toggle('suggested', option.dataset.choice === card.dataset.suggested);
-    }
-    const feedback = card.querySelector('.sort-feedback');
-    feedback.querySelector('.choice-result').textContent = `Your choice: ${button.dataset.choice}. ${button.dataset.choice === card.dataset.suggested ? 'This matches the example.' : 'Compare your reasoning with the example below.'}`;
+const sortCards = [...document.querySelectorAll('.capability-card')];
+const selectedChoices = card => [...card.querySelectorAll('.pile-choice[aria-pressed="true"]')].map(button => button.dataset.choice);
+const sameChoices = (a, b) => a.length === b.length && a.every(choice => b.includes(choice));
+for (const card of sortCards) {
+  const options = [...card.querySelectorAll('.pile-choice')];
+  const check = card.querySelector('.sort-check');
+  const feedback = card.querySelector('.sort-feedback');
+  for (const button of options) {
+    button.addEventListener('click', () => {
+      const selected = button.getAttribute('aria-pressed') !== 'true';
+      if (selected && selectedChoices(card).length >= 2) return;
+      button.setAttribute('aria-pressed', String(selected));
+      button.classList.toggle('chosen', selected);
+      const choices = selectedChoices(card);
+      for (const option of options) option.disabled = choices.length === 2 && option.getAttribute('aria-pressed') !== 'true';
+      check.disabled = choices.length === 0;
+      check.setAttribute('aria-expanded', 'false');
+      feedback.hidden = true;
+      document.getElementById('sort-reset-status').textContent = '';
+    });
+  }
+  check.addEventListener('click', () => {
+    const choices = selectedChoices(card);
+    const suggested = card.dataset.suggested.split('|');
+    const also = card.dataset.also ? card.dataset.also.split('|') : [];
+    if (!choices.length) return;
+    const message = sameChoices(choices, suggested) ? 'That matches our suggestion.'
+      : also.length && sameChoices(choices, also) ? "That's a reasonable choice too. Here's our take."
+      : choices.some(choice => suggested.includes(choice)) ? "Close. Here's our take."
+      : "Here's what we'd suggest, and why.";
     feedback.hidden = false;
-    document.getElementById('sort-reset-status').textContent = '';
+    feedback.querySelector('.choice-result').textContent = message;
+    check.setAttribute('aria-expanded', 'true');
   });
 }
 document.getElementById('reset-sort').addEventListener('click', () => {
-  for (const button of document.querySelectorAll('.pile-choice')) {
-    button.setAttribute('aria-pressed', 'false');
-    button.classList.remove('chosen', 'suggested');
+  for (const card of sortCards) {
+    for (const button of card.querySelectorAll('.pile-choice')) {
+      button.setAttribute('aria-pressed', 'false');
+      button.classList.remove('chosen');
+      button.disabled = false;
+    }
+    const check = card.querySelector('.sort-check');
+    check.disabled = true;
+    check.setAttribute('aria-expanded', 'false');
+    card.querySelector('.sort-feedback').hidden = true;
+    card.querySelector('.choice-result').textContent = '';
   }
-  document.querySelectorAll('.sort-feedback').forEach(el => { el.hidden = true; });
-  document.getElementById('sort-reset-status').textContent = 'All six cards reset. Choose a pile to try again.';
+  document.getElementById('sort-reset-status').textContent = 'All six steps reset. Choose who should do each step to try again.';
 });

@@ -181,3 +181,12 @@
 .modes p{font-size:16px}
 .modes h3{margin-top:7px}
 }
+
+/* Scenario references and multi-select controls are scoped to the capability sort. */
+#sort .sort-reference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:25px 0 35px}
+#sort .sort-reference-grid article{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+#sort .sort-reference-grid p{font-size:15px;line-height:1.65;overflow-wrap:anywhere}
+#sort .sort-guidance{border-left:3px solid var(--red);background:var(--wash);padding:12px 22px;margin:25px 0}
+#sort .sort-check{margin:4px 0 18px}
+#sort button:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:850px){#sort .sort-reference-grid{grid-template-columns:1fr;gap:12px}}
