@@ -1,51 +1,94 @@
 # Cornell AI Strategy · New Member Education
 
-A dependency-free HTML/CSS/JavaScript site. Node 22 builds every page; GitHub Pages publishes only the generated output.
+A 10-week curriculum and interactive course site that teaches new members of a student AI consulting club how to use AI responsibly in real client engagements.
 
-## Build and preview
+[Live site](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/) · [Week 1 lesson](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-1/)
+
+![Week 1 desktop hero: How LLMs work, where they fit, with chapter navigation and the model-to-workflow diagram](docs/screenshots/week-1-hero-desktop.png)
+
+## About the project
+
+Cornell AI Strategy (CAIS) is a student consulting club that delivers workflow automation, research, and go-to-market analysis through real client engagements. New members arrive with different backgrounds: some technical, some business-focused. They need a shared foundation quickly.
+
+Designed and built by **Salloni Kapoor, Co-founder and Director of Technology & New Member Education at CAIS**. Fall 2026 cohort: **[confirm cohort size]** new members. The hub and Week 1 are available; Weeks 2–10 are in progress.
+
+## The approach
+
+- **One throughline:** LLMs generate plausible text → their failures follow predictable patterns → each failure needs a design defense → every workflow step gets assigned to an LLM, code, or a person, with a check attached.
+- **Learn by breaking things:** members probe hallucination, inconsistent judgments, and arithmetic, then check the output against evidence. They run prompts in their own AI tool and return to the lesson to compare results.
+- **Build a portfolio:** weekly portfolio pieces replace a single capstone. Members are already participating in real client engagements, so the curriculum gives them focused practice and work they can explain.
+- **Confidentiality by design:** exercises use invented or public material. The curriculum prohibits putting client data into consumer AI tools.
+
+## Curriculum
+
+Fall 2026. This table is generated from the current [schedule data](src/data/weeks.json); upcoming topics remain labeled “Coming soon” until published there.
+
+| Week | Date | Topic | Status |
+| --- | --- | --- | --- |
+| 1 | September 30 | LLMs & the AI Landscape | [Available](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-1/) |
+| 2 | October 7 | Coming soon | Upcoming |
+| 3 | October 14 | Coming soon | Upcoming |
+| 4 | October 21 | Coming soon | Upcoming |
+| 5 | October 28 | Coming soon | Upcoming |
+| 6 | November 4 | Coming soon | Upcoming |
+| 7 | November 11 | Coming soon | Upcoming |
+| 8 | November 18 | Coming soon | Upcoming |
+| 9 | December 2 | Coming soon | Upcoming |
+| 10 | December 9 | Coming soon | Upcoming |
+
+**No session on November 25 (Thanksgiving break).**
+
+## Inside Week 1
+
+- **Token prediction demo:** step through a scripted next-token loop to see how one prediction becomes context for the next.
+- **Four failure modes:** example → cause → defense connects hallucination, inconsistency, unreliable math, and character errors to concrete checks.
+- **Copyable practice prompts and collapsible answers:** test grounding, consistency, and math; optional citation and exact-string probes help distinguish convincing output from checked evidence.
+- **Models in workflows:** compare chat, APIs, and agents to understand how information, tools, and approval decisions reach a model.
+- **Six-card capability sort:** assign steps in a fictional venue’s refund process to LLM, rules/code, human, or combination; reveal the suggested approach, reasoning, and failure check.
+- **Worked portfolio example:** an invented invoice-matching workflow shows how to justify each choice and design a review path before payment.
+- **Four self-check questions:** reveal explanations that test whether members can distinguish a plausible answer from a verified result.
+
+## Built with
+
+**HTML / CSS / JavaScript · Node · GitHub Actions · Claude · Codex**
+
+The site uses dependency-free HTML, CSS, and JavaScript. A Node 22 build script assembles pages from shared partials, versions assets, and validates local links, anchors, and duplicate IDs. GitHub Actions builds and deploys to GitHub Pages on pushes to `main`. Claude and Codex supported development; the site itself makes no model API calls.
+
+Semantic HTML, keyboard-navigable controls, visible focus states, and reduced-motion styles support accessible use. The site has no tracking code, accounts, or stored practice answers. Fonts load from Google Fonts, with system-font fallbacks.
+
+## Screenshots
+
+### Hub
+
+![Desktop NME hub with session information and the fall schedule](docs/screenshots/hub-desktop.png)
+
+### Failure modes
+
+![Week 1 failure explanations organized as what went wrong, why it happens, and how to catch it](docs/screenshots/week-1-failures-desktop.png)
+
+### Capability sort
+
+![Desktop refund-workflow capability sort with a selected pile and its reasoning revealed](docs/screenshots/week-1-sort-desktop.png)
+
+### Mobile
+
+![Week 1 on mobile with the club header, horizontal chapter navigation, and lesson introduction](docs/screenshots/week-1-mobile.png)
+
+## Roadmap
+
+Weeks 2–10 are in progress, with weekly releases planned through December 9, 2026, excluding Thanksgiving break.
+
+## Run locally and add a week
+
+With Node 22 and Python 3 installed, run from the repository root:
 
 ```sh
 node scripts/build.mjs
 python -m http.server 4174 --directory dist
 ```
 
-Open http://localhost:4174/ and http://localhost:4174/week-1/. The same directory routes work under the GitHub Pages repository prefix.
+Open the [local preview](http://localhost:4174/). No dependency installation is required. To add a week, start from the lesson template, register it, and update the schedule. See the [development guide](docs/DEVELOPMENT.md) for the full source map, steps, and publishing details.
 
-## Source structure
+## Contact
 
-- `src/hub.html`: landing-page content.
-- `src/weeks/week-1.html`: Week 1 lesson content.
-- `src/weeks/_template.html`: starting structure for new lessons; never published.
-- `src/pages.json`: page registration, metadata, chapter navigation, and asset lists.
-- `src/data/weeks.json`: schedule dates, titles, links, and availability.
-- `src/partials/`: shared layout, header, sidebar shell, and footer, each authored once.
-- `src/assets/css/shared.css`: shared design and responsive styles.
-- `src/assets/js/shared.js`: chapter navigation, reading progress, and copy buttons. Accordions use native HTML details/summary behavior.
-- `src/assets/css/week-1.css` and `src/assets/js/week-1.js`: Week 1 demonstrations, token animation, capability sort, and related styles. Only Week 1 loads these.
-- `src/assets/images/`: shared logo.
-- `scripts/build.mjs`: builds every registered page, copies assets, versions CSS/JS URLs, and validates local links, anchors, and duplicate IDs.
-- `scripts/render-schedule.mjs`: schedule rendering and validation.
-- `dist/`: disposable generated output, ignored by Git. Never edit it.
-
-The build reads only `src/`, validates the complete output, then replaces `dist/`. Running it from a clean checkout is sufficient; there is no dependency installation step.
-
-## Add a week
-
-1. Copy `src/weeks/_template.html` to `src/weeks/week-2.html` and replace the authoring instructions with the lesson content.
-2. Copy a lesson entry in `src/pages.json`. Set `source` to `weeks/week-2.html`, `output` to `week-2/index.html`, and update the title, description, labels, footer, and chapters to match the lesson's section IDs.
-3. Start its asset lists with only `assets/css/shared.css` and `assets/js/shared.js`. Add dedicated Week 2 assets if needed; do not load Week 1's demonstrations.
-4. Update the corresponding schedule record in `src/data/weeks.json` with its title, `link: "week-2/"`, and `status: "available"`.
-5. Build, preview both the hub and lesson, and commit source changes. Unregistered lesson files and broken links fail the build.
-
-Upcoming weeks use a null link and `coming-soon` status. The Thanksgiving row has a null week number and `break` status. The template is intentionally excluded from the output.
-
-## Publish
-
-Push source changes to `main`. `.github/workflows/pages.yml` builds the site and uploads `dist/` to GitHub Pages. Repository Settings → Pages must use **GitHub Actions** as its source. Generated files are never committed.
-
-- Hub: https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/
-- Week 1: https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-1/
-
-## Lesson notes
-
-Week 1 preserves the supplied lesson, exact practice prompts, submission link, and contact details. The supplemental resource remains pending at the author's request. Tokenization is illustrative rather than a live model. Practice answers are not stored or submitted. Copy buttons fall back to selecting the prompt if clipboard access fails. Google Fonts is optional, motion respects reduced-motion preferences, and native controls support keyboard access.
+Salloni Kapoor · [sk3482@cornell.edu](mailto:sk3482@cornell.edu) · [confirm: LinkedIn URL] · [confirm: personal site, if any]
