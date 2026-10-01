@@ -10,7 +10,7 @@ A 10-week curriculum and interactive course site that teaches new members of a s
 
 Cornell AI Strategy (CAIS) is a student consulting club that delivers workflow automation, research, and go-to-market analysis through real client engagements. New members arrive with different backgrounds: some technical, some business-focused. They need a shared foundation quickly.
 
-Designed and built by **Salloni Kapoor, Co-founder and Director of Technology & New Member Education at CAIS**. Fall 2026 cohort: **[confirm cohort size]** new members. The hub and Week 1 are available; Weeks 2–10 are in progress.
+Designed and built by **Salloni Kapoor, Co-founder and Director of Technology & New Member Education at CAIS**. Fall 2026 cohort: **17** new members. The hub and Week 1 are available; Weeks 2–10 are in progress.
 
 ## The approach
 
