@@ -224,3 +224,6 @@ html:has(body.week-one){scroll-behavior:auto;scroll-padding-top:0}
 #sort .step-reference p{font-size:13px;margin:6px 0;line-height:1.5}
 @media(max-width:850px){.week-one{--lesson-anchor-offset:145px}}
 @media print{.week-one .chapter.closing{min-height:0}}
+
+#blueprint-submit{font-size:calc(27px - 2pt)}
+@media(max-width:560px){#blueprint-submit{font-size:calc(24px - 2pt)}}
