@@ -1,7 +1,32 @@
-if ('IntersectionObserver' in window) {
-  const reveal = new IntersectionObserver(entries => { for (const entry of entries) if(entry.isIntersecting) { entry.target.classList.add('reveal'); reveal.unobserve(entry.target); } }, {threshold:.12});
-  document.querySelectorAll('.opening-diagram,.token-lab,.model-map,.next-week').forEach(el => reveal.observe(el));
+// Anchor jumps wait for fonts and use the actual sticky chrome height.
+function lessonOffset() {
+  const header = document.querySelector('.topbar').getBoundingClientRect().height;
+  const sidebar = document.querySelector('.sidebar');
+  const nav = getComputedStyle(sidebar).position === 'sticky' ? sidebar.getBoundingClientRect().height : 0;
+  const offset = header + nav + 12;
+  document.body.style.setProperty('--lesson-anchor-offset', `${offset}px`);
+  return offset;
 }
+async function jumpToLessonAnchor(hash) {
+  const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+  if (!target) return;
+  if (document.fonts) await document.fonts.ready;
+  const offset = lessonOffset();
+  window.scrollTo({top: Math.max(0, window.scrollY + target.getBoundingClientRect().top - offset), behavior: 'instant'});
+  updateReading();
+}
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href^="#"]');
+  if (!link || link.classList.contains('skip') || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  if (!document.getElementById(decodeURIComponent(link.hash.slice(1)))) return;
+  event.preventDefault();
+  if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+  jumpToLessonAnchor(link.hash);
+});
+window.addEventListener('hashchange', () => jumpToLessonAnchor(location.hash));
+window.addEventListener('resize', lessonOffset);
+lessonOffset();
+if (location.hash) jumpToLessonAnchor(location.hash);
 
 const output = document.querySelector('#token-output');
 const predict = document.querySelector('#next-token');

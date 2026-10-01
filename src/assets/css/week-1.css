@@ -201,3 +201,26 @@
 #portfolio .blueprint-checklist label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
 #portfolio .blueprint-checklist input{accent-color:var(--red);flex:none;width:18px;height:18px;margin-top:5px}
 #portfolio .blueprint-checklist input:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+
+/* Stable section navigation and compact, self-contained workflow steps. */
+html:has(body.week-one){scroll-behavior:auto;scroll-padding-top:0}
+.week-one{--lesson-anchor-offset:102px}
+.week-one .chapter,.week-one #confidentiality{scroll-margin-top:var(--lesson-anchor-offset)}
+.week-one .chapter.closing{min-height:calc(100vh - var(--lesson-anchor-offset))}
+.week-one .reveal{animation:none;transform:none;opacity:1}
+.week-one .token-lab{margin-bottom:38px}
+#sort .capability-card{padding:18px 0}
+#sort .capability-card h3{margin:7px 0 10px}
+#sort .capability-card>p{margin:7px 0;font-size:15px;line-height:1.5}
+#sort .capability-card fieldset{margin:12px 0 8px}
+#sort .capability-card .sort-check{margin:4px 0 10px}
+#sort .sort-feedback{margin-top:8px;padding:16px}
+#sort .sort-feedback p{font-size:15px;line-height:1.5;margin:8px 0}
+#sort .step-reference{margin:8px 0 12px;border-bottom:1px solid var(--line)}
+#sort .step-reference summary{font-size:13px;color:var(--red);padding:7px 0;cursor:pointer}
+#sort .step-reference .sort-reference-grid{margin:8px 0 14px;gap:14px}
+#sort .step-reference .sort-reference-grid article{padding-top:10px}
+#sort .step-reference h4{font-size:14px}
+#sort .step-reference p{font-size:13px;margin:6px 0;line-height:1.5}
+@media(max-width:850px){.week-one{--lesson-anchor-offset:145px}}
+@media print{.week-one .chapter.closing{min-height:0}}
