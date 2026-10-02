@@ -63,7 +63,7 @@ for (const page of pages) {
     scripts:page.scripts.map(name => `<script src="${assetURL(name)}" defer></script>`).join(''),
     content:read(page.source).replace('<!-- SCHEDULE_ROWS -->',schedule)
       .replace(/<!-- BLUEPRINT_TEMPLATE_LINK: (.*?) -->/g, (_, url) => {
-        if (url === 'TEMPLATE_URL') return '';
+        if (/^TEMPLATE_URL(?:_WEEK\d+)?$/.test(url)) return '';
         if (!/^https?:\/\//.test(url)) throw new Error('Blueprint template must use an HTTP(S) URL');
         new URL(url);
         return `<p>Want a head start? <a href="${escape(url)}">Make a copy of the template</a></p>`;

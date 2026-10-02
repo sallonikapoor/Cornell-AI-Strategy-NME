@@ -10,7 +10,7 @@ A 10-week curriculum and interactive course site that teaches new members of a s
 
 Cornell AI Strategy (CAIS) is a student consulting club that delivers workflow automation, research, and go-to-market analysis through real client engagements. New members arrive with different backgrounds: some technical, some business-focused. They need a shared foundation quickly.
 
-Designed and built by **Salloni Kapoor, Co-founder and Director of Technology & New Member Education at CAIS**. Fall 2026 cohort: **17** new members. The hub and Week 1 are available; Weeks 2–10 are in progress.
+Designed and built by **Salloni Kapoor, Co-founder and Director of Technology & New Member Education at CAIS**. Fall 2026 cohort: **17** new members. The hub and Weeks 1–2 are available; Weeks 3–10 are in progress.
 
 ## The approach
 
@@ -26,7 +26,7 @@ Fall 2026. This table is generated from the current [schedule data](src/data/wee
 | Week | Date | Topic | Status |
 | --- | --- | --- | --- |
 | 1 | September 30 | LLMs & the AI Landscape | [Available](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-1/) |
-| 2 | October 7 | Coming soon | Upcoming |
+| 2 | October 7 | [Scoping the Engagement](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-2/) | Available |
 | 3 | October 14 | Coming soon | Upcoming |
 | 4 | October 21 | Coming soon | Upcoming |
 | 5 | October 28 | Coming soon | Upcoming |
@@ -76,7 +76,7 @@ Semantic HTML, keyboard-navigable controls, visible focus states, and reduced-mo
 
 ## Roadmap
 
-Weeks 2–10 are in progress, with weekly releases planned through December 9, 2026, excluding Thanksgiving break.
+Weeks 3–10 are in progress, with weekly releases planned through December 9, 2026, excluding Thanksgiving break.
 
 ## Run locally and add a week
 
