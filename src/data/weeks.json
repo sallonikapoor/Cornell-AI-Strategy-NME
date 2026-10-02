@@ -1,6 +1,6 @@
 [
   { "week": 1, "date": "2026-09-30", "title": "LLMs & the AI Landscape", "link": "week-1/", "status": "available" },
-  { "week": 2, "date": "2026-10-07", "title": "Scoping the Engagement", "link": "week-2/", "status": "available" },
+  { "week": 2, "date": "2026-10-07", "title": "Scoping the Engagement", "link": null, "status": "coming-soon" },
   { "week": 3, "date": "2026-10-14", "title": "Coming soon", "link": null, "status": "coming-soon" },
   { "week": 4, "date": "2026-10-21", "title": "Coming soon", "link": null, "status": "coming-soon" },
   { "week": 5, "date": "2026-10-28", "title": "Coming soon", "link": null, "status": "coming-soon" },
