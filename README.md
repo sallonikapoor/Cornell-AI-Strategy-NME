@@ -54,7 +54,7 @@ Fall 2026. This table is generated from the current [schedule data](src/data/wee
 
 The site uses dependency-free HTML, CSS, and JavaScript. A Node 22 build script assembles pages from shared partials, versions assets, and validates local links, anchors, and duplicate IDs. GitHub Actions builds and deploys to GitHub Pages on pushes to `main`. Claude and Codex supported development; the site itself makes no model API calls.
 
-Semantic HTML, keyboard-navigable controls, visible focus states, and reduced-motion styles support accessible use. The site has no tracking code, accounts, or stored practice answers. Fonts load from Google Fonts, with system-font fallbacks.
+Semantic HTML, keyboard-navigable controls, visible focus states, and reduced-motion styles support accessible use. The site has no tracking code or accounts. Week 2 stores its live-session roster, scores, and progress only in the current browser. The hub and Week 1 use Google Fonts with system-font fallbacks; Week 2 uses system fonts and works offline after its first load.
 
 ## Screenshots
 
@@ -92,3 +92,5 @@ Open the [local preview](http://localhost:4174/). No dependency installation is 
 ## Contact
 
 Salloni Kapoor · [sk3482@cornell.edu](mailto:sk3482@cornell.edu) · [confirm: LinkedIn URL] · [confirm: personal site, if any]
+
+Week 2 includes a projector session and an unlisted facilitator script. See [the live-session guide](README-live-session.md) for setup, local state, timings, and controls.

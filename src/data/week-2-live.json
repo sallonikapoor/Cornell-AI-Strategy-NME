@@ -1,0 +1,112 @@
+{
+  "questions": [
+    {
+      "value": "high",
+      "question": "Walk me through what happens when an email comes in today.",
+      "answer": "Whoever's at the counter checks the shared inbox between customers, usually me or Sam. If it's about a repair, we walk to the back and ask the mechanics."
+    },
+    {
+      "value": "high",
+      "question": "How many emails do you get, and what are they about?",
+      "answer": "About 120 a week. I'd guess more than half are 'is my bike ready yet?' The rest are hours, prices, and the occasional complaint."
+    },
+    {
+      "value": "high",
+      "question": "Where do you keep track of each repair's status?",
+      "answer": "On a whiteboard in the back. The mechanics update it… usually. Sometimes it's a day behind."
+    },
+    {
+      "value": "high",
+      "question": "What's the most frustrating part of all this?",
+      "answer": "Every 'is it ready' email means interrupting a mechanic. They hate it, and it slows down repairs. That's honestly what bugs me most."
+    },
+    {
+      "value": "high",
+      "question": "If this were fixed, what would be different?",
+      "answer": "My mechanics wouldn't get interrupted all day. And customers wouldn't have to email twice because we were slow to answer."
+    },
+    {
+      "value": "high",
+      "question": "Is there anything an answer must never get wrong?",
+      "answer": "Prices. Last year someone was told $40 for a repair and charged $120. We got a one-star review that still shows up first."
+    },
+    {
+      "value": "high",
+      "question": "What tools do you use, and what's your budget?",
+      "answer": "We use Square for payments and appointments. I don't want to pay more than about $50 a month for anything new. And nobody here is technical, so it has to be simple."
+    },
+    {
+      "value": "high",
+      "question": "Do you have past emails we could look at?",
+      "answer": "Sure, everything's in our Gmail going back two years."
+    },
+    {
+      "value": "low",
+      "question": "Which AI model would you like us to use?",
+      "answer": "I have no idea. Isn't that your job?"
+    },
+    {
+      "value": "low",
+      "question": "Would you like the chatbot to have a fun personality?",
+      "answer": "Sure, I guess? I just want fewer emails."
+    }
+  ],
+  "habits": [
+    "<strong>Ask about the last time, not \"usually.\"</strong> Real examples are more accurate than general descriptions.",
+    "<strong>Get numbers.</strong> \"A lot of emails\" becomes \"about 120 a week.\"",
+    "<strong>Find where the data lives.</strong> An AI tool can only use information that exists somewhere it can reach.",
+    "<strong>Find who feels the pain.</strong> The person who asked isn't always the person most affected.",
+    "<strong>Hold off on solutions.</strong> Once you start pitching, the client stops telling you things.",
+    "<strong>Summarize it back.</strong> \"So the main problem is… did I get that right?\""
+  ],
+  "quiz": [
+    [
+      "A client says, \"We want a chatbot.\" What's your first move?",
+      "Ask what's happening today that made them want one. Get the last real example, and find out what problem the chatbot is supposed to solve."
+    ],
+    [
+      "The goal is \"make reporting faster.\" What's missing?",
+      "A baseline, a target, a way to measure it, and a guardrail. How long does it take now, how fast should it be, where do the numbers come from, and what can't get worse?"
+    ],
+    [
+      "Why bother writing down what's out of scope?",
+      "It protects your team's time and sets the client's expectations. When a new request comes up mid-project, you can point to what everyone already agreed on."
+    ],
+    [
+      "Discovery shows the data you'd need doesn't exist yet. Now what?",
+      "Make getting the data part of the scope, usually the first part. An AI tool can't use information that isn't recorded anywhere, like Copperline's whiteboard."
+    ]
+  ],
+  "discovery": [
+    [
+      "The process today.",
+      "Walk me through the last time this happened.",
+      "Who does each step?"
+    ],
+    [
+      "Volume and time.",
+      "How often does this happen in a week?",
+      "How long does each one take?"
+    ],
+    [
+      "The pain.",
+      "What's the most frustrating part?",
+      "What does it cost you when it goes wrong?"
+    ],
+    [
+      "The data.",
+      "Where does this information live today?",
+      "Can we get a sample?"
+    ],
+    [
+      "Success.",
+      "If this were fixed, what would be different?",
+      "How would you know?"
+    ],
+    [
+      "Limits.",
+      "What can't go wrong?",
+      "What's your budget, and who would maintain this?"
+    ]
+  ]
+}

@@ -60,8 +60,8 @@ for (const page of pages) {
     bodyAttribute:page.bodyClass ? ` class="${escape(page.bodyClass)}"` : '',
     chapterLinks:page.chapters.map((chapter,i) => `<a href="#${escape(chapter.id)}"${i === 0 ? ' class="active" aria-current="location"' : ''}><span>${escape(chapter.number)}</span> ${escape(chapter.label)}</a>`).join(''),
     styles:page.styles.map(name => `<link rel="stylesheet" href="${assetURL(name)}">`).join(''),
-    scripts:page.scripts.map(name => `<script src="${assetURL(name)}" defer></script>`).join(''),
-    content:read(page.source).replace('<!-- SCHEDULE_ROWS -->',schedule)
+    scripts:page.scripts.map(name => `<script src="${assetURL(name)}" ${page.moduleScripts ? 'type="module"' : 'defer'}></script>`).join(''),
+    content:read(page.source).replace(/<!-- INCLUDE: (.*?) -->/g, (_, path) => { safePath(src, path); return read(path); }).replace('<!-- SCHEDULE_ROWS -->',schedule)
       .replace(/<!-- BLUEPRINT_TEMPLATE_LINK: (.*?) -->/g, (_, url) => {
         if (/^TEMPLATE_URL(?:_WEEK\d+)?$/.test(url)) return '';
         if (!/^https?:\/\//.test(url)) throw new Error('Blueprint template must use an HTTP(S) URL');
@@ -69,13 +69,24 @@ for (const page of pages) {
         return `<p>Want a head start? <a href="${escape(url)}">Make a copy of the template</a></p>`;
       }).trim()
   });
-  const html = layout.replace(/{{(\w+)}}/g, (_,key) => {
+  const pageLayout = page.layout ? read(page.layout) : layout;
+  const html = pageLayout.replace(/{{(\w+)}}/g, (_,key) => {
     if (!(key in variables)) throw new Error(`Unknown layout field: ${key}`);
     return variables[key];
   });
   if (/{{[^}]+}}/.test(html)) throw new Error(`Unresolved template in ${page.source}`);
   files.set(page.output,html);
 }
+
+// Offline cache is scoped to Week 2; it cannot intercept the hub or Week 1.
+const offlinePaths = [...files.keys()].filter(path => path.startsWith('week-2/') || path.startsWith('assets/'));
+const revision = createHash('sha256').update(offlinePaths.map(path => String(files.get(path))).join('')).digest('hex').slice(0,12);
+files.set('week-2/sw.js', `const CACHE='cais-week-2-${revision}';
+const URLS=${JSON.stringify(offlinePaths.map(path => '../' + path))};
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(URLS)).then(()=>self.skipWaiting()));});
+self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('cais-week-2-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==self.location.origin)return;
+event.respondWith(fetch(event.request).then(response=>{if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));}return response;}).catch(async()=>{const direct=await caches.match(event.request,{ignoreSearch:true});if(direct)return direct;const url=new URL(event.request.url);if(url.pathname.endsWith('/'))url.pathname+='index.html';return (await caches.match(url.href,{ignoreSearch:true}))||Response.error();}));});`);
 
 // Validate generated local routes, assets and anchors before replacing output.
 const ids = new Map();

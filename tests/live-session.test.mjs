@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {makeTeams,rolesFor,pairTeams,remaining,elapsedClock,formatTime} from '../src/assets/js/live-session-core.mjs';
+test('15 members form five complete teams with everyone exactly once',()=>{const names=Array.from({length:15},(_,i)=>`Member ${i}`),teams=makeTeams(names);assert.deepEqual(teams.map(t=>t.members.length),[3,3,3,3,3]);assert.deepEqual(teams.flatMap(t=>t.members).sort(),names.sort());});
+test('uneven rosters never strand one member when there are at least two',()=>{for(let n=2;n<=60;n++){const teams=makeTeams(Array.from({length:n},(_,i)=>String(i)));assert.ok(teams.every(t=>t.members.length>=2&&t.members.length<=3));}});
+test('each member plays all three roles',()=>{const t={members:['A','B','C']};for(const member of t.members){assert.equal(new Set([0,1,2].map(r=>rolesFor(t,r).indexOf(member))).size,3);}});
+test('peer groups cross teams and include every member exactly once',()=>{for(const n of [14,15,16,17]){const names=Array.from({length:n},(_,i)=>String(i));const groups=pairTeams(makeTeams(names));assert.deepEqual(groups.flatMap(g=>g.map(p=>p.name)).sort(),names.sort());assert.ok(groups.every(g=>g.length>=2&&g.length<=3&&new Set(g.map(p=>p.team)).size===g.length));}});
+test('running timers survive a refresh, clamp at zero, and paused timers stay put',()=>{assert.equal(remaining({running:true,deadline:5000},3500),1500);assert.equal(remaining({running:true,deadline:5000},9000),0);assert.equal(remaining({running:false,left:1200},9000),1200);assert.equal(elapsedClock(1000,41000),40000);assert.equal(formatTime(61000),'01:01');});

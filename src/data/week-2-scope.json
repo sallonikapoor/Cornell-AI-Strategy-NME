@@ -1,0 +1,42 @@
+[
+  [
+    "Read refund emails and draft replies for review.",
+    "IN",
+    "This is part of the agreed first version."
+  ],
+  [
+    "Auto-approve refunds under $50.",
+    "OUT",
+    "Every refund still needs a person to approve it."
+  ],
+  [
+    "Handle phone refund requests.",
+    "OUT",
+    "The first version covers email requests."
+  ],
+  [
+    "Connect directly to the ticketing platform.",
+    "LATER",
+    "First prove the process using exported order data."
+  ],
+  [
+    "Draft replies in Spanish.",
+    "LATER",
+    "Confirm demand and who can review accuracy before expanding languages."
+  ],
+  [
+    "Flag likely fraud.",
+    "LATER",
+    "Agree on evidence and review rules before adding a new detection task."
+  ],
+  [
+    "Add a public refund-status page.",
+    "LATER",
+    "It adds customer access and data-handling requirements beyond the email pilot."
+  ],
+  [
+    "Check the policy and calculate refund amounts.",
+    "IN",
+    "These are core steps in the agreed email workflow."
+  ]
+]
