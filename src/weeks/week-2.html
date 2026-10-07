@@ -1,39 +1,13 @@
-<section id="overview" class="chapter intro">
-<a class="text-button lesson-home" href="../">← New Member Education</a>
-<div class="eyebrow">WEEK 02 / SCOPING</div>
-<h1>Find the real problem. Then scope it.</h1>
-<p class="lead">Turn a vague client request into a clear problem, a measurable goal, and a first version you can deliver.</p>
-<p class="reference-intro">Last week you decided who or what should handle each step of a workflow. But on a real engagement, nobody hands you the workflow. A client says something like 'we want AI to handle our emails,' and it's on you to figure out what's actually going wrong, what success would look like, and what to build first. That's scoping. Get it wrong and you can build something that works perfectly and still doesn't help.</p>
-<div class="section-bridge"><a href="#request">Start with the request <span aria-hidden="true">→</span></a></div>
-</section>
-<section id="request" class="chapter">
-<div class="eyebrow">01 / FROM REQUEST TO PROBLEM</div>
-<h2 class="chapter-title">The request is a guess.</h2>
-<p class="lead">Clients describe the solution they imagine. Your job is to find the problem underneath it.</p>
-<p>When a client asks for something specific, they're usually guessing at a fix for a problem they feel but haven't pinned down. That's normal. Your job is to work backward from what they asked for to what's actually going wrong.</p>
-<div class="three-columns">
+<section id="overview" class="chapter intro"><a class="text-button lesson-home" href="../">← New Member Education</a><div class="eyebrow">00 / OVERVIEW</div><h1>Find the real problem. Then scope it.</h1><p class="lead">Turn a vague request into a clear problem, a goal you can measure, and a first version you can actually deliver.</p><p class="reference-intro">Last week you had a workflow to work with. Clients don't hand you one. They say "we want AI to handle our emails," and it's on you to figure out what's really going wrong and what to build first. Skip that step and you can ship something that works perfectly and helps no one.</p><div class="section-bridge"><a href="#request">Start with the request <span aria-hidden="true">→</span></a></div></section>
+<section id="request" class="chapter"><div class="eyebrow">01 / FROM REQUEST TO PROBLEM</div><h2 class="chapter-title">The request is a guess.</h2><p class="lead">Clients describe the fix they've imagined. Your job is to find the problem behind it.</p><div class="three-columns">
 <article><h3>We want an AI chatbot for our website.</h3><p>Staff spend hours answering the same few questions by email.</p>
 </article>
 <article><h3>Can you build us a dashboard?</h3><p>Leadership doesn't trust the numbers they get today.</p>
 </article>
 <article><h3>Use AI to write our weekly reports.</h3><p>Reports take two people a full day every week, and half the time goes to collecting data.</p>
 </article>
-</div>
-<p>Notice that the real problem points to different solutions than the request did. If leadership doesn't trust the numbers, a prettier dashboard won't help. If report-writing time goes into collecting data, a better writing tool only fixes half of it.</p>
-<h3 class="subheading">The problem statement</h3>
-<p>Once you've found the problem, write it down in one sentence. This formula keeps it specific:</p>
-<div class="rule"><p>[Who] struggles with [what] because [root cause], which costs [impact].</p>
-</div><p>The box office staff spend about 10 hours a week on refund emails because every request is handled by hand, which delays refunds and leads to occasional math mistakes.</p>
-<p>If you can't fill in the 'because,' you don't understand the problem yet. That's what discovery is for.</p>
-<div class="section-bridge"><a href="#discovery">Learn to ask the right questions <span aria-hidden="true">→</span></a></div>
-</section>
-<section id="discovery" class="chapter">
-<div class="eyebrow">02 / DISCOVERY</div>
-<h2 class="chapter-title">Ask about what actually happens.</h2>
-<p class="lead">Good discovery questions get you specifics: real examples, real numbers, and where the data lives.</p>
-<p>Discovery is the first conversation with a client, where you learn how things work today. The goal is to understand the problem well enough to write that problem statement, before you suggest any solution.</p>
-<h3 class="subheading">What to ask about</h3>
-<div class="discovery-grid">
+</div><p>Each real problem points somewhere different from the request. A prettier dashboard won't fix numbers nobody trusts.</p><h3 class="subheading">The problem statement</h3><p>Once you've found it, pin it down in one sentence:</p><div class="rule"><p>[Who] struggles with [what] because [root cause], which costs [impact].</p></div><p>If you can't fill in the "because," you're not done with discovery.</p></section>
+<section id="discovery" class="chapter"><div class="eyebrow">02 / DISCOVERY</div><h2 class="chapter-title">Ask about what actually happens.</h2><p class="lead">Good discovery gets you real examples, real numbers, and where the data lives.</p><p>Discovery is your first real conversation with the client. Don't suggest anything yet. Just learn how the work happens today.</p><h3 class="subheading">What to ask about</h3><div class="discovery-grid">
 <article><h3>The process today.</h3><p>Walk me through the last time this happened.</p><p>Who does each step?</p>
 </article>
 <article><h3>Volume and time.</h3><p>How often does this happen in a week?</p><p>How long does each one take?</p>
@@ -46,58 +20,24 @@
 </article>
 <article><h3>Limits.</h3><p>What can't go wrong?</p><p>What's your budget, and who would maintain this?</p>
 </article>
+</div><h3 class="subheading">Habits that make discovery work.</h3><ul><li><strong>Ask about the last time, not "usually."</strong> Real examples beat general descriptions.</li><li><strong>Get numbers.</strong> "A lot of emails" should become "about 120 a week."</li><li><strong>Find where the data lives.</strong> As you saw in Week 1, a model only knows what's in front of it. Discovery tells you whether that information exists at all.</li><li><strong>Talk to whoever feels the pain.</strong> It's not always the person who called you.</li><li><strong>Hold off on solutions.</strong> Once you pitch, the client stops telling you things.</li><li><strong>Summarize it back.</strong> "So the main problem is… did I get that right?"</li></ul></section>
+<section id="done" class="chapter"><div class="eyebrow">03 / DEFINING DONE</div><h2 class="chapter-title">"Better" isn't a goal.</h2><p class="lead">If you can't measure it, you can't prove you hit it.</p><div class="discovery-grid"><article><h3>Vague:</h3><p>Make the weekly report faster.</p></article><article><h3>Clear:</h3><p>Cut the weekly report from two people's full day to one person's half day within six weeks, measured with a simple time log. Guardrail: every number in the report still matches the source data.</p></article></div><ul><li><strong>Metric:</strong> what you measure (time spent on the report).</li><li><strong>Baseline:</strong> where it is today (two people, a full day).</li><li><strong>Target:</strong> where it should land, and by when (one person, half a day, six weeks).</li><li><strong>How it's measured:</strong> where the numbers come from (a time log).</li><li><strong>Guardrail:</strong> what can't get worse (the numbers stay accurate).</li></ul><p>The guardrail is the part people skip. It's easy to make anything faster by checking it less, and the guardrail is how you catch that.</p><p>Be specific about what you're timing. The wait a customer sees isn't the same as the minutes your staff spend. No baseline yet? Then measuring it is your first task.</p></section>
+<section id="scope" class="chapter"><div class="eyebrow">04 / SCOPE</div><h2 class="chapter-title">Decide what you won't build.</h2><p class="lead">Every meeting adds a "could it also…?" Writing down In, Out, and Later lets you say no without an argument.</p><div class="three-columns"><article><h3>In</h3><p>What the first version does. Keep it small enough to ship and check.</p></article><article><h3>Out</h3><p>What it won't do, said out loud so nobody assumes otherwise.</p></article><article><h3>Later</h3><p>Good ideas that wait for a second phase.</p></article></div><h3 class="subheading">Assumptions and risks</h3><p>Every plan rests on things you're assuming are true. Write them down, with how you'd check each one. Then list what could go wrong and how you'd catch it. When an assumption turns out false, everyone will know why the plan changed.</p><h3 class="subheading">Common scoping mistakes.</h3>
+<div class="discovery-grid">
+<article><h3>Solving the request, not the problem.</h3><p>Building exactly what the client asked for.</p>
+</article>
+<article><h3>Vague success.</h3><p>"Faster" or "better," with no number attached.</p>
+</article>
+<article><h3>Too big a first version.</h3><p>Trying to automate the whole process at once.</p>
+</article>
+<article><h3>Assuming the data exists.</h3><p>Finding out mid-project that the information was never written down.</p>
+</article>
+<article><h3>No guardrail.</h3><p>Hitting the speed target while errors quietly go up.</p>
+</article>
 </div>
-<h3 class="subheading">Habits that make discovery work</h3>
-<ul>
-<li><strong>Ask about the last time, not "usually."</strong> Real examples are more accurate than general descriptions.</li>
-<li><strong>Get numbers.</strong> "A lot of emails" becomes "about 120 a week."</li>
-<li><strong>Find where the data lives.</strong> An AI tool can only use information that exists somewhere it can reach.</li>
-<li><strong>Find who feels the pain.</strong> The person who asked isn't always the person most affected.</li>
-<li><strong>Hold off on solutions.</strong> Once you start pitching, the client stops telling you things.</li>
-<li><strong>Summarize it back.</strong> "So the main problem is… did I get that right?"</li>
-</ul>
-<p>That third habit connects straight back to Week 1: a model only knows what you put in front of it. Discovery is where you find out whether that information even exists.</p>
-<div class="section-bridge"><a href="#practice">Try a discovery conversation <span aria-hidden="true">→</span></a></div>
 </section>
-<section id="practice" class="chapter">
-<div class="eyebrow">03 / PRACTICE</div>
-<h2 class="chapter-title">You get five questions.</h2>
-<p class="lead">Interview a made-up client, then see what a strong consultant would have found.</p>
-<h3 class="subheading">The brief</h3>
-<p>Copperline Bikes is a made-up bike shop with two locations and a repair service. The owner sends CAIS this message:</p>
-<blockquote class="client-message"><p>Hi! We're Copperline Bikes. We get way too many customer emails and we want to use AI to answer them. Can you build us a chatbot? — Owner, Copperline Bikes.</p>
-</blockquote><p>You have time for five questions before the owner has to get back to the shop. Pick the five you think will teach you the most, then read the owner's answers. Choose carefully: some questions are much more useful than others.</p>
-<div class="interview" aria-label="Discovery interview"><div class="interview-toolbar"><p id="question-count" role="status" aria-live="polite">0 of 5 questions asked</p><button id="reset-interview" class="text-button" type="button">Start over</button></div>
-<div class="question-list">
-<article class="question-card" data-value="high"><button type="button" class="question-choice" aria-pressed="false" aria-expanded="false" aria-controls="owner-answer-1"><span class="question-number" aria-hidden="true">01</span><span>Walk me through what happens when an email comes in today.</span><span class="question-mark" aria-hidden="true">+</span></button><div class="owner-answer" id="owner-answer-1" hidden><p><strong>the owner:</strong> Whoever's at the counter checks the shared inbox between customers, usually me or Sam. If it's about a repair, we walk to the back and ask the mechanics.</p></div></article>
-<article class="question-card" data-value="high"><button type="button" class="question-choice" aria-pressed="false" aria-expanded="false" aria-controls="owner-answer-2"><span class="question-number" aria-hidden="true">02</span><span>How many emails do you get, and what are they about?</span><span class="question-mark" aria-hidden="true">+</span></button><div class="owner-answer" id="owner-answer-2" hidden><p><strong>the owner:</strong> About 120 a week. I'd guess more than half are 'is my bike ready yet?' The rest are hours, prices, and the occasional complaint.</p></div></article>
-<article class="question-card" data-value="high"><button type="button" class="question-choice" aria-pressed="false" aria-expanded="false" aria-controls="owner-answer-3"><span class="question-number" aria-hidden="true">03</span><span>Where do you keep track of each repair's status?</span><span class="question-mark" aria-hidden="true">+</span></button><div class="owner-answer" id="owner-answer-3" hidden><p><strong>the owner:</strong> On a whiteboard in the back. The mechanics update it… usually. Sometimes it's a day behind.</p></div></article>
-<article class="question-card" data-value="high"><button type="button" class="question-choice" aria-pressed="false" aria-expanded="false" aria-controls="owner-answer-4"><span class="question-number" aria-hidden="true">04</span><span>What's the most frustrating part of all this?</span><span class="question-mark" aria-hidden="true">+</span></button><div class="owner-answer" id="owner-answer-4" hidden><p><strong>the owner:</strong> Every 'is it ready' email means interrupting a mechanic. They hate it, and it slows down repairs. That's honestly what bugs me most.</p></div></article>
-<article class="question-card" data-value="high"><button type="button" class="question-choice" aria-pressed="false" aria-expanded="false" aria-controls="owner-answer-5"><span class="question-number" aria-hidden="true">05</span><span>If this were fixed, what would be different?</span><span class="question-mark" aria-hidden="true">+</span></button><div class="owner-answer" id="owner-answer-5" hidden><p><strong>the owner:</strong> My mechanics wouldn't get interrupted all day. And customers wouldn't have to email twice because we were slow to answer.</p></div></article>
-<article class="question-card" data-value="high"><button type="button" class="question-choice" aria-pressed="false" aria-expanded="false" aria-controls="owner-answer-6"><span class="question-number" aria-hidden="true">06</span><span>Is there anything an answer must never get wrong?</span><span class="question-mark" aria-hidden="true">+</span></button><div class="owner-answer" id="owner-answer-6" hidden><p><strong>the owner:</strong> Prices. Last year someone was told $40 for a repair and charged $120. We got a one-star review that still shows up first.</p></div></article>
-<article class="question-card" data-value="high"><button type="button" class="question-choice" aria-pressed="false" aria-expanded="false" aria-controls="owner-answer-7"><span class="question-number" aria-hidden="true">07</span><span>What tools do you use, and what's your budget?</span><span class="question-mark" aria-hidden="true">+</span></button><div class="owner-answer" id="owner-answer-7" hidden><p><strong>the owner:</strong> We use Square for payments and appointments. I don't want to pay more than about $50 a month for anything new. And nobody here is technical, so it has to be simple.</p></div></article>
-<article class="question-card" data-value="high"><button type="button" class="question-choice" aria-pressed="false" aria-expanded="false" aria-controls="owner-answer-8"><span class="question-number" aria-hidden="true">08</span><span>Do you have past emails we could look at?</span><span class="question-mark" aria-hidden="true">+</span></button><div class="owner-answer" id="owner-answer-8" hidden><p><strong>the owner:</strong> Sure, everything's in our Gmail going back two years.</p></div></article>
-<article class="question-card" data-value="low"><button type="button" class="question-choice" aria-pressed="false" aria-expanded="false" aria-controls="owner-answer-9"><span class="question-number" aria-hidden="true">09</span><span>Which AI model would you like us to use?</span><span class="question-mark" aria-hidden="true">+</span></button><div class="owner-answer" id="owner-answer-9" hidden><p><strong>the owner:</strong> I have no idea. Isn't that your job?</p></div></article>
-<article class="question-card" data-value="low"><button type="button" class="question-choice" aria-pressed="false" aria-expanded="false" aria-controls="owner-answer-10"><span class="question-number" aria-hidden="true">10</span><span>Would you like the chatbot to have a fun personality?</span><span class="question-mark" aria-hidden="true">+</span></button><div class="owner-answer" id="owner-answer-10" hidden><p><strong>the owner:</strong> Sure, I guess? I just want fewer emails.</p></div></article>
-</div><button class="button" id="finish-interview" type="button" aria-controls="interview-debrief" aria-expanded="false" disabled>I’m done asking</button><noscript><p>Enable JavaScript to choose questions and reveal the owner’s answers. You can also use the practice prompt below.</p></noscript></div>
-<div id="interview-debrief" class="interview-debrief" hidden><p id="interview-feedback" role="status" aria-live="polite"></p><h3 class="subheading">Your questions</h3><ul id="question-review"></ul><h3 class="subheading">What a strong consultant would have found</h3>
-<p>Put the owner's answers together and the real problem isn't 'too many emails.' More than half the emails are one question: 'is my bike ready?' And nobody can answer that quickly, because repair status lives on a whiteboard in the back that's sometimes a day out of date.</p>
-<div class="rule"><p>Copperline's mechanics get interrupted dozens of times a week by repair-status questions because status lives on a whiteboard no one else can see, which slows down repairs and frustrates customers.</p>
-</div><p>Here's the catch: a chatbot can't answer 'is my bike ready?' either. The information isn't written down anywhere it can reach. Building the chatbot the owner asked for would just move the problem.</p>
-<h3 class="subheading">A better first scope</h3>
-<div class="three-columns">
-<article><h3>Phase 1: Get the data in order.</h3><p>Track repair status digitally (Square or a simple shared spreadsheet) instead of on the whiteboard. Code sends customers an automatic text or email when their bike's status changes.</p>
-</article>
-<article><h3>Phase 2: Help with the other emails.</h3><p>An LLM drafts replies to questions about hours and general info, and staff review them before they're sent. It never quotes prices; it links to the posted price list instead.</p>
-</article>
-<article><h3>Out of scope for now:</h3><p>A public chatbot.</p>
-</article>
-</div>
-<h3 class="subheading">What “done” looks like</h3>
-<p>Cut 'is it ready' emails by half within a month, measured by tagging emails in the inbox for two weeks before and after. Guardrail: zero wrong price quotes.</p>
-<p>Notice that the most valuable first step isn't AI at all. That happens a lot. Sometimes the best scope fixes how information is tracked, and the AI comes second.</p>
-</div>
-<h3 class="subheading">Bonus: Practice with an AI client</h3>
+<section id="worked-example" class="chapter"><div class="eyebrow">05 / WORKED EXAMPLE</div><h2 class="chapter-title">Put it together.</h2><p class="lead">One scoping job, start to finish. Click through it.</p><div id="worked-stage" class="lesson-stage" tabindex="0" aria-label="Worked example"><div class="stage-controls" hidden><button class="text-button" data-back>Back</button><output aria-live="polite" id="worked-counter">1 of 7</output><button class="button" data-next>Next</button><button class="text-button" id="present-example">Present</button><button class="text-button" data-exit hidden>Exit</button></div><div class="worked-steps"><article class="example-step"><h3>The request.</h3><p>The Linden Room, the made-up music venue from Week 1. The owner writes: "Can AI just handle our refund emails? We're drowning."</p></article><article class="example-step"><h3>Discovery.</h3><p>Three Q&amp;As:</p><ul><li>"Walk me through the last refund request." → "Someone reads the email, finds the order in our ticketing system, checks the policy, works out the amount, and replies. All by hand."</li><li>"How many come in, and how long does each take?" → "About 50 a week. Maybe 12 minutes each."</li><li>"Where do the order details live?" → "In the ticketing platform. I think there's an export button?"</li></ul></article><article class="example-step"><h3>What changes the picture.</h3><p>Most of those 12 minutes aren't spent writing the reply. They go to finding the order and doing the math. Lookups and math are a job for code; an LLM can read the email and draft the reply.</p></article><article class="example-step"><h3>The problem statement.</h3><p>Box office staff spend about 10 hours a week on refund emails because every lookup and calculation is done by hand, which delays refunds by days and causes occasional fee mistakes.</p></article><article class="example-step"><h3>What done looks like.</h3><p>Cut the average time to resolve a refund from 3 days to 1 day within a month, measured from the email timestamp to the refund confirmation. Guardrail: no refund exceeds what the policy allows.</p></article><article class="example-step"><h3>Scope.</h3><ul><li>In: read emails, look up orders, check the policy, calculate amounts, and draft replies for staff to review.</li><li>Out: automatic approval of any refund; phone requests.</li><li>Later: a direct connection to the ticketing platform.</li></ul></article><article class="example-step"><h3>Assumptions and risks.</h3><ul><li>Assumptions: the ticketing system can export orders (check a sample export); staff can review drafts within a day.</li><li>Risks: some emails won't include enough to find the order (flag them for staff); exceptions may be more common than expected (count them, and keep them with a person).</li></ul></article></div></div></section>
+<section id="practice" class="chapter"><div class="eyebrow">06 / ACTIVITY</div><h2 class="chapter-title">Your turn: Copperline Bikes.</h2><p class="lead">Interview a client as a room, then scope what you found.</p><p>Teams take turns asking the owner one question. Good questions add facts to the case file. Bad ones wear out the owner's patience, and when it runs out, the interview's over. Reading on your own? Run it solo.</p><button class="button" id="start-activity" hidden>Start activity</button><div id="copperline-stage" class="lesson-stage" tabindex="-1" aria-label="Copperline Bikes activity" hidden><div class="stage-controls"><button class="text-button" id="activity-back">Back</button><output id="activity-counter" aria-live="polite"></output><button class="text-button" id="restart-activity">Restart</button><button class="text-button" data-exit>Exit</button></div><div id="activity-content"></div><div class="stage-controls activity-bottom"><button class="button" id="activity-next">Next</button></div><div id="owner-answer" class="owner-panel" role="dialog" aria-modal="true" aria-label="Owner's answer" hidden><p id="owner-answer-text"></p><p id="answer-result" role="status"></p><p id="answer-cost"></p><button class="button" id="close-answer">Close</button></div><div id="restart-confirm" class="owner-panel" role="alertdialog" aria-modal="true" aria-label="Restart activity?" hidden><h3>Restart activity?</h3><button class="button" id="confirm-restart">Restart</button><button class="text-button" id="cancel-restart">Cancel</button></div></div><noscript><p>Hi! We're Copperline Bikes. We get way too many customer emails and we want to use AI to answer them. Can you build us a chatbot? — Owner, Copperline Bikes</p><h3>Discovery</h3><details><summary>Walk me through what happens when an email comes in today.</summary><p>Whoever's at the counter reads it. If it's about a repair, they go into the back and ask a mechanic, then write back.</p></details><details><summary>How many emails do you get, and what are they about?</summary><p>About 120 a week. More than half are "is my bike ready yet?"</p></details><details><summary>Where do you keep track of each repair's status?</summary><p>On the whiteboard in the back. Honestly, it's usually a day behind.</p></details><details><summary>What's the most frustrating part of all this?</summary><p>My mechanics get interrupted every ten minutes. It slows down the actual repairs.</p></details><details><summary>If this were fixed, what would be different?</summary><p>Nobody bugs the mechanics, and customers stop emailing twice about the same bike.</p></details><details><summary>Is there anything an answer must never get wrong?</summary><p>Prices. We quoted someone the wrong price last year and got a one-star review.</p></details><details><summary>What tools do you use, and what's your budget?</summary><p>We run everything through Square. Maybe $50 a month? Nobody here is technical.</p></details><details><summary>Do you have past emails we could look at?</summary><p>Two years of them, all in Gmail.</p></details><details><summary>Tell us about your shop.</summary><p>Two locations, a repair service, lots of loyal customers. What else do you want to know?</p></details><details><summary>Do your customers like your service?</summary><p>Mostly! The reviews are good. Well, almost all of them.</p></details><details><summary>What if we built a chatbot that answers repair questions?</summary><p>That's exactly what I asked for! When can you start?</p></details><details><summary>Which AI model should we use?</summary><p>No idea. That's why I called you.</p></details><h3>A strong first scope</h3><ul><li>Phase 1: Move repair status off the whiteboard into Square or a shared spreadsheet, and have code text customers automatically when their bike's status changes.</li><li>Phase 2: An LLM drafts replies to general questions, like hours and services, for staff to review. It never quotes prices; it links to the price list.</li><li>Out for now: a public chatbot.</li><li>Done: cut "is it ready?" emails in half within a month, measured by tagging two weeks of emails before and after. Guardrail: zero wrong price quotes.</li></ul><p>The most valuable first step here isn't AI at all.</p></noscript><p class="reference-intro">That's the whole job: find the facts, write the problem, scope a small first version. Your deliverable asks you to do it for the workflow you mapped last week.</p><h3 class="subheading">Bonus: Practice with an AI client</h3>
 <p>Want more practice? Have an AI play the client. Paste this into any AI tool, then interview it.</p>
 <article class="prompt-card"><div class="prompt-heading"><h3>Interview an AI client</h3><button class="text-button copy-prompt" type="button" data-copy="client-prompt">Copy prompt</button></div><pre class="prompt-text" id="client-prompt" tabindex="0">You are the owner of Copperline Bikes, a made-up two-location bike shop with a repair service. If the consultant asks your name, make one up. A student consultant is interviewing you. You asked them to "build a chatbot" because you get too many customer emails.
 
@@ -110,127 +50,61 @@ Only reveal these facts when the consultant asks a question that would reasonabl
 - You use Square; budget about $50/month; nobody on staff is technical.
 - Two years of emails are in Gmail.
 
-Answer like a busy, friendly shop owner, in 1–3 sentences. If asked about AI models or technical details, say you don't know and that's why you hired them. After the consultant says "end interview," tell them which important facts they never uncovered.</pre><p class="copy-status" role="status" aria-live="polite"></p><details class="answer-reveal"><summary>What to look for <span aria-hidden="true">+</span></summary><div><p>Did you uncover the whiteboard? It's the key fact, and it only comes out if you ask where repair status lives. If you didn't find it, notice which question would have gotten you there.</p>
-</div></details></article><div class="section-bridge"><a href="#done">Define what done looks like <span aria-hidden="true">→</span></a></div>
-</section>
-<section id="done" class="chapter">
-<div class="eyebrow">04 / DEFINING DONE</div>
-<h2 class="chapter-title">"Better" isn't a goal.</h2>
-<p class="lead">A success metric says what you'll measure, where it starts, where it should end up, and what must not get worse.</p>
-<div class="discovery-grid">
-<article><h3>Vague:</h3><p>Make refund handling faster.</p>
-</article>
-<article><h3>Clear:</h3><p>Cut the average time to resolve a refund request from 3 days to 1 day within the first month, measured from the email timestamp to the refund confirmation. Guardrail: no refund exceeds what the policy allows.</p>
-</article>
-</div>
-<p>Time to resolve means the elapsed time a customer waits, including time in a queue. Staff time means the minutes someone actively spends on the request. Choose the measure that matches the problem you want to solve.</p>
-<p>The clear version has five parts. Leave any out and you'll have trouble proving the project worked.</p>
-<ul>
-<li><strong>Metric:</strong> what you measure (time to resolve a refund).</li>
-<li><strong>Baseline:</strong> where it is today (3 days).</li>
-<li><strong>Target:</strong> where it should end up, and by when (1 day, within a month).</li>
-<li><strong>How it's measured:</strong> where the numbers come from (email and refund timestamps).</li>
-<li><strong>Guardrail:</strong> what must not get worse while you improve the metric (no over-policy refunds).</li>
-</ul>
-<p>The guardrail is the one people forget, and it ties back to Week 1. Speeding up a process with AI is easy if you stop checking the work. The guardrail makes sure you didn't.</p>
-<p>Don't know the baseline yet? That's fine. Measuring it becomes the first task. You can't show improvement without a starting point.</p>
-<div class="section-bridge"><a href="#scope">Draw the boundaries <span aria-hidden="true">→</span></a></div>
-</section>
-<section id="scope" class="chapter">
-<div class="eyebrow">05 / SCOPE</div>
-<h2 class="chapter-title">Decide what you won't build.</h2>
-<p class="lead">A clear scope says what's in the first version, what's out, and what could come later.</p>
-<p>Client projects grow. Every meeting adds a 'could it also…?' Writing down what's in, out, and later protects your team's time and keeps the client's expectations realistic. It also makes 'not in this phase' an easy thing to say.</p>
-<h3 class="subheading">The Linden Room: refund requests</h3><p>The Linden Room is a made-up music venue. Its box office staff handle refund requests by email. Here is a first version that helps staff process those requests while keeping approval with a person.</p>
-<div class="three-columns">
-<article><h3>In (first version):</h3><p>Read refund emails, check the policy, calculate amounts, and draft replies for staff to review.</p>
-</article>
-<article><h3>Out:</h3><p>Automatic approval of any refund. Refund requests by phone.</p>
-</article>
-<article><h3>Later:</h3><p>Connecting directly to the ticketing platform so staff don't copy order details by hand.</p>
-</article>
-</div>
-<h3 class="subheading">Assumptions and risks</h3>
-<p>Every scope rests on things you're assuming are true. Write them down, so that if one turns out to be false, everyone knows why the plan changed.</p>
-<div class="discovery-grid">
-<article><h3>Assumptions:</h3><p>The ticketing system can export order data. Staff will review drafted replies within a day.</p>
-</article>
-<article><h3>Risks:</h3><p>Some emails won't include enough information to find the order. Special-circumstance requests may be more common than expected.</p>
-</article>
-</div>
-<h3 class="subheading">Common scoping mistakes</h3>
-<div class="discovery-grid">
-<article><h3>Solving the request, not the problem.</h3><p>Building the chatbot the owner asked for.</p>
-</article>
-<article><h3>Vague success.</h3><p>"Faster" or "better," with no number attached.</p>
-</article>
-<article><h3>Too big a first version.</h3><p>Trying to automate the whole process at once.</p>
-</article>
-<article><h3>Assuming the data exists.</h3><p>Discovering mid-project that it's on a whiteboard.</p>
-</article>
-<article><h3>No guardrail.</h3><p>Hitting the speed target while errors quietly go up.</p>
-</article>
-</div>
-<div class="section-bridge"><a href="#portfolio">Write your scoping brief <span aria-hidden="true">→</span></a></div>
-</section>
+Answer like a busy, friendly shop owner, in 1–3 sentences. If asked about AI models or technical details, say you don't know and that's why you hired them. After the consultant says "end interview," tell them which important facts they never uncovered.</pre><p class="copy-status" role="status" aria-live="polite"></p></article></section>
 <aside id="confidentiality" class="confidentiality-callout" aria-label="Confidentiality reminder"><span class="small-label">CONFIDENTIALITY / BEFORE YOUR DELIVERABLE</span><p>Keep anything from your client engagements out of this deliverable, including prompts and screenshots. Use public information or invented details about a business you choose. Label invented details as assumptions.</p>
 </aside>
-<section id="portfolio" class="chapter">
-<div class="eyebrow">06 / PORTFOLIO PIECE #2</div>
-<h2 class="chapter-title">Your Scoping Brief.</h2>
-<div class="assignment-meta"><span>DUE OCT 14, 7:00 PM</span><span>PDF</span><span>WRITTEN FOR A CLIENT</span></div><p class="lead">Create a Scoping Brief for one business process you choose. Explain the problem, the questions you'd ask to understand it, how you'd measure success, and what you'd include in a first version. Write it for the business owner or a non-technical manager who needs to decide whether to approve the project.</p>
-<p><a class="text-button" href="https://drive.google.com/drive/folders/1NZtZERMF8UTPBnZy86nHmZ2dpnVKVfhE?usp=drive_link" target="_blank" rel="noopener noreferrer">Submit Here</a></p>
-<p>Submit one PDF with the eight headings below. This is a planning exercise: you do not need to interview a real business or build a tool. Use public information or a made-up scenario, and clearly label any numbers or facts you invent. Your brief should make sense to someone who has never read your Week 1 work.</p>
-<h3 class="subheading">Step 1: Pick a business and one process</h3>
-<p>Choose a business you know or invent, then focus on one process that causes delays, extra work, or mistakes. You can reuse your Week 1 business if you want; include all the context again so this brief stands on its own. Don't use client work, Copperline Bikes, or The Linden Room.</p>
-<p>Need an idea? Try a gym handling membership cancellations, a landlord handling maintenance requests, or a student club reimbursing event expenses.</p>
-<p>Give your business a plausible request, such as “Can AI handle our maintenance messages?” Then describe how the process works today and what causes the difficulty. These details give your questions, goals, and scope something concrete to refer to.</p>
-<h3 class="subheading">Step 2: Write your brief using these headings</h3>
-<p>Start with a working explanation of the problem. Your discovery questions should test that explanation. Your success metrics should measure that same problem, and your first version should address its cause.</p>
-<ol class="brief-list"><li><span>01</span><div><h4>Title</h4><p>[Business]: [Workflow], Scoping Brief</p>
-</div></li><li><span>02</span><div><h4>The request</h4><p>Introduce the business, who handles this process today, and what happens. Then give the owner's request in their words. You can invent this scenario; say that you did.</p>
-</div></li><li><span>03</span><div><h4>The real problem</h4><p>Write one sentence: [Who] struggles with [what] because [root cause], which costs [impact]. For this exercise, this is your working explanation. Mark any unverified cause or impact as an assumption to check during discovery.</p>
-</div></li><li><span>04</span><div><h4>Discovery questions</h4><p>List the 6–8 questions you'd ask to check your working explanation, each with one line on what the answer would help you decide. Star the three most important. Include a question about where the data lives. You only need to propose the questions; you do not need to conduct an interview or supply answers.</p>
-</div></li><li><span>05</span><div><h4>What done looks like</h4><p>Give one or two success metrics. For each, state the baseline (today's starting point), target, deadline, and how you'd measure it. Label invented baselines as assumptions, or explain how you'd measure them first. Add one guardrail: a specific error or harm you will check does not increase.</p>
-</div></li><li><span>06</span><div><h4>Scope</h4><p>Use three labels: In, Out, and Later. Name what the first version will do, what it will leave out, and what could be added later. Make clear where a person still reviews or approves work. Choose a small first version that addresses your problem; it can use AI, code, or a simpler process change.</p>
-</div></li><li><span>07</span><div><h4>Assumptions and risks</h4><p>List two or three assumptions: things that must be true for your plan to work. Then list two or three risks: things that could go wrong. For each assumption, say how you'd check it. For each risk, say how you'd catch or reduce it.</p>
-</div></li><li><span>08</span><div><h4>Recommendation</h4><p>End with one or two sentences the owner could act on: what you'd do first, why it addresses the problem, and what you need to confirm before building.</p>
-</div></li></ol><!-- BLUEPRINT_TEMPLATE_LINK: TEMPLATE_URL_WEEK2 -->
-<h3 class="subheading">Step 3: Before you submit</h3>
-<ul class="scoping-checklist"><li><label><input type="checkbox"> <span>A reader can understand the business and process without seeing my Week 1 work. My problem statement names a cause and an impact.</span></label></li><li><label><input type="checkbox"> <span>Your discovery questions ask about what actually happens, with at least one about where the data lives.</span></label></li><li><label><input type="checkbox"> <span>Every success metric has a baseline or a plan to measure it, a target, a deadline, and a way to measure progress.</span></label></li><li><label><input type="checkbox"> <span>You included a guardrail.</span></label></li><li><label><input type="checkbox"> <span>Your scope says what's out, not just what's in.</span></label></li><li><label><input type="checkbox"> <span>My questions, metrics, scope, and recommendation address the same problem. Invented facts are labeled as assumptions, with a plan to check them.</span></label></li><li><label><input type="checkbox"> <span>No client information anywhere.</span></label></li><li><label><input type="checkbox"> <span>File is named Lastname_Firstname_Week2.pdf.</span></label></li></ul><p>These are also what we'll look for when we review it.</p>
-<details class="full-example"><summary>See a finished example: refund requests at The Linden Room <span aria-hidden="true">+</span></summary><div><h4>Title</h4><p>The Linden Room: Refund Requests, Scoping Brief</p>
-<p>This is a fictional planning example. The volumes, timings, and suspected cause below are assumptions to check during discovery.</p><h4>The request</h4><p>The Linden Room is a made-up music venue. Its box office staff read refund emails, find orders, check the refund policy, calculate amounts, and reply by hand. The owner asks: “Can AI just handle our refund emails? We’re drowning.”</p>
-<h4>The real problem</h4><p>The box office staff spend about 10 hours a week on refund emails because every request is handled by hand, which delays refunds by several days and leads to occasional fee mistakes.</p>
-<h4>Discovery questions</h4><p>(starred = most important):</p>
-<ul>
-<li>★ "Walk me through the last refund request you handled." To see the real steps and where time goes.</li>
-<li>★ "How many requests come in a week, and how long does each take?" To size the problem. (About 50 a week, roughly 12 minutes each.)</li>
-<li>★ "Where do order details live, and can we export them?" Without order data, nothing can be automated.</li>
-<li>"How often do requests fall outside the policy?" Exceptions need a person, so their volume shapes the design.</li>
-<li>"What mistakes have happened before?" To find what the guardrail should protect.</li>
-<li>"Who approves large refunds today?" To keep the existing sign-off in place.</li>
-<li>"What would make this a success for you?" To align on the goal before proposing anything.</li>
-</ul>
-<h4>What done looks like</h4><p>Cut the average time to resolve a refund from 3 days to 1 day within a month, measured from the email timestamp to the refund confirmation. Cut staff time on refunds from an assumed 10 hours a week to under 4 within the same month, measured with a staff time log. Confirm both baselines during two weeks of observation before the pilot. Guardrail: no refund exceeds what the policy allows.</p>
-<h4>Scope</h4><p>In: reading emails, checking the policy, calculating amounts, drafting replies for staff review. Out: automatic approval; phone requests. Later: a direct connection to the ticketing platform.</p>
-<h4>Assumptions and risks</h4><p><strong>Assumptions:</strong> The ticketing system can export orders; check a sample export. Staff can review drafts within a day; confirm who owns the queue and their availability. Refund handling takes about 10 staff hours a week and three days per request; check both with two weeks of logs.</p>
-<p><strong>Risks:</strong> Emails may lack order details; flag missing information and route them to staff. Special-circumstance requests may be more common than expected; count exceptions during discovery and keep them with a person.</p>
-<h4>Recommendation</h4><p>Start by measuring two weeks of current refund handling to confirm the baseline, then build the email-reading and policy-check steps first, since they save the most time and are easiest to verify.</p>
-</div></details><div class="section-bridge"><a href="#takeaways">Check your understanding <span aria-hidden="true">→</span></a></div>
-</section>
+<section id="portfolio" class="chapter"><div class="eyebrow">07 / PORTFOLIO PIECE #2</div><h2 class="chapter-title">Your Scoping Brief.</h2><div class="assignment-meta"><span>DUE OCT 14, 7:00 PM</span><span>PDF</span><span>WRITTEN FOR A BUSINESS OWNER</span></div><p><a id="brief-submit" class="text-button" href="https://drive.google.com/drive/folders/1uqoSuhzKrYjgmV2jT2Rk8Ei_ZcJmM94F?usp=sharing" target="_blank" rel="noopener noreferrer">Submit Here</a></p><p class="lead">Now do what you just did with Copperline, on your own workflow. Last week's Blueprint decided how a workflow should run. This brief goes one step earlier, to the conversation where you'd find out whether it's even the right thing to build. You don't need to interview anyone or build anything. Invent what you need, and label it.</p><h3 class="subheading">Step 1: Start from your Week 1 Blueprint</h3><p>Use the same business and workflow you mapped in your AI Workflow Blueprint. Then imagine the owner hasn't seen your Blueprint yet. All they've sent you is a vague request.</p><ul><li><strong>Write the owner's request in their words.</strong> Make it a guess at a solution, like the requests in section 01. For example: "Can AI just handle our maintenance messages?"</li><li><strong>Write the brief so it stands alone.</strong> Someone who never saw your Blueprint should be able to follow it.</li><li><strong>Label anything you invent</strong> (numbers, causes, facts) as an assumption.</li></ul><p>Want a fresh start, or skipped Week 1? Pick any business from the Week 1 idea list. Don't use client work, Copperline Bikes, The Linden Room, or Hearthstone.</p><h3 class="subheading">Step 2: Fill in the template</h3><p>Eight headings. Everything should point at the same problem: your questions test it, your metric measures it, and your scope fixes its cause.</p><div class="prompt-card"><button class="text-button copy-prompt" data-copy="brief-template" type="button">Copy template</button><pre class="prompt-text" id="brief-template" hidden>[Business]: [Workflow], Scoping Brief
+(This is an invented scenario.)
+
+THE REQUEST
+[2–3 sentences: the business, who handles this process today, what happens.]
+The owner's request: "[their words]"
+
+THE REAL PROBLEM
+[Who] struggles with [what] because [root cause], which costs [impact].
+Assumptions: [anything above you guessed]
+
+DISCOVERY QUESTIONS (★ = most important)
+Question | What the answer helps me decide
+★ [question] | [decision]
+★ [question] | [decision]
+★ [question about where the data lives] | [decision]
+[question] | [decision]
+[question] | [decision]
+[question] | [decision]
+
+WHAT DONE LOOKS LIKE
+Metric | Baseline | Target | Deadline | How it's measured
+[metric] | [today, or "measure first"] | [goal] | [by when] | [source]
+Guardrail: [error that must not increase], checked by [how].
+
+SCOPE
+In: [what the first version does; where a person reviews or approves]
+Out: [what it won't do]
+Later: [what could come next]
+
+ASSUMPTIONS AND RISKS
+Assumption or risk | How I'd check or catch it
+Assumption: [ ] | [ ]
+Assumption: [ ] | [ ]
+Risk: [ ] | [ ]
+Risk: [ ] | [ ]
+
+RECOMMENDATION
+[What to do first, why, and what to confirm before building.]</pre><p class="copy-status" role="status" aria-live="polite"></p></div><ol class="brief-list"><li><span>01</span><div><h4>Title.</h4><p>[Business]: [Workflow], Scoping Brief</p></div></li><li><span>02</span><div><h4>The request.</h4><p>2–3 sentences on the business, who handles this process today, and what happens. Then the owner's request, in quotes. Say that the scenario is invented.</p></div></li><li><span>03</span><div><h4>The real problem.</h4><p>One sentence: [Who] struggles with [what] because [root cause], which costs [impact]. Mark any guessed cause or impact as an assumption.</p></div></li><li><span>04</span><div><h4>Discovery questions.</h4><p>A table with 6–8 rows and two columns: Question · What the answer helps you decide. Star your three most important questions. At least one asks where the data lives. You don't need answers.</p></div></li><li><span>05</span><div><h4>What done looks like.</h4><p>A table with 1–2 rows and these columns: Metric · Baseline · Target · Deadline · How it's measured. Below it, one line: Guardrail: [a specific error that must not increase], checked by [how].</p></div></li><li><span>06</span><div><h4>Scope.</h4><p>A table with three rows, In · Out · Later, with one or two sentences each. Say where a person still reviews or approves. Your first version can use AI, code, or a simple process change, and it can drop steps from your Week 1 Blueprint.</p></div></li><li><span>07</span><div><h4>Assumptions and risks.</h4><p>A table with 4–6 rows and two columns: Assumption or risk · How you'd check or catch it. Include at least two of each.</p></div></li><li><span>08</span><div><h4>Recommendation.</h4><p>1–2 sentences the owner could act on: what to do first, why, and what to confirm before building.</p></div></li></ol><h3 class="subheading">Before you submit</h3><ul class="blueprint-checklist"><li><label><input type="checkbox"> <span>Your request is in the owner's words and guesses at a solution.</span></label></li><li><label><input type="checkbox"> <span>Your problem statement has a real "because" and an impact.</span></label></li><li><label><input type="checkbox"> <span>At least one discovery question asks where the data lives, and your top three are starred.</span></label></li><li><label><input type="checkbox"> <span>Every metric has a baseline (or a plan to measure one), a target, a deadline, and a source.</span></label></li><li><label><input type="checkbox"> <span>You included a guardrail and said how it's checked.</span></label></li><li><label><input type="checkbox"> <span>Your scope says what's out, not just what's in, and where a person reviews or approves.</span></label></li><li><label><input type="checkbox"> <span>Your questions, metric, scope, and recommendation all address the same problem.</span></label></li><li><label><input type="checkbox"> <span>Invented facts are labeled as assumptions.</span></label></li><li><label><input type="checkbox"> <span>No client information anywhere.</span></label></li><li><label><input type="checkbox"> <span>File is named Lastname_Firstname_Week2.pdf.</span></label></li></ul><p>These are also what we'll look for when we review it.</p><details class="full-example"><summary>See a finished example: scoping Hearthstone's invoice matching <span aria-hidden="true">+</span></summary><div><p class="note"><em>This continues the Hearthstone example from Week 1. It's fictional, and the numbers are assumptions to check in discovery.</em></p><h4>Title</h4><p>Hearthstone Home Goods: Invoice Matching, Scoping Brief</p><h4>The request</h4><p>Hearthstone Home Goods is a made-up home goods retailer. A three-person accounts payable team matches about 800 vendor invoices a month to purchase orders by hand before paying them. The finance director asks: "Can AI just pay our invoices for us?"</p><h4>The real problem</h4><p>The accounts payable team spends about 60 hours a month matching invoices because every invoice is checked against its purchase order by hand, which delays vendor payments and led to at least one duplicate payment this year. <em>Assumptions: the hours and the duplicate payment.</em></p><h4>Discovery questions</h4><div class="table-scroll" tabindex="0" role="region" aria-label="Discovery questions"><table><thead><tr><th>Question</th><th>What the answer helps us decide</th></tr></thead><tbody><tr><td>★ Walk me through the last invoice you matched.</td><td>Where the time actually goes.</td></tr><tr><td>★ How many invoices come in a month, and how long does each take?</td><td>How big the problem is, and our baseline.</td></tr><tr><td>★ Where do invoices and purchase orders live, and can we export them?</td><td>Whether anything can be automated at all.</td></tr><tr><td>What share of invoices don't match on the first try?</td><td>How much work still needs a person.</td></tr><tr><td>What mistakes have happened before?</td><td>What the guardrail should protect.</td></tr><tr><td>Who approves payments today, and above what amount?</td><td>Which sign-off we have to keep.</td></tr></tbody></table></div><h4>What done looks like</h4><div class="table-scroll" tabindex="0" role="region" aria-label="What done looks like"><table><thead><tr><th>Metric</th><th>Baseline</th><th>Target</th><th>Deadline</th><th>How it's measured</th></tr></thead><tbody><tr><td>Staff hours on invoice matching</td><td>~60 hours/month (assumption; confirm with two weeks of time logs)</td><td>Under 25 hours/month</td><td>Two months after launch</td><td>Team time log</td></tr></tbody></table></div><p>Guardrail: no duplicate or overpaid invoices, checked by a monthly audit of every payment.</p><h4>Scope</h4><div class="table-scroll" tabindex="0" role="region" aria-label="Scope"><table><tbody><tr><td>In</td><td>Pull fields from invoices, check totals against purchase orders in code, flag duplicates, and send every mismatch to a reviewer. A person still approves every payment.</td></tr><tr><td>Out</td><td>Automatic payment of any invoice, and invoices that arrive on paper.</td></tr><tr><td>Later</td><td>Plain-English explanations of mismatches for vendors (Step 5 of the Week 1 Blueprint).</td></tr></tbody></table></div><h4>Assumptions and risks</h4><div class="table-scroll" tabindex="0" role="region" aria-label="Assumptions and risks"><table><thead><tr><th>Assumption or risk</th><th>How we'd check or catch it</th></tr></thead><tbody><tr><td>Assumption: invoices arrive as PDFs and purchase orders can be exported</td><td>Ask for one sample month of both.</td></tr><tr><td>Assumption: the team can review flagged invoices within two days</td><td>Confirm who owns the review queue.</td></tr><tr><td>Risk: unusual invoice layouts get misread</td><td>Code re-adds the line items; any mismatch goes to review.</td></tr><tr><td>Risk: mismatches are more common than expected, so review becomes the new bottleneck</td><td>Count them during discovery and adjust the target.</td></tr></tbody></table></div><h4>Recommendation</h4><p>Measure two weeks of current matching to confirm the baseline, then build field extraction and total-checking first, since they take the most time and are the easiest to verify. Before building, confirm that purchase orders can be exported.</p></div></details><p>Notice that the finance director asked for AI to pay invoices, and the first version doesn't pay anything. That's scoping.</p><div class="section-bridge"><a href="#brief-submit">Submit <span aria-hidden="true">↑</span></a></div></section>
 <section id="takeaways" class="chapter">
-<div class="eyebrow">07 / THE TAKEAWAY</div>
+<div class="eyebrow">08 / THE TAKEAWAY</div>
 <h2 class="chapter-title">What problem are we actually solving?</h2>
-<p class="lead">Start with what's actually happening, not what the client asked for. Write the problem in one sentence with a real 'because.' Put numbers on what success looks like, including what must not get worse. Then scope a first version small enough to deliver and check. The best answer won't always be AI-first, and that's part of being a good consultant.</p>
+<p>Start with what's happening, not what was asked for. Write the problem in one sentence with a real "because." Put a number on success, and name what can't get worse. Then scope a first version small enough to ship and check. Sometimes that first version isn't AI at all.</p>
 <h3 class="subheading">Check your understanding</h3>
 <div class="self-checks"><details><summary>A client says, "We want a chatbot." What's your first move? <span aria-hidden="true">+</span></summary><p>Ask what's happening today that made them want one. Get the last real example, and find out what problem the chatbot is supposed to solve.</p>
 </details><details><summary>The goal is "make reporting faster." What's missing? <span aria-hidden="true">+</span></summary><p>A baseline, a target, a way to measure it, and a guardrail. How long does it take now, how fast should it be, where do the numbers come from, and what can't get worse?</p>
 </details><details><summary>Why bother writing down what's out of scope? <span aria-hidden="true">+</span></summary><p>It protects your team's time and sets the client's expectations. When a new request comes up mid-project, you can point to what everyone already agreed on.</p>
 </details><details><summary>Discovery shows the data you'd need doesn't exist yet. Now what? <span aria-hidden="true">+</span></summary><p>Make getting the data part of the scope, usually the first part. An AI tool can't use information that isn't recorded anywhere, like Copperline's whiteboard.</p>
-</details></div><p>Take this into Week 3: once you know the problem and the goal, you'll learn to write prompts that get reliable, structured output from a model.</p>
-<div class="section-bridge"><a href="#next">Before Week 3 <span aria-hidden="true">→</span></a></div>
+</details></div>
 </section>
+
 <section id="next" class="chapter closing">
-<div class="eyebrow">08 / BEFORE WEEK 3</div>
+<div class="eyebrow">09 / BEFORE WEEK 3</div>
 <h2 class="chapter-title">Put the lesson to work.</h2>
-<ul class="next-list"><li><div><h3>Portfolio piece #2</h3><p>Submit one PDF containing your Scoping Brief, using the eight headings in the deliverable section. Due Wednesday, October 14, 7:00 PM. Name your file Lastname_Firstname_Week2.pdf.</p></div><a class="text-button" href="https://drive.google.com/drive/folders/1NZtZERMF8UTPBnZy86nHmZ2dpnVKVfhE?usp=drive_link" target="_blank" rel="noopener noreferrer">Submit Here</a></li><li><div><h3>Reading / video</h3><p>About 30 minutes.</p></div><span>Resource to be announced</span></li></ul><div class="next-week"><span class="small-label">NEXT WEEK / 03</span><h3>Prompting &amp; Structured Outputs</h3><p>How to write prompts that get consistent, usable output from a model.</p></div><p class="note">Questions? Reach out to Salloni Kapoor, <a href="mailto:sk3482@cornell.edu">sk3482@cornell.edu</a></p><a href="#overview" class="text-button back-top">Back to the beginning ↑</a></section>
+<ul class="next-list"><li><div><h3>Portfolio piece #2</h3><p>Submit one PDF containing your Scoping Brief, using the eight headings in the deliverable section. Due Wednesday, October 14, 7:00 PM. Name your file Lastname_Firstname_Week2.pdf.</p></div><a class="text-button" href="https://drive.google.com/drive/folders/1uqoSuhzKrYjgmV2jT2Rk8Ei_ZcJmM94F?usp=sharing" target="_blank" rel="noopener noreferrer">Submit Here</a></li><li><div><h3>Reading / video</h3><p>About 30 minutes.</p></div><span>Resource to be announced</span></li></ul><div class="next-week"><span class="small-label">NEXT WEEK / 03</span><h3>Prompting &amp; Structured Outputs</h3><p>How to write prompts that get consistent, usable output from a model.</p></div><p class="note">Questions? Reach out to Salloni Kapoor, <a href="mailto:sk3482@cornell.edu">sk3482@cornell.edu</a></p><a href="#overview" class="text-button back-top">Back to the beginning ↑</a></section>

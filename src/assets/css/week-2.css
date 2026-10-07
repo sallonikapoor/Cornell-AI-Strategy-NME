@@ -7,34 +7,78 @@ html:has(body.week-two){scroll-behavior:auto;scroll-padding-top:0}
 .week-two .discovery-grid article{border-top:1px solid var(--line);padding:20px 0 0}
 .week-two .discovery-grid h3{font-size:19px}
 .week-two .discovery-grid p{font-size:15px;margin:10px 0}
-.week-two .client-message{background:var(--wash);padding:20px 25px}
-.week-two .client-message p{font-size:18px;color:var(--ink)}
-.week-two .interview{margin:30px 0}
-.week-two .interview-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:8px}
-.week-two #question-count{font-size:14px;font-weight:700;color:var(--red)}
-.week-two .question-card{border-bottom:1px solid var(--line)}
-.week-two .question-choice{display:flex;align-items:center;gap:16px;width:100%;text-align:left;border:0;background:var(--paper);color:var(--ink);padding:20px 12px;font-weight:600;line-height:1.55}
-.week-two .question-choice:hover:not(:disabled),.week-two .question-choice[aria-pressed=true]{background:#faf2f1}
-.week-two .question-choice:disabled{color:var(--muted);background:var(--wash)}
-.week-two .question-number{font-size:12px;color:var(--red);flex:none}
-.week-two .question-mark{margin-left:auto;color:var(--red);font-size:24px;flex:none}
-.week-two .owner-answer{padding:0 20px 10px 44px;background:#faf2f1}
-.week-two .owner-answer p{margin:0;padding:8px 0;font-size:15px}
-.week-two #finish-interview{margin-top:22px}
-.week-two #finish-interview:disabled{background:var(--wash);color:var(--muted);transform:none}
-.week-two .interview-debrief{border-top:2px solid var(--red);padding-top:22px;margin:35px 0}
-.week-two #interview-feedback{font-weight:600;color:var(--red)}
-.week-two #question-review{padding-left:22px}
-.week-two #question-review li{margin:10px 0;font-size:15px}
-.week-two .scoping-checklist{list-style:none;padding:0;margin:25px 0}
-.week-two .scoping-checklist li{border-bottom:1px solid var(--line);padding:13px 0}
-.week-two .scoping-checklist label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
-.week-two .scoping-checklist input{accent-color:var(--red);flex:none;width:18px;height:18px;margin-top:5px}
-.week-two .scoping-checklist input:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+.week-two .blueprint-checklist{list-style:none;padding:0;margin:25px 0}
+.week-two .blueprint-checklist li{border-bottom:1px solid var(--line);padding:13px 0}
+.week-two .blueprint-checklist label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.week-two .blueprint-checklist input{accent-color:var(--red);flex:none;width:18px;height:18px;margin-top:5px}
+.week-two .blueprint-checklist input:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+/* Week 2-only lesson interactions; shared lesson typography and cards remain unchanged. */
+.week-two #brief-submit{font-size:24px;scroll-margin-top:var(--lesson-anchor-offset)}
+.week-two .lesson-stage{border:1px solid var(--line);padding:24px;margin:28px 0;background:var(--paper)}
+.week-two .stage-controls{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+.week-two .stage-controls output{font-size:14px;color:var(--muted)}
+.week-two .stage-controls [data-exit]{margin-left:auto}
+.week-two .stage-controls button:disabled{opacity:.4;cursor:default;transform:none}
+.week-two .example-step{padding:18px 20px;margin:12px 0;border-left:3px solid var(--line);background:var(--wash)}
+.week-two .example-step.current{border-color:var(--red);background:#faf2f1}
+.week-two .example-step h3{font-size:20px;margin:0 0 10px}
+.week-two .example-step p,.week-two .example-step li{font-size:16px;line-height:1.65}
+.week-two .example-step ul{padding-left:20px}
+.week-two .presenting{position:fixed;inset:0;z-index:1000;width:100vw;height:100dvh;max-width:none;margin:0;padding:26px 4vw;background:var(--paper);color:var(--ink);border:0;display:flex;flex-direction:column;overflow:hidden;box-sizing:border-box}
+.week-two .presenting::backdrop{background:var(--paper)}
+.week-two .presenting h2{font-size:42px;line-height:1.1;margin:10px 0 20px;letter-spacing:-1px}
+.week-two .presenting h3{font-size:22px;line-height:1.2;margin:0 0 12px}
+.week-two .presenting p{font-size:24px;line-height:1.45;margin:12px 0;color:var(--ink)}
+.week-two .presenting .stage-controls{flex:none;margin:0 0 14px;min-height:38px}
+.week-two .presenting button,.week-two .presenting select{font-family:inherit;cursor:pointer}
+.week-two .presenting .button,.week-two .presenting .text-button{font-size:18px;min-height:44px}
+.week-two #worked-stage.presenting .worked-steps{display:block;columns:3;column-gap:14px}
+.week-two #worked-stage.presenting .example-step{margin:0 0 12px;padding:12px 16px;break-inside:avoid}
+.week-two #worked-stage.presenting .example-step p,.week-two #worked-stage.presenting .example-step li{font-size:1em;line-height:1.35;margin:7px 0}
+.week-two #worked-stage.presenting .example-step h3{font-size:1.15em;margin:0 0 8px}
+.week-two #worked-stage.presenting .example-step.current{box-shadow:inset 0 0 0 1px var(--red)}
+.week-two #worked-stage.presenting #present-example{display:none}
+.week-two #activity-content{flex:1;min-height:0}
+.week-two .presenting .activity-bottom{margin:12px 0 0;justify-content:flex-end}
+.week-two .team-picker{font-size:24px;margin:30px 0;display:block}
+.week-two .team-picker select{margin-left:18px;font-size:24px;border:1px solid var(--line);padding:8px}
+.week-two .presenting blockquote{font-size:32px;line-height:1.5;margin:24px 0;padding:10px 24px}
+.week-two .interview-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:26px;height:100%}
+.week-two .question-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.week-two .activity-question{background:var(--wash);border:1px solid var(--line);padding:12px 14px;text-align:left;color:var(--ink);font-size:18px;font-weight:600;line-height:1.35;min-height:70px}
+.week-two .activity-question:hover:not(:disabled){border-color:var(--red);background:#faf2f1}
+.week-two .activity-question:disabled{background:#eee;color:#626262;cursor:default}
+.week-two .activity-question small{display:block;font-size:14px;color:var(--red);margin-top:4px}
+.week-two .case-file{border-left:2px solid var(--red);padding-left:24px}
+.week-two .case-facts{padding:0;list-style:none;margin:10px 0}
+.week-two .case-facts li{font-size:19px;line-height:1.35;border-bottom:1px solid var(--line);padding:8px 0}
+.week-two .patience-pips{display:flex;gap:8px;margin:10px 0 16px}
+.week-two .patience-pips i{width:23px;height:23px;border:2px solid var(--red);border-radius:50%;background:var(--paper)}
+.week-two .patience-pips .remaining{background:var(--red)}
+.week-two .presenting .patience-warning,.week-two .presenting .turn-indicator,.week-two .presenting .owner-leaving{font-size:18px;font-weight:600;margin:10px 0;color:var(--red)}
+.week-two .owner-panel{position:absolute;inset:0;z-index:3;background:var(--paper);padding:10vh 8vw;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;border:12px solid var(--ink)}
+.week-two .owner-panel.key-found{border-color:var(--red);background:#faf2f1}
+.week-two .owner-panel #owner-answer-text{font-size:clamp(32px,3.1vw,54px);line-height:1.4}
+.week-two .owner-panel #answer-result{font-weight:700;color:var(--red)}
+.week-two .scope-round,.week-two .reveal-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:32px}
+.week-two .scope-timer{padding:30px;text-align:center}
+.week-two .scope-timer output{font-size:90px;color:var(--red);font-variant-numeric:tabular-nums;display:block}
+.week-two .scope-timer button{margin:10px}
+.week-two .strong-scope{padding-left:22px;margin:0}
+.week-two .strong-scope li{font-size:21px;line-height:1.4;margin-bottom:12px}
+.week-two .case-facts .missed{color:#626262}
+.week-two .case-facts small{display:block;font-size:14px;font-weight:700}
+.week-two .presenting .key-missed{font-size:22px;border-left:3px solid var(--red);padding-left:16px}
+.week-two .presenting .activity-closing{font-size:30px;font-weight:700;line-height:1.3;color:var(--red)}
+.week-two .time-up{outline:4px solid var(--red)}
 @media(max-width:850px){.week-two{--lesson-anchor-offset:145px}}
-@media(max-width:560px){
-.week-two .discovery-grid{grid-template-columns:1fr;gap:10px}
-.week-two .question-choice{gap:10px;padding:17px 8px;font-size:15px}
-.week-two .owner-answer{padding:0 16px 10px 32px}
-.week-two .interview-toolbar{gap:10px}
-}
+@media(max-width:600px){.week-two .discovery-grid{grid-template-columns:1fr}.week-two .lesson-stage{padding:16px}.week-two .presenting{padding:18px;overflow-y:auto}.week-two .interview-layout,.week-two .scope-round,.week-two .reveal-layout,.week-two #worked-stage.presenting .worked-steps{display:block}.week-two .case-file{margin-top:22px}.week-two .owner-panel{position:fixed;padding:25px;border-width:6px}.week-two .presenting h2{font-size:32px}.week-two .presenting blockquote,.week-two .owner-panel #owner-answer-text{font-size:26px}.week-two .presenting #activity-content{flex:none}.week-two .presenting .stage-controls{gap:12px}.week-two .activity-question{font-size:15px}.week-two #brief-submit{font-size:21px}}
+@media(prefers-reduced-motion:reduce){.week-two .lesson-stage *{animation:none!important;transition:none!important}}
+
+@media(max-width:600px){.week-two #worked-stage.presenting .worked-steps{columns:1}}
+.week-two .reveal-layout .strong-scope li{font-size:19px;line-height:1.32;margin-bottom:8px}
+.week-two .presenting .key-missed{font-size:20px;line-height:1.35;margin:8px 0 14px}
+.week-two .presenting .activity-closing{font-size:26px;margin:10px 0;line-height:1.25}
+
+.week-two .reveal-layout .case-facts li{font-size:17px;line-height:1.3;padding:7px 0}
+.week-two .reveal-layout .case-facts small{display:inline;margin-left:8px;font-size:13px}

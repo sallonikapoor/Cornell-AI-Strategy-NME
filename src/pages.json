@@ -149,33 +149,38 @@
         "label": "Discovery"
       },
       {
-        "id": "practice",
-        "number": "03",
-        "label": "Practice"
-      },
-      {
         "id": "done",
-        "number": "04",
+        "number": "03",
         "label": "Defining done"
       },
       {
         "id": "scope",
-        "number": "05",
+        "number": "04",
         "label": "Scope"
       },
       {
-        "id": "portfolio",
+        "id": "worked-example",
+        "number": "05",
+        "label": "Worked example"
+      },
+      {
+        "id": "practice",
         "number": "06",
+        "label": "Activity"
+      },
+      {
+        "id": "portfolio",
+        "number": "07",
         "label": "Portfolio piece #2"
       },
       {
         "id": "takeaways",
-        "number": "07",
+        "number": "08",
         "label": "The takeaway"
       },
       {
         "id": "next",
-        "number": "08",
+        "number": "09",
         "label": "Before Week 3"
       }
     ],
