@@ -120,7 +120,7 @@
     "output": "week-2/index.html",
     "title": "Week 02 · Scoping the Engagement | Cornell AI Strategy",
     "description": "Find the real problem, practice client discovery, define success metrics, and write your Scoping Brief.",
-    "bodyClass": "live-projector",
+    "bodyClass": "week-two",
     "skipLabel": "Skip to lesson",
     "brandHref": "#overview",
     "courseLabelHtml": "NEW MEMBER EDUCATION <span>/</span> FALL 2026",
@@ -132,16 +132,62 @@
     "subtitle": "Week two",
     "subject": "Scoping the engagement",
     "sidebarContextHtml": "<span class=\"small-label\">THIS WEEK’S QUESTION</span><p>What problem are we actually solving?</p>",
-    "chapters": [],
+    "chapters": [
+      {
+        "id": "overview",
+        "number": "00",
+        "label": "Overview"
+      },
+      {
+        "id": "request",
+        "number": "01",
+        "label": "From request to problem"
+      },
+      {
+        "id": "discovery",
+        "number": "02",
+        "label": "Discovery"
+      },
+      {
+        "id": "practice",
+        "number": "03",
+        "label": "Practice"
+      },
+      {
+        "id": "done",
+        "number": "04",
+        "label": "Defining done"
+      },
+      {
+        "id": "scope",
+        "number": "05",
+        "label": "Scope"
+      },
+      {
+        "id": "portfolio",
+        "number": "06",
+        "label": "Portfolio piece #2"
+      },
+      {
+        "id": "takeaways",
+        "number": "07",
+        "label": "The takeaway"
+      },
+      {
+        "id": "next",
+        "number": "08",
+        "label": "Before Week 3"
+      }
+    ],
     "footerLabel": "NEW MEMBER EDUCATION / WEEK 02",
     "styles": [
-      "assets/css/live-session.css"
+      "assets/css/shared.css",
+      "assets/css/week-2.css"
     ],
     "scripts": [
-      "assets/js/live-session.js"
-    ],
-    "layout": "partials/live-layout.html",
-    "moduleScripts": true
+      "assets/js/shared.js",
+      "assets/js/week-2.js"
+    ]
   },
   {
     "source": "week-2/facilitator.html",
@@ -163,10 +209,10 @@
     "chapters": [],
     "footerLabel": "NEW MEMBER EDUCATION / WEEK 02",
     "styles": [
-      "assets/css/live-session.css"
+      "assets/css/week-2-support.css"
     ],
     "scripts": [
-      "assets/js/live-session.js"
+      "assets/js/week-2-support.js"
     ],
     "layout": "partials/live-layout.html",
     "moduleScripts": true
@@ -191,10 +237,10 @@
     "chapters": [],
     "footerLabel": "NEW MEMBER EDUCATION / WEEK 02",
     "styles": [
-      "assets/css/live-session.css"
+      "assets/css/week-2-support.css"
     ],
     "scripts": [
-      "assets/js/live-session.js"
+      "assets/js/week-2-support.js"
     ],
     "layout": "partials/live-layout.html",
     "moduleScripts": true

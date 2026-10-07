@@ -26,7 +26,8 @@ Open the [local hub](http://localhost:4174/) and [local Week 1 lesson](http://lo
 - `src/assets/css/shared.css`: shared design and responsive styles.
 - `src/assets/js/shared.js`: chapter navigation, reading progress, and copy buttons. Accordions use native HTML details/summary behavior.
 - `src/assets/css/week-1.css` and `src/assets/js/week-1.js`: Week 1 demonstrations, token animation, capability sort, and related styles. Only Week 1 loads these.
-- `src/assets/css/live-session.css`, `src/assets/js/live-session.js`, and `src/assets/js/live-session-core.mjs`: Week 2 projector/phone/print layouts and session interactions. Only the live-session pages load these.
+- `src/assets/css/week-2.css` and `src/assets/js/week-2.js`: Week 2 discovery practice components.
+- `src/assets/css/week-2-support.css` and `src/assets/js/week-2-support.js`: separate facilitator and printable-card support; not loaded by the lesson.
 - `src/assets/images/`: shared logo.
 - `scripts/build.mjs`: builds every registered page, copies assets, versions CSS/JS URLs, and validates local links, anchors, and duplicate IDs.
 - `scripts/render-schedule.mjs`: schedule rendering and validation.
@@ -61,8 +62,8 @@ The curriculum table in the README mirrors `src/data/weeks.json`. When the sched
 
 Screenshots are committed under `docs/screenshots/`: `hub-desktop.png`, `week-1-hero-desktop.png`, `week-1-failures-desktop.png`, `week-1-sort-desktop.png`, and `week-1-mobile.png`. Refresh them from the local build when the design changes. Desktop captures use 1440 × 1000 (1440 × 1200 for failure modes); mobile uses 390 × 844. The capability-sort capture shows a selected card and its explanation. These documentation files are not copied into `dist/`.
 
-Week 2 uses the same submission folder as Week 1. Replace `TEMPLATE_URL_WEEK2` in `src/partials/week-2-reference.html`’s `BLUEPRINT_TEMPLATE_LINK` comment with an HTTP(S) URL to show the optional template link; the placeholder is omitted from the built page. Its supplemental reading/video remains pending. The interview uses only fictional material. Session state persists in this browser until a confirmed reset.
+Week 2 uses the same submission folder as Week 1. Replace `TEMPLATE_URL_WEEK2` in `src/weeks/week-2.html`’s `BLUEPRINT_TEMPLATE_LINK` comment with an HTTP(S) URL to show the optional template link; the placeholder is omitted from the built page. Its supplemental reading/video remains pending. The interview uses only fictional material. Practice answers reset on reload; there is no saved lesson progress.
 
-## Live-session pages
+## Week 2 support pages
 
-Week 2 now uses the standalone live layout and `live-session.css` / `live-session.js`, with an owner fact sheet, local session state, and an offline cache scoped to Week 2. See [README-live-session.md](../README-live-session.md) for the source map and reuse instructions. The earlier Week 2 self-paced interaction has been replaced by the live team board.
+Week 2 uses the shared lesson layout, CSS, and navigation. Its question interaction is in `week-2.js`, with component-only styles in `week-2.css`. The separate facilitator and client-card pages retain their standalone layout and offline support through `week-2-support.css` and `week-2-support.js`. They do not load on the lesson. See [the support-page guide](../README-live-session.md).
