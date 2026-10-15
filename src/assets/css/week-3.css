@@ -1,0 +1,53 @@
+/* Week 3 components extend the shared lesson shell without changing other weeks. */
+html:has(body.week-three){scroll-behavior:auto;scroll-padding-top:0}
+.week-three{--lesson-anchor-offset:102px}
+.week-three .chapter,.week-three .prompt-stepper{scroll-margin-top:var(--lesson-anchor-offset)}
+.week-three .chapter.closing{min-height:calc(100vh - var(--lesson-anchor-offset))}
+.week-three .intro-meta,.week-three .note,.week-three .widget-controls output{color:var(--muted)}
+.week-three .brief-comparison,.week-three .prompt-parts,.week-three .quiz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:26px 0}
+.week-three .brief-comparison>article,.week-three .prompt-parts>article{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.week-three .brief-comparison h3,.week-three .prompt-parts h3{font-size:19px}
+.week-three .brief-comparison li{margin:10px 0}
+.week-three .prompt-parts p{font-size:15px;margin-top:10px}
+.week-three .email-card{padding:20px 24px;background:var(--wash);margin:24px 0}
+.week-three .email-card p{margin:0}
+.week-three .widget-controls{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 0;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.week-three .widget-controls button{min-height:44px}
+.week-three .widget-controls output{font-size:14px;font-weight:600}
+.week-three .widget-controls button:disabled{opacity:.45;transform:none}
+.week-three .prompt-stepper{margin:32px 0;border-top:2px solid var(--ink)}
+.week-three .prompt-stepper>.widget-controls{position:sticky;top:var(--lesson-anchor-offset);z-index:2;background:var(--paper)}
+.week-three .prompt-version{padding:8px 0 28px;border-bottom:1px solid var(--line)}
+.week-three .prompt-version h4{font-size:24px;line-height:1.35}
+.week-three h5{font:700 14px/1.5 'DM Sans',Arial,sans-serif;margin:24px 0 8px}
+.week-three .part-label{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--red);display:inline-block;background:#faf2f1;padding:4px 10px;margin:14px 0 0}
+.week-three .prompt-version .new-part{color:inherit;background:#f4e8e6;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.week-three .prompt-version .rule{margin-top:22px}
+.week-three .prompt-version .rule h5{margin-top:0}
+.week-three .quiz-card{border-top:2px solid var(--ink);padding:22px 0;min-width:0}
+.week-three .quiz-card h4{font-size:20px}
+.week-three .quiz-card fieldset{grid-template-columns:repeat(2,minmax(0,1fr));margin:18px 0 0}
+.week-three #output-quiz fieldset{grid-template-columns:1fr}
+.week-three .quiz-card fieldset button{min-height:44px}
+.week-three .quiz-card fieldset button:disabled{cursor:default}
+.week-three .quiz-card .quiz-verdict{font-size:14px;font-weight:700;color:var(--red)}
+.week-three .quiz-answer{margin-top:18px;padding:14px 18px;border-left:3px solid var(--red);background:#faf2f1}
+.week-three .quiz-answer p{font-size:15px;margin:8px 0}
+.week-three .quiz-card .prompt-text{font-size:14px;padding:18px;line-height:1.65}
+.week-three .prompt-text{max-width:100%;min-width:0}
+.week-three .table-scroll{border:1px solid var(--line)}
+.week-three .table-scroll:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+@media(max-width:850px){.week-three{--lesson-anchor-offset:150px}}
+@media(max-width:600px){
+.week-three .brief-comparison,.week-three .prompt-parts,.week-three .quiz-grid{grid-template-columns:1fr;gap:18px}
+.week-three .widget-controls{gap:10px}
+.week-three .widget-controls output{font-size:12px}
+.week-three .prompt-version h4{font-size:22px}
+.week-three .prompt-version .rule{padding:20px}
+.week-three .intro-meta{display:flex;flex-wrap:wrap;gap:8px 18px;letter-spacing:.7px}
+.week-three .intro-meta span{margin:0}
+.week-three .intro-meta span+span:before{content:none}
+.week-three .email-card{padding:18px}
+}
+@media(prefers-reduced-motion:reduce){.week-three *{transition:none!important;animation:none!important}}
+@media print{.week-three .prompt-version[hidden],.week-three .quiz-answer[hidden]{display:block!important}.week-three .widget-controls{display:none!important}}

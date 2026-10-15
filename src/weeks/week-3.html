@@ -1,0 +1,259 @@
+<!-- WEEK_4_PREVIEW: title="Coming soon"; description="Details to come." Update the next-week block when ready. -->
+<section id="overview" class="chapter intro">
+<a class="text-button lesson-home" href="../">← New Member Education</a>
+<div class="eyebrow">WEEK 03 / PROMPTING</div><h1>Say exactly what you want.</h1><p class="lead">Write prompts that give you consistent, usable answers, in a format your team and your software can rely on.</p><div class="intro-meta"><span>About 45 minutes</span><span>Self-paced</span><span>Nothing to submit</span></div>
+<p>Last week you learned to turn a vague request into a clear problem and a small first version. Often, that first version includes a model doing one specific job, like drafting a reply or pulling details out of a document. This week is about getting it to do that job well, the same way, every time.</p>
+<p>In Week 1 you saw that a model's behavior comes from three layers, and only one of them is yours: the prompt. You also ran the same prompt five times and may have gotten different answers. By the end of this lesson you'll know why that happens and what to do about it.</p>
+<p>You'll need any AI chat tool for the two practice prompts near the end. Use only the made-up examples on this page, or invent your own. Never paste client information into a consumer AI tool, even to test a prompt.</p>
+<div class="section-bridge"><a href="#brief">Start with the brief →</a></div>
+</section>
+<section id="brief" class="chapter">
+<div class="eyebrow">01 / THE BRIEF</div><h2 class="chapter-title">Brief it like a new hire.</h2><p class="lead">The model knows a lot about the world and nothing about your situation.</p><p>When you hand a task to someone on their first day, you tell them who the work is for, what a good result looks like, and what to do when something doesn't fit. A model needs the same things, for the same reason. It starts every conversation knowing nothing about your client, your goal, or what happened yesterday.</p>
+<p>Remember the two things a model knows from Week 1: what it learned in training, and what you put in front of it. The prompt is most of the second one.</p>
+<h3 class="subheading">The new-hire test</h3>
+<p>Before you send a prompt, picture a smart person who started today and has nothing but your prompt to go on. Could they do the task the way you want? If they'd need to ask you questions first, the model needs those answers too. It just won't ask. It will guess.</p>
+<div class="brief-comparison"><article><h3>The prompt:</h3><pre class="prompt-text">Write a reply to this refund email.</pre></article><article><h3>What a new hire would ask you:</h3><ul><li>What's our refund policy?</li><li>What's today's date, and when is the show?</li><li>Am I allowed to approve exceptions?</li><li>How long should it be, and how do we sign off?</li><li>Is there a reply you've liked before?</li></ul></article></div>
+<p>Each of those questions points to a part of a good prompt. That's the next section.</p>
+<div class="section-bridge"><a href="#build">See the five parts →</a></div>
+</section>
+<section id="build" class="chapter">
+<div class="eyebrow">02 / BUILD A PROMPT</div><h2 class="chapter-title">Five things a good prompt covers.</h2><p class="lead">Not every prompt needs all five, but most weak prompts are missing at least one.</p><div class="prompt-parts"><article><h3>Context.</h3><p>Who the work is for, what's going on, and any facts it needs, like a policy or today's date.</p></article><article><h3>The task.</h3><p>The one thing you want done, written as a direct instruction.</p></article><article><h3>Rules.</h3><p>What it must never do, and what to do when it isn't sure.</p></article><article><h3>Format.</h3><p>The shape of the answer: how long, how it's organized, and what comes first.</p></article><article><h3>Examples.</h3><p>A sample of a good answer, for when describing it in words isn't enough.</p></article></div>
+<p>You'll see prompts that start with "You are a world-class expert." A line like that does little on its own. Specific facts about the situation almost always help more.</p>
+<h3 class="subheading">Watch one prompt improve</h3>
+<p>The Linden Room is the made-up music venue from Week 2. Its box office wants a model to draft replies to refund emails, and a staff member reads every draft before it goes out. Here's the email, then five versions of the prompt. Each version adds one part.</p>
+<blockquote class="email-card"><p>Hi, I bought 2 tickets for the March 14 show (order #LR-20418) but I can't make it anymore because of a family emergency. Can I get my money back? Thanks, Priya</p></blockquote>
+<div class="prompt-stepper" id="prompt-stepper" tabindex="-1" aria-label="Watch one prompt improve"><div class="widget-controls" hidden><button class="text-button" id="version-previous" type="button">Previous</button><output id="version-count" aria-live="polite">Version 1 of 5</output><button class="button" id="version-next" type="button">Next</button></div><article class="prompt-version" id="prompt-version-1"><h4>Version 1. The task only</h4><p class="part-label">Task</p><h5>Prompt</h5><pre class="prompt-text"><mark class="new-part">Write a reply to this refund email.
+
+[email]</mark></pre><h5>Reply</h5><pre class="prompt-text">Hi Priya,
+
+I'm so sorry to hear about your family emergency. We've gone ahead and processed a full refund of $96 for your two tickets, which should appear on your card within 3–5 business days. We hope to see you at a future show!
+
+Best,
+The Linden Room</pre><div class="rule"><h5>What changed</h5><p>It sounds great and almost everything in it is made up. The model invented a dollar amount, promised a refund the policy doesn't allow, and said it had already done something it can't do. It had nothing else to go on.</p></div></article><article class="prompt-version" id="prompt-version-2"><h4>Version 2. Add context</h4><p class="part-label">Context</p><h5>Prompt</h5><pre class="prompt-text"><mark class="new-part">You're drafting email replies for the box office at The Linden Room, a small music venue. A staff member reads every draft before it's sent. Today's date is March 10, 2027.
+
+Our refund policy: Tickets can be refunded up to 7 days before the show, minus a $4 fee per ticket. Within 7 days of the show, tickets can't be refunded, but they can be moved to another show once. Exceptions for emergencies or illness are decided by the box office manager.</mark>
+
+Write a reply to this refund email.
+
+[email]</pre><h5>Reply</h5><pre class="prompt-text">Hi Priya,
+
+I'm sorry to hear about your emergency. Since your show on March 14 is within our 7-day window, a standard refund isn't available. However, given the circumstances, we'd be happy to make an exception and refund your tickets minus the $4 fee per ticket.
+
+Warmly,
+Linden Room Box Office</pre><div class="rule"><h5>What changed</h5><p>It applied the policy correctly, because now it has the policy and today's date. Then it approved an exception on its own. That's the manager's decision, and nothing in the prompt said so.</p></div></article><article class="prompt-version" id="prompt-version-3"><h4>Version 3. Add rules</h4><p class="part-label">Rules</p><h5>Prompt</h5><pre class="prompt-text">You're drafting email replies for the box office at The Linden Room, a small music venue. A staff member reads every draft before it's sent. Today's date is March 10, 2027.
+
+Our refund policy: Tickets can be refunded up to 7 days before the show, minus a $4 fee per ticket. Within 7 days of the show, tickets can't be refunded, but they can be moved to another show once. Exceptions for emergencies or illness are decided by the box office manager.
+
+<mark class="new-part">Rules:
+- Only describe what the policy allows. Never approve an exception or state a refund amount; staff confirm amounts.
+- If the request falls outside the policy, explain what the policy does allow and say the box office manager will review their situation within one business day.
+- If the order number is missing, ask for it.
+- Don't add any details that aren't in the email or the policy.</mark>
+
+Write a reply to this refund email.
+
+[email]</pre><h5>Reply</h5><pre class="prompt-text">Subject: Re: Refund Request for Order #LR-20418
+
+Dear Priya,
+
+Thank you so much for reaching out to us, and please accept our sincere sympathies regarding your family emergency. We completely understand that unexpected situations arise.
+
+We've reviewed your request for order #LR-20418. Because the March 14 show is less than 7 days away, your tickets fall outside our standard refund window. However, you are welcome to transfer your tickets to another show of your choice.
+
+We also want you to know that our box office manager reviews special circumstances such as yours. They will be in touch within one business day to discuss your options.
+
+Thank you for your understanding and for supporting live music at The Linden Room.
+
+Kind regards,
+The Linden Room Team</pre><div class="rule"><h5>What changed</h5><p>The content is right now. The shape isn't. Staff don't need a subject line, it's three times longer than it should be, and the sign-off doesn't match the one the box office uses. Run it again and you'll get a different shape again.</p></div></article><article class="prompt-version" id="prompt-version-4"><h4>Version 4. Add format</h4><p class="part-label">Format</p><h5>Prompt</h5><pre class="prompt-text">You're drafting email replies for the box office at The Linden Room, a small music venue. A staff member reads every draft before it's sent. Today's date is March 10, 2027.
+
+Our refund policy: Tickets can be refunded up to 7 days before the show, minus a $4 fee per ticket. Within 7 days of the show, tickets can't be refunded, but they can be moved to another show once. Exceptions for emergencies or illness are decided by the box office manager.
+
+Rules:
+- Only describe what the policy allows. Never approve an exception or state a refund amount; staff confirm amounts.
+- If the request falls outside the policy, explain what the policy does allow and say the box office manager will review their situation within one business day.
+- If the order number is missing, ask for it.
+- Don't add any details that aren't in the email or the policy.
+
+<mark class="new-part">Format: Plain text, no subject line, under 100 words. Start with "Hi" and their first name. Then two or three sentences on what the policy allows for their situation, and one sentence on the next step. Sign off as "The Linden Room Box Office".</mark>
+
+Write a reply to this refund email.
+
+[email]</pre><h5>Reply</h5><pre class="prompt-text">Hi Priya,
+
+I'm sorry to hear about your family emergency. Because your show on March 14 is less than 7 days away, your tickets aren't eligible for a standard refund, but you can move them to another show. Since your situation may qualify for an exception, our box office manager will review it and get back to you within one business day.
+
+The Linden Room Box Office</pre><div class="rule"><h5>What changed</h5><p>Same content, now in a shape staff can check in ten seconds. This is a usable draft.</p></div></article><article class="prompt-version" id="prompt-version-5"><h4>Version 5. Add an example</h4><p class="part-label">Example</p><h5>Prompt</h5><pre class="prompt-text">You're drafting email replies for the box office at The Linden Room, a small music venue. A staff member reads every draft before it's sent. Today's date is March 10, 2027.
+
+Our refund policy: Tickets can be refunded up to 7 days before the show, minus a $4 fee per ticket. Within 7 days of the show, tickets can't be refunded, but they can be moved to another show once. Exceptions for emergencies or illness are decided by the box office manager.
+
+Rules:
+- Only describe what the policy allows. Never approve an exception or state a refund amount; staff confirm amounts.
+- If the request falls outside the policy, explain what the policy does allow and say the box office manager will review their situation within one business day.
+- If the order number is missing, ask for it.
+- Don't add any details that aren't in the email or the policy.
+
+Format: Plain text, no subject line, under 100 words. Start with "Hi" and their first name. Then two or three sentences on what the policy allows for their situation, and one sentence on the next step. Sign off as "The Linden Room Box Office".
+
+Write a reply to this refund email.
+
+[email]
+
+<mark class="new-part">Here's a reply we liked, for a different request. Match its tone, not its content:
+
+Hi Sam,
+Thanks for letting us know. Your show is more than a week away, so you're eligible for a refund of your two tickets, minus our $4 per-ticket fee. We'll email you once it's processed.
+The Linden Room Box Office</mark></pre><h5>Reply</h5><pre class="prompt-text">Hi Priya,
+
+We're so sorry about your family emergency. Your show is less than a week away, so your tickets can't be refunded the usual way, but you can move them to another show. Our box office manager can make exceptions in situations like yours, and they'll be in touch within one business day.
+
+The Linden Room Box Office</pre><div class="rule"><h5>What changed</h5><p>The example set the voice: shorter sentences, "we" and "you," less formality. It didn't copy the example's content, because the prompt said not to.</p></div></article></div>
+<p class="note">We wrote these replies to show the pattern. A real model's wording will change a little each time you run it, which is what the next section is about.</p>
+<p>Look back at what fixed each version. It wasn't clever wording. It was facts, limits, and a clear picture of the finished product. Good prompts are mostly clear thinking, written down.</p>
+<div class="section-bridge"><a href="#consistency">Why answers change →</a></div>
+</section>
+<section id="consistency" class="chapter">
+<div class="eyebrow">03 / CONSISTENCY</div><h2 class="chapter-title">When the answer keeps changing, check the question.</h2><p class="lead">Inconsistent answers usually point to a task with more than one reasonable answer.</p><p>In Week 1's consistency check, you ran this prompt five times, each in a new chat:</p>
+<pre class="prompt-text">Classify this deduction into exactly one category (PRICING, SHORTAGE, DAMAGE, or PROMOTION). Respond with only the category. Deduction note: 'Customer deducted $2,340 citing 14 cases received crushed and short-shipped on PO 44817; promo price also not applied.'</pre>
+<p>Some variation comes from the model itself. It chooses among likely next tokens, so the wording of a reply shifts from run to run. But when the actual answer changes, like a category or a yes or no, the cause is usually the task. That note describes three problems at once, and the prompt demanded exactly one category. There was no right answer, so the model guessed, and it guessed differently each time.</p>
+<h3 class="subheading">A better version</h3>
+<pre class="prompt-text">Classify this retail deduction into one category.
+
+PRICING: the customer paid less because they disagree with the price we billed.
+SHORTAGE: fewer units arrived than we billed for.
+DAMAGE: units arrived unusable.
+PROMOTION: a promotional price or allowance we agreed to wasn't applied.
+MULTIPLE: more than one category applies.
+
+If the note doesn't give you enough to decide, answer NEEDS_REVIEW.
+Respond with only the category name.
+
+Deduction note: 'Customer deducted $2,340 citing 14 cases received crushed and short-shipped on PO 44817; promo price also not applied.'</pre>
+<p>Now the right answer is MULTIPLE, and a model will give it reliably. Three changes did the work:</p>
+<ul><li><strong>Definitions.</strong> Each category says what it covers, so PRICING and PROMOTION stop overlapping.</li><li><strong>A label for the hard case.</strong> MULTIPLE gives notes like this one a correct answer to land on.</li><li><strong>A way to say "I can't tell."</strong> NEEDS_REVIEW lets the model flag a note instead of picking something that merely sounds right.</li></ul>
+<h3 class="subheading">Examples help at the edges</h3>
+<p>Definitions get you most of the way. For the cases that sit right on a boundary, a couple of labeled examples help more than another paragraph of description:</p>
+<pre class="prompt-text">Examples:
+Note: "Short 3 cases on PO 51120" → SHORTAGE
+Note: "Billed $18.40/case, agreed price was $17.90" → PRICING</pre>
+<p>Pick examples that are close calls, not obvious ones, and make them different from each other. If every example looks alike, the model learns to copy them instead of learning the rule.</p>
+<h3 class="subheading">Where this goes in a real workflow</h3>
+<p>MULTIPLE and NEEDS_REVIEW are exactly the cases you'd send to a person. That's the Week 1 capability sort in action: the model handles the clear-cut notes, and a human handles the ambiguous ones.</p>
+<p>Developer tools also let you turn down a model's randomness, which you'll see in Week 6. That helps, but it won't fix an unclear task. A model that gives the same wrong answer every time is consistent, but it isn't useful.</p>
+<div class="section-bridge"><a href="#structured">Ask for a form →</a></div>
+</section>
+<section id="structured" class="chapter">
+<div class="eyebrow">04 / STRUCTURED OUTPUT</div><h2 class="chapter-title">Ask for a form, not an essay.</h2><p class="lead">When the answer feeds a spreadsheet or another program, its shape matters as much as its content.</p><p>A drafted reply is written for a person to read. But a lot of client work ends with the output going somewhere else: a row in a spreadsheet, a ticket in a queue, the input to the next step. Software is much less forgiving than people are. If one answer says "2 tickets" and the next says "two," a person reads both just fine, and a spreadsheet chokes.</p>
+<p>The usual fix is to ask for JSON, a plain-text format made of labeled fields. You don't need to write code to use it. Here are the details from Priya's email, as JSON:</p>
+<pre class="prompt-text">{
+  "customer_first_name": "Priya",
+  "order_number": "LR-20418",
+  "show_date": "2027-03-14",
+  "ticket_count": 2,
+  "reason": "family emergency",
+  "request_type": "refund"
+}</pre>
+<p>Each line is a label and a value. Text goes in quotes, numbers don't, and <code>null</code> means "not provided."</p>
+<h3 class="subheading">The prompt that produced it</h3>
+<pre class="prompt-text">Read the refund email below and fill in these fields. Return only the JSON, with no other text before or after it.
+
+customer_first_name: text
+order_number: exactly as written in the email
+show_date: YYYY-MM-DD
+ticket_count: a whole number
+reason: a short phrase in the customer's own words
+request_type: one of "refund", "transfer", or "other"
+
+If the email doesn't state something, use null. Don't guess.
+
+[email]</pre>
+<h3 class="subheading">What makes it work</h3>
+<ul><li><strong>Name every field,</strong> spelled exactly the way your spreadsheet or software expects.</li><li><strong>Say what each value should look like:</strong> a date as YYYY-MM-DD, a whole number, or one choice from a fixed list.</li><li><strong>Say what to do when something's missing.</strong> Here, that's null. Without that rule, the model fills the gap with something plausible.</li><li><strong>Ask for only the JSON.</strong> Anything before or after it, even "Sure! Here you go," can break the next step.</li></ul>
+<aside class="rule"><h3>Leave the math to code</h3><p>Notice that the prompt doesn't ask whether Priya's request falls within the refund window. That's date arithmetic, and Week 1 showed why exact calculations belong in code. The model pulls out the show date. A few lines of code compare it to today.</p></aside>
+<h3 class="subheading">Will it break?</h3>
+<p>Here are four outputs from the same prompt. Decide what happens when each one reaches the spreadsheet.</p>
+<div class="lesson-quiz" id="output-quiz"><div class="widget-controls" hidden><output class="quiz-score" aria-live="polite">0 of 4 correct</output><button class="text-button quiz-reset" type="button">Start over</button></div><div class="quiz-grid"><article class="quiz-card" data-answer="Breaks"><h4>Output A</h4><pre class="prompt-text">Sure! Here's the information you asked for:
+
+{
+  "customer_first_name": "Priya",
+  "order_number": "LR-20418",
+  "show_date": "2027-03-14",
+  "ticket_count": 2,
+  "reason": "family emergency",
+  "request_type": "refund"
+}</pre><fieldset hidden aria-label="Output A"><button type="button" data-choice="Works" aria-controls="output-quiz-answer-A" aria-expanded="false">Works</button><button type="button" data-choice="Breaks" aria-controls="output-quiz-answer-A" aria-expanded="false">Breaks</button><button type="button" data-choice="Looks fine, but wrong" aria-controls="output-quiz-answer-A" aria-expanded="false">Looks fine, but wrong</button></fieldset><p class="quiz-verdict" role="status" aria-live="polite"></p><div class="quiz-answer" id="output-quiz-answer-A"><p><strong>Breaks</strong></p><p>The fields are right, but the friendly sentence on top means software can't read it as JSON. That's why the prompt says "with no other text."</p></div></article><article class="quiz-card" data-answer="Works"><h4>Output B</h4><pre class="prompt-text">{
+  "customer_first_name": "Priya",
+  "order_number": "LR-20418",
+  "show_date": "2027-03-14",
+  "ticket_count": 2,
+  "reason": "family emergency",
+  "request_type": "refund"
+}</pre><fieldset hidden aria-label="Output B"><button type="button" data-choice="Works" aria-controls="output-quiz-answer-B" aria-expanded="false">Works</button><button type="button" data-choice="Breaks" aria-controls="output-quiz-answer-B" aria-expanded="false">Breaks</button><button type="button" data-choice="Looks fine, but wrong" aria-controls="output-quiz-answer-B" aria-expanded="false">Looks fine, but wrong</button></fieldset><p class="quiz-verdict" role="status" aria-live="polite"></p><div class="quiz-answer" id="output-quiz-answer-B"><p><strong>Works</strong></p><p>Every field is present, in the requested format, and matches the email.</p></div></article><article class="quiz-card" data-answer="Breaks"><h4>Output C</h4><pre class="prompt-text">{
+  "customer_first_name": "Priya",
+  "order_number": "LR-20418",
+  "show_date": "this Saturday",
+  "ticket_count": "two",
+  "reason": "family emergency",
+  "request_type": "refund"
+}</pre><fieldset hidden aria-label="Output C"><button type="button" data-choice="Works" aria-controls="output-quiz-answer-C" aria-expanded="false">Works</button><button type="button" data-choice="Breaks" aria-controls="output-quiz-answer-C" aria-expanded="false">Breaks</button><button type="button" data-choice="Looks fine, but wrong" aria-controls="output-quiz-answer-C" aria-expanded="false">Looks fine, but wrong</button></fieldset><p class="quiz-verdict" role="status" aria-live="polite"></p><div class="quiz-answer" id="output-quiz-answer-C"><p><strong>Breaks</strong></p><p>"this Saturday" isn't a date code can compare, and "two" is text where a number should be. A precise format rule for every field prevents both.</p></div></article><article class="quiz-card" data-answer="Looks fine, but wrong"><h4>Output D</h4><pre class="prompt-text">{
+  "customer_first_name": "Priya",
+  "order_number": "LR-20481",
+  "show_date": "2027-03-14",
+  "ticket_count": 2,
+  "reason": "family emergency",
+  "request_type": "refund"
+}</pre><fieldset hidden aria-label="Output D"><button type="button" data-choice="Works" aria-controls="output-quiz-answer-D" aria-expanded="false">Works</button><button type="button" data-choice="Breaks" aria-controls="output-quiz-answer-D" aria-expanded="false">Breaks</button><button type="button" data-choice="Looks fine, but wrong" aria-controls="output-quiz-answer-D" aria-expanded="false">Looks fine, but wrong</button></fieldset><p class="quiz-verdict" role="status" aria-live="polite"></p><div class="quiz-answer" id="output-quiz-answer-D"><p><strong>Looks fine, but wrong</strong></p><p>Look at the order number: two digits are swapped. Nothing about the format is wrong, so this one sails through. It's Week 1's lesson again: plausible isn't the same as true. The fix is a check against something real, like confirming the order number exists in the ticketing system.</p></div></article></div></div>
+<p>Many AI platforms now have a setting that forces the output to match the fields you define, which takes care of problems like A and C. You'll use one in Week 6. Problem D never goes away by itself. A perfectly formatted answer can still be wrong, so check values against something real, and keep a person on anything that matters.</p>
+<div class="section-bridge"><a href="#testing">Test before you trust →</a></div>
+</section>
+<section id="testing" class="chapter">
+<div class="eyebrow">05 / TESTING</div><h2 class="chapter-title">One good answer proves very little.</h2><p class="lead">Before you trust a prompt, run it on a set of cases where you already know the right answer.</p><p>A prompt that works on the email you wrote it for has passed one test, and it was the easiest one. Real inputs are messier: missing details, two requests in one message, an angry customer, a typo in the order number. The only way to know how your prompt handles them is to try them on purpose.</p>
+<h3 class="subheading">How to test a prompt</h3>
+<ol><li>Collect 10 to 20 sample inputs. Include easy ones, tricky ones, and a few that are just strange.</li><li>Before running anything, write down what a right answer looks like for each one.</li><li>Run every case and compare. Mark each one pass or fail, and note why it failed.</li><li>Change one thing in the prompt, then rerun every case, not just the one that failed. A fix for one case can quietly break another.</li></ol>
+<h3 class="subheading">A starter test set for The Linden Room</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="The email"><table><thead><tr><th>The email</th><th>A right reply…</th></tr></thead><tbody><tr><td>Refund request, show is 3 weeks away</td><td>Says they're eligible, minus the $4 per-ticket fee. States no total.</td></tr><tr><td>Refund request, show is in 4 days, no reason given</td><td>Offers to move the tickets to another show. No refund.</td></tr><tr><td>Refund request, show is in 4 days, family emergency (Priya)</td><td>Offers the transfer and says the manager will review within one business day.</td></tr><tr><td>No order number anywhere in the email</td><td>Asks for the order number before anything else.</td></tr><tr><td>Angry, all caps, threatens a bad review</td><td>Stays calm and applies the same policy. No extra promises.</td></tr><tr><td>Asks to refund one show and move tickets for another</td><td>Handles both, or flags the email for staff. Doesn't quietly answer only one.</td></tr></tbody></table></div>
+<h3 class="subheading">Keep a short log</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Try"><table><thead><tr><th>Try</th><th>Passed</th><th>What changed</th></tr></thead><tbody><tr><td>1</td><td>3 of 6</td><td>First draft with context and rules. Replies were too long, and the two-request email got half an answer.</td></tr><tr><td>2</td><td>5 of 6</td><td>Added the format section. Length fixed. Two-request email still half-answered.</td></tr><tr><td>3</td><td>6 of 6</td><td>Added a rule: if an email asks for more than one thing, flag it for staff. Reran all six.</td></tr></tbody></table></div>
+<p>This habit is called evaluation, or "evals," and you'll come back to it in Week 8. For now the idea is simple: decide what a right answer looks like before you look at the output, so the output can't talk you into it.</p>
+<p>For client work, test cases should come from the client, with their permission, through tools the engagement has approved. For practice, invent them.</p>
+<div class="section-bridge"><a href="#practice">Try it yourself →</a></div>
+</section>
+<section id="practice" class="chapter">
+<div class="eyebrow">06 / PRACTICE</div><h2 class="chapter-title">Find the missing piece.</h2><p class="lead">Each prompt below is missing one part. Pick it, then see why.</p><div class="lesson-quiz" id="missing-quiz"><div class="widget-controls" hidden><output class="quiz-score" aria-live="polite">0 of 4 correct</output><button class="text-button quiz-reset" type="button">Start over</button></div><div class="quiz-grid"><article class="quiz-card" data-answer="Context"><h4>Prompt 1</h4><pre class="prompt-text">Summarize this 40-page vendor contract.</pre><fieldset hidden aria-label="Prompt 1"><button type="button" data-choice="Context" aria-controls="missing-quiz-answer-1" aria-expanded="false">Context</button><button type="button" data-choice="Rules" aria-controls="missing-quiz-answer-1" aria-expanded="false">Rules</button><button type="button" data-choice="Format" aria-controls="missing-quiz-answer-1" aria-expanded="false">Format</button><button type="button" data-choice="Example" aria-controls="missing-quiz-answer-1" aria-expanded="false">Example</button></fieldset><p class="quiz-verdict" role="status" aria-live="polite"></p><div class="quiz-answer" id="missing-quiz-answer-1"><p><strong>Context</strong></p><p>Summarize it for whom, and for what decision? A summary for a lawyer checking risk looks nothing like one for a manager deciding whether to renew. Say who's reading and what they need to decide, and the summary gets much more useful. (A length limit would help too.)</p></div></article><article class="quiz-card" data-answer="Format"><h4>Prompt 2</h4><pre class="prompt-text">Pull the invoice number, date, and total from each of these 200 invoices.</pre><fieldset hidden aria-label="Prompt 2"><button type="button" data-choice="Context" aria-controls="missing-quiz-answer-2" aria-expanded="false">Context</button><button type="button" data-choice="Rules" aria-controls="missing-quiz-answer-2" aria-expanded="false">Rules</button><button type="button" data-choice="Format" aria-controls="missing-quiz-answer-2" aria-expanded="false">Format</button><button type="button" data-choice="Example" aria-controls="missing-quiz-answer-2" aria-expanded="false">Example</button></fieldset><p class="quiz-verdict" role="status" aria-live="polite"></p><div class="quiz-answer" id="missing-quiz-answer-2"><p><strong>Format</strong></p><p>With 200 results, the shape is everything. Name the fields exactly, say how dates and amounts should be written, ask for one row or JSON object per invoice, and say what to use when a value is missing.</p></div></article><article class="quiz-card" data-answer="Rules"><h4>Prompt 3</h4><pre class="prompt-text">You're helping the front desk at a gym reply to members who want to cancel. Our policy: cancellations take effect at the end of the current billing month, with 30 days' notice. Reply to this message: "I'm moving next week, cancel my membership and refund this month."</pre><fieldset hidden aria-label="Prompt 3"><button type="button" data-choice="Context" aria-controls="missing-quiz-answer-3" aria-expanded="false">Context</button><button type="button" data-choice="Rules" aria-controls="missing-quiz-answer-3" aria-expanded="false">Rules</button><button type="button" data-choice="Format" aria-controls="missing-quiz-answer-3" aria-expanded="false">Format</button><button type="button" data-choice="Example" aria-controls="missing-quiz-answer-3" aria-expanded="false">Example</button></fieldset><p class="quiz-verdict" role="status" aria-live="polite"></p><div class="quiz-answer" id="missing-quiz-answer-3"><p><strong>Rules</strong></p><p>The context is there, but nothing says what the model must not do. Without rules, it may promise a refund or waive the notice period to be helpful. Tell it to describe only what the policy allows, never to offer exceptions, and to pass special requests to a staff member.</p></div></article><article class="quiz-card" data-answer="Example"><h4>Prompt 4</h4><pre class="prompt-text">We're a neighborhood coffee shop. Write three Instagram captions announcing our new fall menu, each under 30 words, in our brand voice.</pre><fieldset hidden aria-label="Prompt 4"><button type="button" data-choice="Context" aria-controls="missing-quiz-answer-4" aria-expanded="false">Context</button><button type="button" data-choice="Rules" aria-controls="missing-quiz-answer-4" aria-expanded="false">Rules</button><button type="button" data-choice="Format" aria-controls="missing-quiz-answer-4" aria-expanded="false">Format</button><button type="button" data-choice="Example" aria-controls="missing-quiz-answer-4" aria-expanded="false">Example</button></fieldset><p class="quiz-verdict" role="status" aria-live="polite"></p><div class="quiz-answer" id="missing-quiz-answer-4"><p><strong>Example</strong></p><p>"Our brand voice" means something to you and nothing to the model. Describing a voice in words rarely works. Pasting in two captions you've liked does.</p></div></article></div></div>
+<h3 class="subheading">Try it yourself</h3>
+<aside class="rule"><p>Use these as written or with your own made-up examples. Never paste client information into a consumer AI tool.</p></aside>
+<article class="prompt-card"><div class="prompt-heading"><h3>Test the finished prompt</h3><button class="text-button copy-prompt" type="button" data-copy="practice-prompt-1">Copy prompt</button></div><p>Here's the Version 4 prompt from section 02 with a new email. The email is tricky in one specific way. Paste it into any AI chat tool and check the reply against the rules.</p><pre class="prompt-text" tabindex="0" id="practice-prompt-1">You're drafting email replies for the box office at The Linden Room, a small music venue. A staff member reads every draft before it's sent. Today's date is March 10, 2027.
+
+Our refund policy: Tickets can be refunded up to 7 days before the show, minus a $4 fee per ticket. Within 7 days of the show, tickets can't be refunded, but they can be moved to another show once. Exceptions for emergencies or illness are decided by the box office manager.
+
+Rules:
+- Only describe what the policy allows. Never approve an exception or state a refund amount; staff confirm amounts.
+- If the request falls outside the policy, explain what the policy does allow and say the box office manager will review their situation within one business day.
+- If the order number is missing, ask for it.
+- Don't add any details that aren't in the email or the policy.
+
+Format: Plain text, no subject line, under 100 words. Start with "Hi" and their first name. Then two or three sentences on what the policy allows for their situation, and one sentence on the next step. Sign off as "The Linden Room Box Office".
+
+Write a reply to this refund email:
+
+hey so i got tickets to the march 20 show and something came up, can i switch them to a different night instead? thanks, jordan</pre><p class="copy-status" role="status" aria-live="polite"></p><details class="answer-reveal"><summary>What to look for <span aria-hidden="true">+</span></summary><div><p>There's no order number, so the reply should ask for it. The show is ten days away, so Jordan could get a refund too, but they asked to switch, and the reply shouldn't push a refund they didn't ask for. Check the format: under 100 words, "Hi Jordan," the right sign-off, and no subject line. Then run it two more times. Did the reply change in ways that matter, or only in wording?</p></div></details></article><article class="prompt-card"><div class="prompt-heading"><h3>Have an AI question your prompt</h3><button class="text-button copy-prompt" type="button" data-copy="practice-prompt-2">Copy prompt</button></div><p>Write a prompt for any task you'd like a model to do, then paste it into this one. The AI plays your new hire.</p><pre class="prompt-text" tabindex="0" id="practice-prompt-2">I'm going to share a prompt I wrote. Don't run it. Instead, act like a smart new employee who has to do this task tomorrow with nothing but these instructions.
+
+First, ask me the 3 to 5 questions you'd need answered to do the task well. Wait for my answers.
+
+Then, for each answer, suggest one sentence I could add to my prompt so the next person wouldn't need to ask.
+
+Here's my prompt:
+[paste your prompt here]</pre><p class="copy-status" role="status" aria-live="polite"></p></article>
+<div class="section-bridge"><a href="#takeaways">The takeaway →</a></div>
+</section>
+<section id="takeaways" class="chapter">
+<div class="eyebrow">07 / THE TAKEAWAY</div><h2 class="chapter-title">How do you get the same good answer twice?</h2><p>Brief the model like a new hire. Give it the context, one clear task, rules for what it must never do and what to do when it's unsure, and the exact format you need. Add an example when words aren't enough. If the answers keep changing, look for ambiguity in the task before you blame the model. When the output feeds software, ask for labeled fields and leave the math to code. And before you trust any prompt, test it on cases where you already know the right answer.</p>
+<h3 class="subheading">Common prompting mistakes</h3>
+<div class="prompt-parts"><article><h3>Asking for three things at once.</h3><p>Split them into separate prompts or steps.</p></article><article><h3>No plan for "I'm not sure."</h3><p>Give the model a way to say it can't tell, or it will guess.</p></article><article><h3>"Keep it short."</h3><p>Say how short: under 100 words, or three bullets.</p></article><article><h3>Testing on one example.</h3><p>The email you wrote the prompt for is the easiest case you'll ever see.</p></article><article><h3>Trusting a tidy format.</h3><p>Neat fields can still hold a wrong value.</p></article></div>
+<h3 class="subheading">Check your understanding</h3>
+<div class="self-checks"><details><summary>You run a prompt five times and get three different answers. What do you check first? <span aria-hidden="true">+</span></summary><p>Whether the task itself is ambiguous. Look for inputs that fit more than one answer, add a rule or a label for those cases, and give the model a way to say it isn't sure.</p></details><details><summary>Why tell the model what to do when information is missing? <span aria-hidden="true">+</span></summary><p>Otherwise it fills the gap with something that sounds right. Telling it to use null, or to ask for the missing detail, turns a hidden guess into something a person can see and fix.</p></details><details><summary>The model returned perfectly formatted JSON. Is the content correct? <span aria-hidden="true">+</span></summary><p>Not necessarily. Format and accuracy are separate. Code can check what's checkable, like whether the order number exists or the totals add up, and a person reviews anything that matters and can't be checked automatically.</p></details><details><summary>When is an example worth adding to a prompt? <span aria-hidden="true">+</span></summary><p>When describing the answer in words isn't enough, like a brand voice or a close call between two categories. Use examples that differ from each other, so the model learns the pattern instead of copying one answer.</p></details></div>
+<div class="section-bridge"><a href="#next">Before Week 4 →</a></div>
+</section>
+<section id="next" class="chapter closing">
+<div class="eyebrow">08 / BEFORE WEEK 4</div><h2 class="chapter-title">Put the lesson to work.</h2><ul class="next-list"><li><div><h3>Nothing to submit this week</h3><p>If you have time, run both practice prompts from section 06 with your own made-up examples. Try writing one prompt from scratch and testing it on three cases you've written down first.</p></div></li><li><div><h3>Reading / video</h3><p>About 30 minutes.</p></div><span>Resource to be announced</span></li></ul><div class="next-week"><span class="small-label">NEXT WEEK / 04</span><h3>Coming soon</h3><p>Details to come.</p></div><p class="note">Questions? Reach out to Salloni Kapoor, <a href="mailto:sk3482@cornell.edu">sk3482@cornell.edu</a></p><a href="#overview" class="text-button back-top">Back to the beginning ↑</a>
+</section>

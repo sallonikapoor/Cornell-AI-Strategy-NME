@@ -249,5 +249,79 @@
     ],
     "layout": "partials/live-layout.html",
     "moduleScripts": true
+  },
+  {
+    "source": "weeks/week-3.html",
+    "output": "week-3/index.html",
+    "title": "Week 03 · Prompting & Structured Outputs | Cornell AI Strategy",
+    "description": "Write prompts that get consistent, usable output from a model: briefing, consistency, structured output, and testing.",
+    "bodyClass": "week-three",
+    "skipLabel": "Skip to lesson",
+    "brandHref": "#overview",
+    "courseLabelHtml": "NEW MEMBER EDUCATION <span>/</span> FALL 2026",
+    "actionHref": "#practice",
+    "actionLabel": "Try it yourself",
+    "actionArrow": "↓",
+    "sidebarLabel": "Lesson chapters",
+    "badge": "03",
+    "subtitle": "Week three",
+    "subject": "Prompting & structured outputs",
+    "sidebarContextHtml": "<span class=\"small-label\">THIS WEEK’S QUESTION</span><p>How do you get the same good answer twice?</p>",
+    "chapters": [
+      {
+        "id": "overview",
+        "number": "00",
+        "label": "Overview"
+      },
+      {
+        "id": "brief",
+        "number": "01",
+        "label": "The brief"
+      },
+      {
+        "id": "build",
+        "number": "02",
+        "label": "Build a prompt"
+      },
+      {
+        "id": "consistency",
+        "number": "03",
+        "label": "Consistency"
+      },
+      {
+        "id": "structured",
+        "number": "04",
+        "label": "Structured output"
+      },
+      {
+        "id": "testing",
+        "number": "05",
+        "label": "Testing"
+      },
+      {
+        "id": "practice",
+        "number": "06",
+        "label": "Practice"
+      },
+      {
+        "id": "takeaways",
+        "number": "07",
+        "label": "The takeaway"
+      },
+      {
+        "id": "next",
+        "number": "08",
+        "label": "Before Week 4"
+      }
+    ],
+    "footerLabel": "NEW MEMBER EDUCATION / WEEK 03",
+    "styles": [
+      "assets/css/shared.css",
+      "assets/css/week-3.css"
+    ],
+    "scripts": [
+      "assets/js/shared.js",
+      "assets/js/week-3.js"
+    ]
   }
 ]
