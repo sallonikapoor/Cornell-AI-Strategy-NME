@@ -1,0 +1,20 @@
+<svg viewBox="0 0 790 290" xmlns="http://www.w3.org/2000/svg">
+<title>Writing rules by hand compared with learning them from examples</title>
+<desc>Top row: a person writes the rules, the program applies them to data, and answers come out. Bottom row: past examples and their known outcomes go into training, and the rules come out, as a model. The model is then used on new data to make predictions.</desc>
+<style>.b{fill:#f6f6f5;stroke:#d6d6d6}.br{fill:#b31b1b}.bk{fill:#191919}.t{font:600 14px Arial,Helvetica,sans-serif;fill:#191919}.tw{font:700 14px Arial,Helvetica,sans-serif;fill:#fff}.h{font:700 13px Arial,Helvetica,sans-serif;fill:#686868;letter-spacing:1.5px}.a{stroke:#686868;stroke-width:2;fill:none;marker-end:url(#arr)}</style>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#686868"/></marker></defs>
+<text x="0" y="18" class="h">WRITING RULES BY HAND</text>
+<rect x="0" y="32" width="180" height="40" class="b"/><text x="90" y="57" class="t" text-anchor="middle">Rules a person wrote</text>
+<rect x="0" y="82" width="180" height="40" class="b"/><text x="90" y="107" class="t" text-anchor="middle">Data</text>
+<path d="M188,77 H290" class="a"/>
+<rect x="300" y="52" width="180" height="50" class="bk"/><text x="390" y="82" class="tw" text-anchor="middle">Program</text>
+<path d="M488,77 H590" class="a"/>
+<rect x="600" y="52" width="180" height="50" class="b"/><text x="690" y="82" class="t" text-anchor="middle">Answers</text>
+<text x="0" y="168" class="h">MACHINE LEARNING</text>
+<rect x="0" y="182" width="180" height="40" class="b"/><text x="90" y="207" class="t" text-anchor="middle">Past examples</text>
+<rect x="0" y="232" width="180" height="40" class="b"/><text x="90" y="257" class="t" text-anchor="middle">Their known outcomes</text>
+<path d="M188,227 H290" class="a"/>
+<rect x="300" y="202" width="180" height="50" class="bk"/><text x="390" y="232" class="tw" text-anchor="middle">Training</text>
+<path d="M488,227 H590" class="a"/>
+<rect x="600" y="202" width="180" height="50" class="br"/><text x="690" y="224" class="tw" text-anchor="middle">Rules it found</text><text x="690" y="242" class="tw" text-anchor="middle" style="font-weight:500;font-size:12px">(the model)</text>
+</svg>

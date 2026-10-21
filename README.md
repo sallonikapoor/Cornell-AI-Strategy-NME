@@ -26,15 +26,15 @@ Fall 2026. This table is generated from the current [schedule data](src/data/wee
 | Week | Date | Topic | Status |
 | --- | --- | --- | --- |
 | 1 | September 30 | LLMs & the AI Landscape | [Available](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-1/) |
-| 2 | October 7 | [Scoping the Engagement](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-2/) | Available |
-| 3 | October 14 | Coming soon | Upcoming |
-| 4 | October 21 | Coming soon | Upcoming |
-| 5 | October 28 | Coming soon | Upcoming |
-| 6 | November 4 | Coming soon | Upcoming |
-| 7 | November 11 | Coming soon | Upcoming |
-| 8 | November 18 | Coming soon | Upcoming |
-| 9 | December 2 | Coming soon | Upcoming |
-| 10 | December 9 | Coming soon | Upcoming |
+| 2 | October 7 | Scoping the Engagement | [Available](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-2/) |
+| 3 | October 14 | Prompting & Structured Outputs | [Available](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-3/) |
+| 4 | October 21 | Machine Learning Fundamentals | [Available](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-4/) |
+| 5 | October 28 | Data Cleaning & Validation | Upcoming |
+| 6 | November 4 | AI-Assisted Coding | Upcoming |
+| 7 | November 11 | APIs & Automation | Upcoming |
+| 8 | November 18 | Retrieval & Grounding | Upcoming |
+| 9 | December 2 | Evaluation & Responsible AI | Upcoming |
+| 10 | December 9 | Portfolio Review | Upcoming |
 
 **No session on November 25 (Thanksgiving break).**
 

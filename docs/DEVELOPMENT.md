@@ -28,6 +28,7 @@ Open the [local hub](http://localhost:4174/) and [local Week 1 lesson](http://lo
 - `src/assets/css/week-1.css` and `src/assets/js/week-1.js`: Week 1 demonstrations, token animation, capability sort, and related styles. Only Week 1 loads these.
 - `src/assets/css/week-2.css` and `src/assets/js/week-2.js`: Week 2 discovery practice components.
 - `src/assets/css/week-2-support.css` and `src/assets/js/week-2-support.js`: separate facilitator and printable-card support; not loaded by the lesson.
+- `src/assets/css/week-4.css`, `src/assets/js/week-4.js`, and `src/assets/images/week-4/`: Week 4 quizzes, call-list widget, and lesson figures.
 - `src/assets/images/`: shared logo.
 - `scripts/build.mjs`: builds every registered page, copies assets, versions CSS/JS URLs, and validates local links, anchors, and duplicate IDs.
 - `scripts/render-schedule.mjs`: schedule rendering and validation.

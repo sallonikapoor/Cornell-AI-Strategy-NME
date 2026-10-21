@@ -1,0 +1,75 @@
+/* Week 4 components use the shared lesson palette and shell. */
+html:has(body.week-four){scroll-behavior:auto;scroll-padding-top:0}
+.week-four{--lesson-anchor-offset:102px}
+.week-four .chapter{scroll-margin-top:var(--lesson-anchor-offset)}
+.week-four .chapter.closing{min-height:calc(100vh - var(--lesson-anchor-offset))}
+.week-four .intro-meta,.week-four .note,.week-four .widget-controls output{color:var(--muted)}
+.week-four .plain-grid,.week-four .quiz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:26px 0}
+.week-four .three-columns{grid-template-columns:repeat(3,minmax(0,1fr))}
+.week-four .plain-grid>article{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.week-four .plain-grid h3,.week-four .plain-grid h4{font-size:19px}
+.week-four .plain-grid p{font-size:15px;margin-top:10px}
+.week-four .widget-controls{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 0;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.week-four .widget-controls button{min-height:44px}
+.week-four .widget-controls output{font-size:14px;font-weight:600}
+.week-four .quiz-card{border-top:2px solid var(--ink);padding:22px 0;min-width:0}
+.week-four .quiz-card h4{font-size:20px}
+.week-four .quiz-card fieldset{grid-template-columns:repeat(2,minmax(0,1fr));margin:18px 0 0}
+.week-four .quiz-card fieldset button{min-height:44px}
+.week-four .quiz-card fieldset button:disabled{cursor:default;opacity:1}
+.week-four .quiz-card .quiz-verdict{font-size:14px;font-weight:700;color:var(--red)}
+.week-four .quiz-answer{margin-top:18px;padding:14px 18px;border-left:3px solid var(--red);background:#faf2f1}
+.week-four .quiz-answer p{font-size:15px;margin:8px 0}
+.week-four .prompt-text{max-width:100%;min-width:0}
+.week-four .table-scroll{border:1px solid var(--line)}
+.week-four .table-scroll:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+.week-four #basics td:last-child strong{color:var(--red)}
+.week-four .lesson-figure,.week-four .video-embed{margin:32px 0}
+.week-four .lesson-figure img{display:block;width:100%;height:auto;padding:20px;border:1px solid var(--line);background:var(--paper)}
+.week-four figcaption{font-size:14px;line-height:1.6;color:var(--muted);margin-top:12px}
+.week-four .video-frame{width:100%;aspect-ratio:16/9;background:var(--wash)}
+.week-four .video-frame iframe{display:block;width:100%;height:100%;border:0}
+.week-four .video-embed figcaption{display:flex;flex-direction:column;gap:4px}
+.week-four .video-embed figcaption strong{color:var(--ink)}
+.week-four .source-link{font-size:14px}
+.week-four .outcome-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0}
+.week-four .outcome-grid article{border:1px solid var(--line);padding:24px}
+.week-four .outcome-number{display:block;font-size:38px;line-height:1.2;margin-bottom:12px}
+.week-four .outcome-number.at-risk{color:var(--red)}
+.week-four .outcome-grid h4{font-size:18px}
+.week-four .outcome-grid p{font-size:15px;margin-bottom:0}
+.week-four #call-list{margin:28px 0}
+.week-four .call-interactive{border-top:2px solid var(--ink);padding-top:22px}
+.week-four .call-toggles{display:flex;flex-wrap:wrap;gap:8px}
+.week-four .call-toggles button{font-family:inherit;font-size:14px;font-weight:600;line-height:1.4;background:var(--paper);border:1px solid var(--line);color:var(--ink);padding:12px 16px;min-height:44px;cursor:pointer}
+.week-four .call-toggles button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.week-four .call-toggles button:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.week-four .call-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:26px 0}
+.week-four .call-stats>div{padding:16px;background:var(--wash)}
+.week-four .call-stats dt{font-size:14px;color:var(--muted)}
+.week-four .call-stats dd{font-size:30px;font-weight:700;margin:8px 0 0}
+.week-four .call-bar{display:grid;grid-template-columns:1fr auto;gap:8px 12px;margin:20px 0;font-size:15px}
+.week-four .call-bar output{font-weight:700}
+.week-four .call-bar meter{grid-column:1/-1;width:100%;height:14px;appearance:none;border:0;background:var(--wash);border-radius:0}
+.week-four .call-bar meter::-webkit-meter-bar{background:var(--wash);border:0;border-radius:0}
+.week-four .call-bar meter::-webkit-meter-optimum-value{background:var(--red)}
+.week-four .call-bar meter::-moz-meter-bar{background:var(--red)}
+.week-four .call-note{padding:18px 20px;background:var(--wash);font-size:15px}
+.week-four .practice-list{padding-left:24px}
+.week-four .practice-list li{padding-left:6px;margin:16px 0}
+@media(max-width:850px){.week-four{--lesson-anchor-offset:150px}}
+@media(max-width:600px){
+.week-four .plain-grid,.week-four .quiz-grid{grid-template-columns:1fr;gap:18px}
+.week-four .widget-controls{gap:10px}
+.week-four .widget-controls output{font-size:12px}
+.week-four .intro-meta{display:flex;flex-wrap:wrap;gap:8px 18px;letter-spacing:.7px}
+.week-four .intro-meta span{margin:0}
+.week-four .intro-meta span+span:before{content:none}
+.week-four .lesson-figure img{padding:12px}
+.week-four .outcome-grid{gap:10px}
+.week-four .outcome-grid article{padding:16px}
+.week-four .outcome-number{font-size:32px}
+.week-four .call-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+}
+@media(prefers-reduced-motion:reduce){.week-four *{transition:none!important;animation:none!important}}
+@media print{.week-four .quiz-answer[hidden],.week-four .call-fallback[hidden]{display:block!important}.week-four .widget-controls,.week-four .call-interactive,.week-four fieldset{display:none!important}}

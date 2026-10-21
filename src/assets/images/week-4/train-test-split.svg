@@ -1,0 +1,13 @@
+<svg viewBox="0 0 880 170" xmlns="http://www.w3.org/2000/svg">
+<title>Splitting past records into training and test data</title>
+<desc>A bar representing 5,000 past member records. The first 4,000 are used to train the model. The last 1,000 are held back and only used at the end, to test the model on members it has never seen.</desc>
+<style>.s-h{font:700 15px Arial,Helvetica,sans-serif;fill:#191919}.s-t{font:13px Arial,Helvetica,sans-serif;fill:#525252}.s-w{font:700 15px Arial,Helvetica,sans-serif;fill:#fff}</style>
+<text x="0" y="20" class="s-h">5,000 past members, each with a known outcome</text>
+<rect x="0" y="40" width="696" height="58" fill="#191919"/>
+<rect x="704" y="40" width="176" height="58" fill="#b31b1b"/>
+<text x="20" y="75" class="s-w">4,000 used for training</text>
+<text x="720" y="75" class="s-w">1,000 held back</text>
+<text x="0" y="128" class="s-t">The model studies these. It sees every detail and every outcome.</text>
+<text x="880" y="128" class="s-t" text-anchor="end">Never shown to the model</text>
+<text x="880" y="148" class="s-t" text-anchor="end">until the final test.</text>
+</svg>

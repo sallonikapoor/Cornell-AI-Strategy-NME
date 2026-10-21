@@ -1,0 +1,61 @@
+<svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg">
+<title>A model that learns the trend next to a model that memorizes every point</title>
+<desc>Two charts of weekly spin class sign-ups over 12 weeks, rising from about 18 to about 47 with small ups and downs. On the left, a straight line follows the overall upward trend. On the right, a curvy line passes through every single point, swinging up and down with each bump.</desc>
+<style>.f-h{font:700 15px Arial,Helvetica,sans-serif;fill:#191919}.f-tick{font:12px Arial,Helvetica,sans-serif;fill:#686868}.f-axis{stroke:#191919;stroke-width:1.2}.f-grid{stroke:#e3e3e3;stroke-width:1}.f-dot{fill:#191919}.f-fit{stroke:#b31b1b;stroke-width:3;fill:none;stroke-linecap:round}</style>
+<text x="50" y="18" class="f-h">Learns the trend</text>
+<line x1="50" y1="250" x2="430" y2="250" class="f-axis"/>
+<line x1="50" y1="30" x2="50" y2="250" class="f-axis"/>
+<text x="42" y="254.0" class="f-tick" text-anchor="end">0</text>
+<text x="42" y="180.7" class="f-tick" text-anchor="end">20</text>
+<line x1="50" y1="176.7" x2="430" y2="176.7" class="f-grid"/>
+<text x="42" y="107.3" class="f-tick" text-anchor="end">40</text>
+<line x1="50" y1="103.3" x2="430" y2="103.3" class="f-grid"/>
+<text x="42" y="34.0" class="f-tick" text-anchor="end">60</text>
+<line x1="50" y1="30.0" x2="430" y2="30.0" class="f-grid"/>
+<text x="64.6" y="268" class="f-tick" text-anchor="middle">1</text>
+<text x="152.0" y="268" class="f-tick" text-anchor="middle">4</text>
+<text x="268.5" y="268" class="f-tick" text-anchor="middle">8</text>
+<text x="385.0" y="268" class="f-tick" text-anchor="middle">12</text>
+<text x="240.0" y="290" class="f-tick" text-anchor="middle">Week</text>
+<line x1="58.7" y1="182.4" x2="390.9" y2="83.0" class="f-fit"/>
+<circle cx="64.6" cy="184.0" r="4.5" class="f-dot"/>
+<circle cx="93.7" cy="162.0" r="4.5" class="f-dot"/>
+<circle cx="122.8" cy="176.7" r="4.5" class="f-dot"/>
+<circle cx="152.0" cy="143.7" r="4.5" class="f-dot"/>
+<circle cx="181.1" cy="151.0" r="4.5" class="f-dot"/>
+<circle cx="210.2" cy="129.0" r="4.5" class="f-dot"/>
+<circle cx="239.4" cy="140.0" r="4.5" class="f-dot"/>
+<circle cx="268.5" cy="107.0" r="4.5" class="f-dot"/>
+<circle cx="297.6" cy="121.7" r="4.5" class="f-dot"/>
+<circle cx="326.8" cy="96.0" r="4.5" class="f-dot"/>
+<circle cx="355.9" cy="103.3" r="4.5" class="f-dot"/>
+<circle cx="385.0" cy="77.7" r="4.5" class="f-dot"/>
+<text x="500" y="18" class="f-h">Memorizes every point</text>
+<line x1="500" y1="250" x2="880" y2="250" class="f-axis"/>
+<line x1="500" y1="30" x2="500" y2="250" class="f-axis"/>
+<text x="492" y="254.0" class="f-tick" text-anchor="end">0</text>
+<text x="492" y="180.7" class="f-tick" text-anchor="end">20</text>
+<line x1="500" y1="176.7" x2="880" y2="176.7" class="f-grid"/>
+<text x="492" y="107.3" class="f-tick" text-anchor="end">40</text>
+<line x1="500" y1="103.3" x2="880" y2="103.3" class="f-grid"/>
+<text x="492" y="34.0" class="f-tick" text-anchor="end">60</text>
+<line x1="500" y1="30.0" x2="880" y2="30.0" class="f-grid"/>
+<text x="514.6" y="268" class="f-tick" text-anchor="middle">1</text>
+<text x="602.0" y="268" class="f-tick" text-anchor="middle">4</text>
+<text x="718.5" y="268" class="f-tick" text-anchor="middle">8</text>
+<text x="835.0" y="268" class="f-tick" text-anchor="middle">12</text>
+<text x="690.0" y="290" class="f-tick" text-anchor="middle">Week</text>
+<clipPath id="overfit-clip"><rect x="500" y="30" width="380" height="220"/></clipPath><path clip-path="url(#overfit-clip)" d="M514.6,184.0 C529.1,184.0 529.1,162.0 543.7,162.0 C558.3,162.0 558.3,176.7 572.8,176.7 C587.4,176.7 587.4,143.7 602.0,143.7 C616.5,143.7 616.5,151.0 631.1,151.0 C645.7,151.0 645.7,129.0 660.2,129.0 C674.8,129.0 674.8,140.0 689.4,140.0 C703.9,140.0 703.9,107.0 718.5,107.0 C733.1,107.0 733.1,121.7 747.6,121.7 C762.2,121.7 762.2,96.0 776.8,96.0 C791.3,96.0 791.3,103.3 805.9,103.3 C820.5,103.3 820.5,77.7 835.0,77.7" class="f-fit f-wiggle"/>
+<circle cx="514.6" cy="184.0" r="4.5" class="f-dot"/>
+<circle cx="543.7" cy="162.0" r="4.5" class="f-dot"/>
+<circle cx="572.8" cy="176.7" r="4.5" class="f-dot"/>
+<circle cx="602.0" cy="143.7" r="4.5" class="f-dot"/>
+<circle cx="631.1" cy="151.0" r="4.5" class="f-dot"/>
+<circle cx="660.2" cy="129.0" r="4.5" class="f-dot"/>
+<circle cx="689.4" cy="140.0" r="4.5" class="f-dot"/>
+<circle cx="718.5" cy="107.0" r="4.5" class="f-dot"/>
+<circle cx="747.6" cy="121.7" r="4.5" class="f-dot"/>
+<circle cx="776.8" cy="96.0" r="4.5" class="f-dot"/>
+<circle cx="805.9" cy="103.3" r="4.5" class="f-dot"/>
+<circle cx="835.0" cy="77.7" r="4.5" class="f-dot"/>
+</svg>
