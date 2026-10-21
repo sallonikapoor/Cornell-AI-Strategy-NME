@@ -57,6 +57,19 @@ html:has(body.week-four){scroll-behavior:auto;scroll-padding-top:0}
 .week-four .call-note{padding:18px 20px;background:var(--wash);font-size:15px}
 .week-four .practice-list{padding-left:24px}
 .week-four .practice-list li{padding-left:6px;margin:16px 0}
+.week-four .type-blocks{margin:30px 0}
+.week-four .type-block{border-top:2px solid var(--ink);padding:24px 0 8px}
+.week-four .type-block>h3{font-size:22px}
+.week-four .type-facts{margin:18px 0;border-top:1px solid var(--line)}
+.week-four .type-facts>div{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px;padding:12px 0;border-bottom:1px solid var(--line)}
+.week-four .type-facts dt{font-size:14px;font-weight:700;color:var(--ink)}
+.week-four .type-facts dd{margin:0;font-size:15px;color:#525252}
+.week-four .type-watch{font-size:15px;padding:14px 18px;background:var(--wash)}
+.week-four #types tbody th{font-size:13px;color:var(--ink);background:var(--paper);font-weight:700}
+.week-four #types tbody td:nth-child(2){font-weight:400}
+.week-four #type-quiz fieldset{grid-template-columns:repeat(3,minmax(0,1fr))}
+.week-four .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:600px){.week-four .type-facts>div{grid-template-columns:1fr;gap:4px}.week-four #type-quiz fieldset{grid-template-columns:1fr}}
 @media(max-width:850px){.week-four{--lesson-anchor-offset:150px}}
 @media(max-width:600px){
 .week-four .plain-grid,.week-four .quiz-grid{grid-template-columns:1fr;gap:18px}

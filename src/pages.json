@@ -353,43 +353,48 @@
         "label": "What it is"
       },
       {
-        "id": "learning",
+        "id": "types",
         "number": "02",
+        "label": "Three kinds of problems"
+      },
+      {
+        "id": "learning",
+        "number": "03",
         "label": "How a model learns"
       },
       {
         "id": "features",
-        "number": "03",
+        "number": "04",
         "label": "What it looks at"
       },
       {
         "id": "measuring",
-        "number": "04",
+        "number": "05",
         "label": "Is it any good?"
       },
       {
         "id": "pitfalls",
-        "number": "05",
+        "number": "06",
         "label": "When it goes wrong"
       },
       {
         "id": "choosing",
-        "number": "06",
+        "number": "07",
         "label": "Picking the tool"
       },
       {
         "id": "practice",
-        "number": "07",
+        "number": "08",
         "label": "Practice"
       },
       {
         "id": "takeaways",
-        "number": "08",
+        "number": "09",
         "label": "The takeaway"
       },
       {
         "id": "next",
-        "number": "09",
+        "number": "10",
         "label": "Before Week 5"
       }
     ],
