@@ -26,6 +26,8 @@ html:has(body.week-five){scroll-behavior:auto;scroll-padding-top:0}
 .week-five .step-strip>div{border-top:2px solid var(--ink);padding:16px 0;font-size:15px;position:relative}
 .week-five .step-strip>div:not(:last-child):after{content:'→';position:absolute;right:-20px;top:16px;color:var(--red)}
 .week-five .step-strip strong{display:block;font-size:19px}
+.week-five .debugging-quote{margin:24px 0;padding:20px 24px;background:var(--wash);border-left:3px solid var(--red)}
+.week-five .debugging-quote p{margin:0}
 .week-five .glossary{margin:26px 0;border-top:1px solid var(--line)}
 .week-five .glossary>div{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
 .week-five .glossary dt{font-weight:700}
