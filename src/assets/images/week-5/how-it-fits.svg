@@ -1,0 +1,35 @@
+<svg viewBox="0 0 880 200" xmlns="http://www.w3.org/2000/svg">
+<title>How your tools fit together</title>
+<desc>Five boxes in a row. The ChatGPT app helps you plan. Codex writes and edits files in your project folder on your laptop. GitHub Desktop commits and pushes the folder to your GitHub repository, which keeps every saved version. GitHub Pages publishes the repository as a live website with a shareable link.</desc>
+<style>.b{fill:#f6f6f5;stroke:#d6d6d6}.bk{fill:#191919}.br{fill:#b31b1b}.t{font:700 15px Arial,Helvetica,sans-serif;fill:#191919}.tw{font:700 15px Arial,Helvetica,sans-serif;fill:#fff}.s{font:12.5px Arial,Helvetica,sans-serif;fill:#525252}.sw{font:12.5px Arial,Helvetica,sans-serif;fill:#eee}.l{font:600 12px Arial,Helvetica,sans-serif;fill:#686868}.l2{font:12px Arial,Helvetica,sans-serif;fill:#686868}.a{stroke:#686868;stroke-width:2;fill:none;marker-end:url(#arr)}</style>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="#686868"/></marker></defs>
+<text x="0" y="20" style="font:700 13px Arial,Helvetica,sans-serif;fill:#686868;letter-spacing:1.5px">HOW THE PIECES FIT</text>
+<rect x="0.0" y="40" width="150" height="96" class="b"/>
+<text x="75.0" y="74" class="t" text-anchor="middle">ChatGPT app</text>
+<text x="75.0" y="98" class="s" text-anchor="middle">Plan, ask questions,</text>
+<text x="75.0" y="116" class="s" text-anchor="middle">explain errors</text>
+<path d="M153.0,88.0 H179.5" class="a"/>
+<text x="166.25" y="164" class="l" text-anchor="middle">your plan</text>
+<rect x="182.5" y="40" width="150" height="96" class="bk"/>
+<text x="257.5" y="74" class="tw" text-anchor="middle">Codex</text>
+<text x="257.5" y="98" class="sw" text-anchor="middle">Writes and edits</text>
+<text x="257.5" y="116" class="sw" text-anchor="middle">your files</text>
+<path d="M335.5,88.0 H362.0" class="a"/>
+<text x="348.75" y="164" class="l" text-anchor="middle">edits</text>
+<rect x="365.0" y="40" width="150" height="96" class="br"/>
+<text x="440.0" y="74" class="tw" text-anchor="middle">Project folder</text>
+<text x="440.0" y="98" class="sw" text-anchor="middle">On your laptop</text>
+<path d="M518.0,88.0 H544.5" class="a"/>
+<text x="531.25" y="164" class="l" text-anchor="middle">commit + push</text>
+<rect x="547.5" y="40" width="150" height="96" class="bk"/>
+<text x="622.5" y="74" class="tw" text-anchor="middle">GitHub</text>
+<text x="622.5" y="98" class="sw" text-anchor="middle">Your repository:</text>
+<text x="622.5" y="116" class="sw" text-anchor="middle">every saved version</text>
+<path d="M700.5,88.0 H727.0" class="a"/>
+<text x="713.75" y="164" class="l" text-anchor="middle">publishes</text>
+<rect x="730.0" y="40" width="150" height="96" class="b"/>
+<text x="805.0" y="74" class="t" text-anchor="middle">GitHub Pages</text>
+<text x="805.0" y="98" class="s" text-anchor="middle">Your live website,</text>
+<text x="805.0" y="116" class="s" text-anchor="middle">with a shareable link</text>
+<text x="531.25" y="182" class="l2" text-anchor="middle">(GitHub Desktop)</text>
+</svg>

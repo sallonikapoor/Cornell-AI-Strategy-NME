@@ -1,0 +1,77 @@
+/* Week 5 extends the shared lesson shell. */
+html:has(body.week-five){scroll-behavior:auto;scroll-padding-top:0}
+.week-five{--lesson-anchor-offset:102px}
+.week-five .chapter{scroll-margin-top:var(--lesson-anchor-offset)}
+.week-five .chapter.closing{min-height:calc(100vh - var(--lesson-anchor-offset))}
+.week-five .intro-meta,.week-five .note{color:var(--muted)}
+.week-five .plain-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:26px 0}
+.week-five .three-columns{grid-template-columns:repeat(3,minmax(0,1fr))}
+.week-five .plain-grid>article{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.week-five .plain-grid h3,.week-five .plain-grid h4{font-size:19px}
+.week-five .plain-grid p{font-size:15px;margin-top:10px}
+.week-five .plain-grid ul{padding-left:20px}
+.week-five .plain-grid li,.week-five .practice-list li{margin:12px 0}
+.week-five .callout{padding:22px 26px;margin:28px 0;background:var(--wash);border-left:3px solid var(--red)}
+.week-five .callout p{margin:10px 0 0}
+.week-five .callout p:first-child{margin-top:0}
+.week-five .sentence-template{font-size:26px;line-height:1.6;padding:24px 28px;background:var(--wash);border-left:3px solid var(--red)}
+.week-five .lesson-figure{margin:32px 0}
+.week-five .lesson-figure img{display:block;width:100%;height:auto;padding:20px;border:1px solid var(--line);background:var(--paper)}
+.week-five figcaption{font-size:14px;line-height:1.6;color:var(--muted);margin-top:12px}
+.week-five .table-scroll{border:1px solid var(--line)}
+.week-five .table-scroll:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+.week-five .table-heading{font-size:19px;margin:26px 0 14px}
+.week-five .step-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:24px 0;gap:24px}
+.week-five .step-strip.five-steps{grid-template-columns:repeat(5,minmax(0,1fr))}
+.week-five .step-strip>div{border-top:2px solid var(--ink);padding:16px 0;font-size:15px;position:relative}
+.week-five .step-strip>div:not(:last-child):after{content:'→';position:absolute;right:-20px;top:16px;color:var(--red)}
+.week-five .step-strip strong{display:block;font-size:19px}
+.week-five .glossary{margin:26px 0;border-top:1px solid var(--line)}
+.week-five .glossary>div{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.week-five .glossary dt{font-weight:700}
+.week-five .glossary dd{margin:0;color:var(--muted)}
+.week-five .setup-steps{list-style:none;counter-reset:setup;padding:0;margin:30px 0}
+.week-five .setup-steps>li{counter-increment:setup;position:relative;border-top:2px solid var(--ink);padding:28px 0 28px 56px;min-width:0}
+.week-five .setup-steps>li:before{content:counter(setup,decimal-leading-zero);position:absolute;left:0;top:25px;font-size:26px;line-height:1.4;font-weight:700;color:var(--red)}
+.week-five .setup-steps>li>h3{font-size:24px;line-height:1.4}
+.week-five .setup-steps ul{padding-left:20px}
+.week-five .setup-steps ul li{margin:10px 0}
+.week-five .done-when{padding:14px 18px;background:var(--wash);color:var(--ink)}
+.week-five .done-when:before{content:'✓';color:var(--red);font-weight:700;margin-right:10px}
+.week-five .prompt-text{max-width:100%;min-width:0}
+.week-five .prompt-heading h4{font-size:20px;line-height:1.4}
+.week-five .copy-prompt{flex-shrink:0;min-height:44px}
+.week-five .submit-line .text-button{font-size:21.3px}
+.week-five .checklist{list-style:none;padding:0;margin:24px 0}
+.week-five .checklist li{position:relative;padding:14px 0 14px 28px;border-bottom:1px solid var(--line)}
+.week-five .checklist li:before{content:'☐';position:absolute;left:0;color:var(--red)}
+.week-five .full-example>div{padding:24px}
+.week-five .full-example h4{font-size:20px;margin:24px 0 12px}
+.week-five .full-example h4:first-child{margin-top:0}
+.week-five .full-example li{margin:10px 0}
+.week-five code{overflow-wrap:anywhere}
+@media(max-width:1100px){
+.week-five .three-columns{grid-template-columns:1fr}
+.week-five .step-strip,.week-five .step-strip.five-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.week-five .step-strip>div:after{display:none}
+.week-five .glossary>div{grid-template-columns:140px minmax(0,1fr)}
+.week-five .prompt-heading{flex-wrap:wrap;gap:12px}
+.week-five .setup-steps>li{padding-left:44px}
+}
+@media(max-width:850px){.week-five{--lesson-anchor-offset:150px}}
+@media(max-width:600px){
+.week-five .plain-grid,.week-five .step-strip,.week-five .step-strip.five-steps{grid-template-columns:1fr;gap:18px}
+.week-five .intro-meta{display:flex;flex-wrap:wrap;gap:8px 18px;letter-spacing:.7px}
+.week-five .intro-meta span{margin:0}
+.week-five .intro-meta span+span:before{content:none}
+.week-five .lesson-figure img{padding:12px}
+.week-five .callout,.week-five .sentence-template{padding:18px 20px}
+.week-five .sentence-template{font-size:22px}
+.week-five .glossary>div{grid-template-columns:1fr;gap:6px}
+.week-five .setup-steps>li{padding:24px 0}
+.week-five .setup-steps>li:before{position:static;display:block;margin-bottom:8px}
+.week-five .setup-steps>li>h3{font-size:22px}
+.week-five .prompt-heading{align-items:flex-start;flex-direction:column}
+.week-five .full-example>div{padding:18px}
+}
+@media(prefers-reduced-motion:reduce){.week-five *{transition:none!important;animation:none!important}}
