@@ -91,6 +91,6 @@ Open the [local preview](http://localhost:4174/). No dependency installation is 
 
 ## Contact
 
-Salloni Kapoor · [sk3482@cornell.edu](mailto:sk3482@cornell.edu) · [confirm: LinkedIn URL] · [confirm: personal site, if any]
+Salloni Kapoor · [sk3482@cornell.edu](mailto:sk3482@cornell.edu) · [LinkedIn](https://www.linkedin.com/in/sallonikapoor/) · [confirm: personal site, if any]
 
 Week 2 is a scrolling lesson with a five-question discovery practice. The separate facilitator notes and printable client cards remain available; see [the support-page guide](README-live-session.md).
