@@ -30,7 +30,7 @@ Fall 2026. This table is generated from the current [schedule data](src/data/wee
 | 3 | October 14 | Prompting & Structured Outputs | [Available](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-3/) |
 | 4 | October 21 | Machine Learning Fundamentals | [Available](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-4/) |
 | 5 | October 28 | AI-Assisted Coding | [Available](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-5/) |
-| 6 | November 4 | Data Cleaning & Validation | Upcoming |
+| 6 | November 4 | Data Cleaning & Validation | [Available](https://sallonikapoor.github.io/Cornell-AI-Strategy-NME/week-6/) |
 | 7 | November 11 | APIs & Automation | Upcoming |
 | 8 | November 18 | Retrieval & Grounding | Upcoming |
 | 9 | December 2 | Evaluation & Responsible AI | Upcoming |

@@ -1,0 +1,185 @@
+<section id="overview" class="chapter intro">
+<a class="text-button lesson-home" href="../">← New Member Education</a>
+<div class="eyebrow">WEEK 06 / DATA CLEANING &amp; VALIDATION</div>
+<h1 class="">Data cleaning and validation.</h1>
+<p class="lead">Find the problems in a dataset, fix them with documented decisions, and add validation so your project rejects bad data.</p>
+<div class="intro-meta"><span>About 60 minutes</span><span>Laptop required</span><span>Live or self-paced</span><span>Portfolio piece #4</span></div>
+<p>This week your project starts working with data. Most data has problems when it arrives: dates in different formats, the same category spelled several ways, repeated rows, and extra rows like totals. If a project uses that data without checking it, its results are wrong, and nothing warns you.</p>
+<p>In this lesson you will:</p>
+<ul class=""><li>Create a practice dataset for your project with problems built in.</li><li>Find each problem and record it by row number.</li><li>Decide how to handle each problem and create a clean copy of the file.</li><li>Add an import feature that checks every row and rejects the ones that break your rules.</li><li>Document what you did in your README and publish the update.</li></ul>
+<h3 class="subheading">Tonight&#x27;s plan</h3>
+<div class="step-strip five-steps"><div><strong>Create the dataset</strong> · 10 min</div><div><strong>Find the problems</strong> · 10 min</div><div><strong>Clean the data</strong> · 15 min</div><div><strong>Add validation</strong> · 15 min</div><div><strong>Publish</strong> · 10 min</div></div>
+<h3 class="subheading">Tonight&#x27;s finish line</h3>
+<div class="plain-grid"><article><h4>Before you leave tonight:</h4><ul class=""><li><code>data/raw.csv</code> is in your project.</li><li>You&#x27;ve written down at least six problems and a decision for each.</li><li><code>data/clean.csv</code> exists, and the row counts add up.</li><li>Your work is committed and pushed.</li></ul></article><article><h4>By November 11:</h4><ul class=""><li>An Import CSV feature that rejects bad rows and explains why</li><li>Three data tests in your README&#x27;s test table</li><li>A Data section in your README</li><li>Your submission</li></ul></article></div>
+<aside class="callout"><p><strong>You need version 1 first.</strong></p><p>This lesson adds to the project from Week 5. If you haven&#x27;t set it up yet, complete the <a href="../week-5/#setup">Week 5 setup steps</a> first.</p></aside>
+<div class="section-bridge"><a href="#why">Why data quality matters →</a></div>
+</section>
+<section id="why" class="chapter">
+<div class="eyebrow">01 / WHY DATA QUALITY MATTERS</div>
+<h2 class="chapter-title">Why data quality matters.</h2>
+<p class="lead">Bad data rarely causes an error message. It causes wrong results that look correct.</p>
+<p>Two well-known examples:</p>
+<ul><li><strong>Mars Climate Orbiter (1999).</strong> NASA lost a $125 million spacecraft because one team&#x27;s software produced measurements in English units and another team&#x27;s software expected metric units. The numbers looked reasonable, but they meant something different from what the receiving system assumed. <a href="https://www.guinnessworldrecords.com/world-records/101255-most-expensive-metric-imperial-conversion-error" target="_blank" rel="noopener">Read more</a></li><li><strong>Gene names in Excel (2020).</strong> Scientists renamed 27 human genes, including SEPT1 and MARCH1, because Excel automatically converted those names into dates in research spreadsheets. <a href="https://mjtsai.com/blog/2020/08/07/renaming-human-genes-for-excel/" target="_blank" rel="noopener">Read more</a></li></ul>
+<p>The same kinds of problems affect small projects. A spending total is wrong because one amount includes a dollar sign the code can&#x27;t read. A deadline is missing because its date was written &quot;Oct 4.&quot; A category appears twice because one row says &quot;Food&quot; and another says &quot;food.&quot;</p>
+<h3 class="subheading">Common data problems</h3>
+<div class="plain-grid"><article><h4>Missing values.</h4><p>A required cell is blank, such as an expense with no amount.</p></article><article><h4>Inconsistent formats.</h4><p>The same type of value is written in different ways, such as <code>2026-10-02</code>, <code>10/02/2026</code>, and <code>Oct 2 2026</code>.</p></article><article><h4>Inconsistent labels.</h4><p>One category is spelled several ways, such as <code>Food</code>, <code>food</code>, and <code>FOOD </code> (with a trailing space).</p></article><article><h4>Duplicates.</h4><p>The same row appears more than once. Sometimes this is an error, and sometimes it reflects two real events.</p></article><article><h4>Impossible or unusual values.</h4><p>A value that can&#x27;t be right, such as a date in the future, or one that is allowed but unusual, such as an amount ten times larger than the rest.</p></article><article><h4>Rows that aren&#x27;t data.</h4><p>Totals, notes, or repeated headers mixed in with the records.</p></article></div>
+<h3 class="subheading">Cleaning and validation</h3>
+<div class="plain-grid"><article><h4>Cleaning</h4><p>corrects one specific file. You review each problem and decide how to handle it.</p></article><article><h4>Validation</h4><p>checks every file your project receives in the future. Each cleaning decision becomes a rule, and the project applies those rules automatically when data is imported.</p></article></div>
+<p>This lesson covers both: you clean one file by hand, then add validation so the same problems are caught automatically.</p>
+<div class="section-bridge"><a href="#get">Create a practice dataset →</a></div>
+</section>
+<section id="get" class="chapter">
+<div class="eyebrow">02 / GET YOUR DATA</div>
+<h2 class="chapter-title">Create a practice dataset.</h2>
+<p class="lead">Generate a made-up dataset that fits your project, with problems included on purpose.</p>
+<p>Your project should not use real personal data, so you&#x27;ll use ChatGPT to create a practice file. The prompt asks ChatGPT to include common problems without telling you where they are, so you can practice finding them.</p>
+<ol class="setup-steps"><li><h3>Generate the file.</h3><p>Open the ChatGPT desktop app (or <a href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com</a>), paste this prompt, and replace the bracketed text with your project sentence.</p><div class="prompt-card"><div class="prompt-heading"><h4>Generate messy data</h4><button type="button" class="copy-prompt" data-copy="generate-prompt">Copy prompt</button></div><pre class="prompt-text" id="generate-prompt">I&#x27;m building this project: [your project sentence]
+
+Create a realistic but completely made-up CSV file for it, with about 25 rows and 4 to 6 columns that fit my project.
+
+Make it messy the way real exported data is. Scatter at least six of these problems through the file: dates written in different formats, numbers with symbols or commas, the same category spelled different ways, blank cells, an exact duplicate row, an impossible value (like a date in the future or a negative where that makes no sense), an unusually large value, and a totals row at the bottom.
+
+Give me only the CSV, in a code block. Don&#x27;t tell me which problems you included. Later I&#x27;ll ask you for the answer key.</pre><p class="copy-status" role="status" aria-live="polite"></p></div><p class="done-when">Done when: ChatGPT gives you a block of comma-separated rows.</p></li><li><h3>Add it to your project.</h3><p>In Codex, open your project and send this, with the CSV pasted in:</p><div class="prompt-card"><div class="prompt-heading"><h4>Save the raw data</h4><button type="button" class="copy-prompt" data-copy="save-prompt">Copy prompt</button></div><pre class="prompt-text" id="save-prompt">Create a file at data/raw.csv with exactly the content below. Don&#x27;t change, fix, or reformat anything in it.
+
+[paste the CSV here]</pre><p class="copy-status" role="status" aria-live="polite"></p></div><p class="done-when">Done when: you can open <code>data/raw.csv</code> in your project folder and it matches what ChatGPT gave you.</p></li><li><h3>Commit it.</h3><p>In GitHub Desktop, commit with the summary <code>Add raw data</code> and push.</p><p class="done-when">Done when: <code>data/raw.csv</code> shows up in your repository on github.com.</p></li></ol>
+<aside class="callout"><p><strong>Do not edit raw.csv after this step.</strong></p><p>It is your original file. All fixes go into a separate file, <code>clean.csv</code>, so you can always compare the two and show exactly what changed.</p></aside>
+<h3 class="subheading">Example: a bank export</h3>
+<p>This lesson uses the spending tracker as its example. Below is its raw file: a made-up bank export with 24 expenses and a totals row. Row numbers match a spreadsheet, where the header is row 1. Try to find the problems before you open the answer in the next section.</p>
+<div class="table-scroll raw-data" tabindex="0"><table><thead><tr><th scope="col">Row</th><th scope="col">Date</th><th scope="col">Description</th><th scope="col">Amount</th><th scope="col">Category</th></tr></thead><tbody><tr><td>2</td><td>2026-10-01</td><td>Collegetown Bagels</td><td>8.75</td><td>Food</td></tr><tr><td>3</td><td>2026-10-01</td><td>TCAT bus pass</td><td>$45.00</td><td>Transport</td></tr><tr><td>4</td><td>10/02/2026</td><td>Wegmans</td><td>62.18</td><td>food</td></tr><tr><td>5</td><td>2026-10-03</td><td>Movie tickets</td><td>24.00</td><td>Fun</td></tr><tr><td>6</td><td>Oct 4 2026</td><td>Starbucks</td><td>6.45</td><td>Food</td></tr><tr><td>7</td><td>2026-10-05</td><td>Uber to airport</td><td>38.20</td><td>transport</td></tr><tr><td>8</td><td>2026-10-05</td><td>Uber to airport</td><td>38.20</td><td>transport</td></tr><tr><td>9</td><td>2026-10-06</td><td>Concert tickets</td><td>$1,200.00</td><td>Fun</td></tr><tr><td>10</td><td>10/07/2026</td><td>Trader Joe&#x27;s</td><td>41.03</td><td>FOOD<span class="data-space">␣</span></td></tr><tr><td>11</td><td>2026-10-08</td><td>Phone case</td><td>19.99</td><td><em class="data-blank">(blank)</em></td></tr><tr><td>12</td><td>2026-10-09</td><td>Refund: phone case</td><td>-19.99</td><td>Other</td></tr><tr><td>13</td><td>2026-10-10</td><td>Chipotle</td><td>13.40</td><td>Food</td></tr><tr><td>14</td><td>2026-10-11</td><td>Gas</td><td>$40.00</td><td>Transport</td></tr><tr><td>15</td><td>2027-10-12</td><td>Bowling</td><td>18.00</td><td>Fun</td></tr><tr><td>16</td><td>2026-10-13</td><td>Coffee</td><td>5.25</td><td>Food</td></tr><tr><td>17</td><td>2026-10-13</td><td>Coffee</td><td>5.25</td><td>Food</td></tr><tr><td>18</td><td>Oct 14 2026</td><td>Printer paper</td><td>11.50</td><td>Other</td></tr><tr><td>19</td><td>2026-10-15</td><td>Spotify</td><td>11.99</td><td>Fun</td></tr><tr><td>20</td><td>2026-10-16</td><td>Late-night pizza</td><td><em class="data-blank">(blank)</em></td><td>Food</td></tr><tr><td>21</td><td>2026-10-17</td><td>Bike repair</td><td>32.00</td><td>Transport</td></tr><tr><td>22</td><td>10/18/2026</td><td>Halloween costume</td><td>27.60</td><td><em class="data-blank">(blank)</em></td></tr><tr><td>23</td><td>2026-10-19</td><td>Wegmans</td><td>54.90</td><td>Food</td></tr><tr><td>24</td><td>2026-10-20</td><td>Train to NYC</td><td>$89.00</td><td>transport</td></tr><tr><td>25</td><td>2026-10-21</td><td>Museum entry</td><td>15.00</td><td>Fun</td></tr><tr><td>26</td><td><em class="data-blank">(blank)</em></td><td>TOTAL</td><td><em class="data-blank">(blank)</em></td><td>$1,787.70</td></tr></tbody></table></div>
+<p class="note"><a href="../assets/data/week-6/raw.csv" download>Download this file (raw.csv)</a></p>
+<div class="section-bridge"><a href="#find">Find the problems →</a></div>
+</section>
+<section id="find" class="chapter">
+<div class="eyebrow">03 / FIND THE PROBLEMS</div>
+<h2 class="chapter-title">Find the problems.</h2>
+<p class="lead">List every problem, with row numbers, before you change anything.</p>
+<ol class="setup-steps"><li><h3>Review the file yourself.</h3><p>Open <code>data/raw.csv</code> in a text editor, or view it in <a href="https://sheets.new" target="_blank" rel="noopener">Google Sheets</a> (then File → Import). Review it for two minutes, using the common problems from section 01 as a checklist, and write down anything that looks wrong. Don&#x27;t save changes from the spreadsheet app.</p><p class="done-when">Done when: you have your own list of problems.</p></li><li><h3>Have Codex inspect it.</h3><div class="prompt-card"><div class="prompt-heading"><h4>Inspect the data</h4><button type="button" class="copy-prompt" data-copy="inspect-prompt">Copy prompt</button></div><pre class="prompt-text" id="inspect-prompt">Look at data/raw.csv. Don&#x27;t change any files. Report:
+- How many rows of data it has, not counting the header
+- For each column: what kind of values it should hold, and every row where a value doesn&#x27;t fit (blank, wrong format, impossible, or spelled differently from the rest)
+- Any rows that repeat exactly
+- Any rows that aren&#x27;t data at all, like totals or notes
+- Any values that are valid but unusual enough that a person should check them
+
+Use spreadsheet row numbers, counting the header as row 1.</pre><p class="copy-status" role="status" aria-live="polite"></p></div><p class="done-when">Done when: you have Codex&#x27;s report.</p></li><li><h3>Check against the answer key.</h3><p>In the same ChatGPT chat where you created the file, ask: <code>Now list every problem you put in the file, with row numbers.</code></p><p>Compare the three lists: yours, Codex&#x27;s, and the answer key. Combine them into one complete list.</p><p class="done-when">Done when: you have one list that includes every problem.</p></li></ol>
+<aside class="callout"><p><strong>AI inspection is a first pass.</strong></p><p>Codex may miss problems or report ones that aren&#x27;t real. Compare its report against your own review and the answer key before you rely on it.</p></aside>
+<h3 class="subheading">Example: problems in the bank export</h3>
+<details class="answer-reveal"><summary>Show the problems in the example file <span aria-hidden="true">+</span></summary><div><div class="table-scroll " tabindex="0"><table><thead><tr><th scope="col">Problem</th><th scope="col">Rows</th></tr></thead><tbody><tr><td>Dates written three different ways</td><td>4, 6, 10, 18, 22</td></tr><tr><td>Amounts with dollar signs or commas</td><td>3, 9, 14, 24</td></tr><tr><td>Categories spelled differently (capitals, a trailing space)</td><td>4, 7, 8, 10, 24</td></tr><tr><td>Blank category</td><td>11, 22</td></tr><tr><td>The same Uber ride listed twice</td><td>7 and 8</td></tr><tr><td>Two identical $5.25 coffees on October 13</td><td>16 and 17</td></tr><tr><td>A refund (negative amount) and the purchase it cancels</td><td>11 and 12</td></tr><tr><td>A date in 2027</td><td>15</td></tr><tr><td>A missing amount</td><td>20</td></tr><tr><td>A totals row at the bottom</td><td>26</td></tr><tr><td>A $1,200 concert ticket, much larger than any other expense</td><td>9</td></tr></tbody></table></div></div></details>
+<div class="section-bridge"><a href="#clean">Clean the data →</a></div>
+</section>
+<section id="clean" class="chapter">
+<div class="eyebrow">04 / DECIDE AND CLEAN</div>
+<h2 class="chapter-title">Clean the data.</h2>
+<p class="lead">Decide how to handle each problem, record the decision, and create a clean copy of the file.</p>
+<h3 class="subheading">Ways to handle a problem</h3>
+<div class="plain-grid"><article><h4>Fix it.</h4><p>The correct value is clear. Example: change <code>Oct 4 2026</code> to <code>2026-10-04</code>.</p></article><article><h4>Remove it.</h4><p>The row is not a valid record. Example: a totals row, or a duplicate created by an export error.</p></article><article><h4>Keep it and flag it.</h4><p>The value is allowed but unusual, so someone should confirm it. Example: a $1,200 concert ticket.</p></article><article><h4>Set it aside for review.</h4><p>The correct value can&#x27;t be determined from the file. Example: a date in 2027 may be a typo for 2026, but that can&#x27;t be confirmed.</p></article></div>
+<p>Two rules apply to every decision:</p>
+<ul class=""><li><strong>Don&#x27;t guess.</strong> If a fix would require inventing a value, set the row aside for review instead.</li><li><strong>Account for every row.</strong> Rows in the clean file plus rows removed or set aside must equal the rows in the raw file.</li></ul>
+<h3 class="subheading">Example: decisions for the bank export</h3>
+<div class="table-scroll " tabindex="0"><table><thead><tr><th scope="col">Problem</th><th scope="col">Rows</th><th scope="col">Decision</th></tr></thead><tbody><tr><td>Dates written three ways</td><td>4, 6, 10, 18, 22</td><td>Fixed: rewrote them as YYYY-MM-DD</td></tr><tr><td>Dollar signs and commas</td><td>3, 9, 14, 24</td><td>Fixed: removed the symbols</td></tr><tr><td>Categories spelled differently</td><td>4, 7, 8, 10, 24</td><td>Fixed: matched them to Food, Transport, Fun, or Other</td></tr><tr><td>Blank category</td><td>11, 22</td><td>Fixed: set to Other (row 11 was removed anyway)</td></tr><tr><td>Uber ride listed twice</td><td>8</td><td>Removed: the same ride exported twice</td></tr><tr><td>Two identical coffees</td><td>16, 17</td><td>Kept both: buying two coffees in a day is normal</td></tr><tr><td>Refund and the purchase it cancels</td><td>11, 12</td><td>Removed both: they cancel out, and the tracker doesn&#x27;t handle refunds yet</td></tr><tr><td>Date in 2027</td><td>15</td><td>Set aside for review: could be a typo, but we won&#x27;t guess</td></tr><tr><td>Missing amount</td><td>20</td><td>Set aside for review</td></tr><tr><td>Totals row</td><td>26</td><td>Removed: it isn&#x27;t an expense</td></tr><tr><td>$1,200 concert ticket</td><td>9</td><td>Kept and flagged: allowed, but someone should confirm it</td></tr></tbody></table></div>
+<p>The two coffees and the two Uber rides are both exact duplicates, but they&#x27;re handled differently. Two coffees in one day is common, while the same airport ride twice in the same day is almost certainly an export error. Decisions like this require judgment, which is why each one is written down.</p>
+<h3 class="subheading">Problem log</h3>
+<p>Create a table with the same three columns (Problem, Rows, Decision), with one row per problem. You&#x27;ll give it to Codex in the next step and add it to your README at the end.</p>
+<div class="prompt-card"><div class="prompt-heading"><h4>Template: problem log</h4><button type="button" class="copy-prompt" data-copy="log-template">Copy table</button></div><pre hidden id="log-template">| Problem | Rows | Decision |
+|---|---|---|
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |</pre><div class="table-scroll " tabindex="0"><table><thead><tr><th scope="col">Problem</th><th scope="col">Rows</th><th scope="col">Decision</th></tr></thead><tbody><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table></div><p class="copy-status" role="status" aria-live="polite"></p></div>
+<h3 class="subheading">Create the clean file</h3>
+<div class="prompt-card"><div class="prompt-heading"><h4>Clean the data</h4><button type="button" class="copy-prompt" data-copy="clean-prompt">Copy prompt</button></div><pre class="prompt-text" id="clean-prompt">Create data/clean.csv from data/raw.csv by following my decisions exactly. Don&#x27;t change data/raw.csv.
+
+My decisions:
+[paste your problem log]
+
+When you&#x27;re done, tell me how many rows are in clean.csv, which raw rows you removed or set aside and why, and anything my decisions didn&#x27;t cover. Don&#x27;t guess on anything my decisions don&#x27;t cover. Ask me instead.</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<h3 class="subheading">Check the clean file</h3>
+<ol class="setup-steps"><li><h3>Check the row count.</h3><p>Rows in raw.csv (not counting the header) should equal rows in clean.csv plus rows removed or set aside.</p><p>In the example: 25 = 19 + 6.</p><p class="done-when">Done when: your numbers add up exactly.</p></li><li><h3>Check a total, if your data has numbers.</h3><p>In the example, the raw file&#x27;s totals row is $1,787.70 and the clean file adds up to $1,731.50. The $56.20 difference is the removed duplicate Uber ride ($38.20) plus the bowling expense set aside for review ($18.00). The refund and its purchase cancel out, and the pizza row had no amount.</p><p class="done-when">Done when: you can account for any difference between the raw and clean totals.</p></li><li><h3>Spot-check three rows.</h3><p>Pick three rows you fixed and compare them, side by side, in raw.csv and clean.csv.</p><p class="done-when">Done when: all three match your decisions.</p></li></ol>
+<p>Then commit with the summary <code>Add clean data</code> and push.</p>
+<p class="note"><a href="../assets/data/week-6/clean.csv" download>Download the example&#x27;s clean file (clean.csv)</a></p>
+<div class="section-bridge"><a href="#validate">Add validation →</a></div>
+</section>
+<section id="validate" class="chapter">
+<div class="eyebrow">05 / VALIDATE</div>
+<h2 class="chapter-title">Add validation.</h2>
+<p class="lead">Turn your cleaning decisions into rules, and have your project check every imported row against them.</p>
+<h3 class="subheading">Write validation rules</h3>
+<p>Most decisions in your problem log can become a rule: a check that each row either passes or fails. Write each rule specifically enough that, when a row fails, the message tells the person what to fix.</p>
+<p>Rules for the spending tracker:</p>
+<ol class="practice-list"><li><strong>Date</strong> is written YYYY-MM-DD, is a real date, and isn&#x27;t in the future.</li><li><strong>Description</strong> isn&#x27;t blank.</li><li><strong>Amount</strong> is a plain number above zero, with no symbols.</li><li><strong>Category</strong> is exactly Food, Transport, Fun, or Other.</li></ol>
+<p>One warning, which imports the row but labels it:</p>
+<ul class=""><li>A row that exactly matches an earlier row is marked &quot;possible duplicate.&quot; It isn&#x27;t rejected, because identical purchases can be real.</li></ul>
+<p>Not every decision becomes a rule. The $1,200 concert ticket passes all four rules, because large purchases are allowed. Checks like that remain a person&#x27;s responsibility.</p>
+<h3 class="subheading">Add an import feature</h3>
+<div class="prompt-card"><div class="prompt-heading"><h4>Add Import CSV</h4><button type="button" class="copy-prompt" data-copy="import-prompt">Copy prompt</button></div><pre class="prompt-text" id="import-prompt">Add an &quot;Import CSV&quot; feature to my project.
+
+- A button that lets me choose a CSV file from my computer.
+- Read the CSV correctly, including values in quotes that contain commas.
+- Check every row against these rules:
+  [paste your rules]
+- Load the rows that pass. Don&#x27;t load rows that fail.
+- After importing, show a short report: how many rows were loaded, how many were rejected, and for each rejected row, its row number (counting the header as row 1) and the reason.
+- If a row exactly repeats an earlier row, load it but show a &quot;possible duplicate&quot; warning.
+- Keep everything that already works. Follow AGENTS.md.
+
+When you&#x27;re done, tell me how to test it with data/raw.csv and data/clean.csv.</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<h3 class="subheading">Test the import</h3>
+<p>Add three data tests to your test table. Fill in &quot;What should happen&quot; before you run them.</p>
+<h4>Example: the spending tracker&#x27;s data tests</h4>
+<div class="table-scroll " tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">Kind</th><th scope="col">What I do</th><th scope="col">What should happen</th><th scope="col">What happened</th><th scope="col">Pass?</th></tr></thead><tbody><tr><td>6</td><td>Data</td><td>Import data/clean.csv</td><td>19 rows load, 0 rejected, 1 duplicate warning (the second coffee)</td><td>19 loaded, 0 rejected, 1 warning on row 13</td><td>✓</td></tr><tr><td>7</td><td>Data</td><td>Import data/raw.csv</td><td>9 rows load and 16 are rejected, each with a reason</td><td>9 loaded, 16 rejected with reasons, 1 warning on row 17</td><td>✓</td></tr><tr><td>8</td><td>Data</td><td>Import a file with one row whose amount is &quot;$20&quot;</td><td>The row is rejected: the amount must be a plain number above zero</td><td>Rejected with that reason</td><td>✓</td></tr></tbody></table></div>
+<p>If a test fails, describe the problem precisely: what you did, what should have happened, what happened instead, and what should not change.</p>
+<div class="prompt-card"><div class="prompt-heading"><h4>Fix a failed data test</h4><button type="button" class="copy-prompt" data-copy="fix-prompt">Copy prompt</button></div><pre class="prompt-text" id="fix-prompt">I imported [which file] and expected [what should happen], but [what actually happened]. Fix only that, and don&#x27;t change the layout or anything that already works. Then tell me how to check it.</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<aside class="callout"><p><strong>raw.csv should fail validation.</strong></p><p>If your raw file imports with no rejected rows, the rules aren&#x27;t being applied. Test 7 confirms that validation is working.</p></aside>
+<p>Then commit with the summary <code>Add CSV import with validation</code> and push.</p>
+<div class="section-bridge"><a href="#ship">Update and publish →</a></div>
+</section>
+<section id="ship" class="chapter">
+<div class="eyebrow">06 / DOCUMENT AND SHIP</div>
+<h2 class="chapter-title">Update the README and publish.</h2>
+<p class="lead">Your README should show what was wrong with the data, what you decided, and how the project checks data now.</p>
+<div class="prompt-card"><div class="prompt-heading"><h4>Update the README</h4><button type="button" class="copy-prompt" data-copy="readme-prompt">Copy prompt</button></div><pre class="prompt-text" id="readme-prompt">Update README.md. Keep everything that&#x27;s already there, and add:
+
+1. A &quot;Data&quot; section with:
+   - Where the data came from: a made-up practice file generated for this project
+   - A table of the problems I found: problem, rows, and what I decided. Use this log: [paste your problem log]
+   - The validation rules the import uses
+   - The check that the rows add up: rows in raw.csv = rows in clean.csv + rows removed or set aside, with my numbers
+2. My three data tests, added to the Tests table: [paste tests 6 to 8]
+3. A build log entry for this week: what I asked for, what happened, and how I checked it. Keep it honest, including anything that went wrong.
+4. A line in &quot;Changes&quot; for the import feature.
+
+Keep it short and plain.</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<p>Review the README and correct anything that isn&#x27;t accurate. Commit with the summary <code>Document data cleaning</code> and push. After a minute or two, open your live site, import both files, and confirm the results match your tests.</p>
+<div class="section-bridge"><a href="#stuck">Common problems →</a></div>
+</section>
+<section id="stuck" class="chapter">
+<div class="eyebrow">07 / COMMON PROBLEMS</div>
+<h2 class="chapter-title">Common problems and fixes.</h2>
+<div class="self-checks"><details class=""><summary>The generated data doesn&#x27;t fit my project. <span aria-hidden="true">+</span></summary><div><p>Ask again with more detail: &quot;My project tracks [what]. The columns should be [list them].&quot; If your project doesn&#x27;t obviously use a table, ask ChatGPT what kind of list it could import, such as past workouts, assignments, or recipes.</p></div></details><details class=""><summary>Codex changed raw.csv. <span aria-hidden="true">+</span></summary><div><p>Discard the change in GitHub Desktop (right-click the file, then <strong>Discard changes</strong>). Then remind Codex in your next message: &quot;Never edit data/raw.csv. Write all changes to data/clean.csv.&quot;</p></div></details><details class=""><summary>My row counts don&#x27;t add up. <span aria-hidden="true">+</span></summary><div><p>Ask Codex: &quot;List every row number from raw.csv and say whether it&#x27;s in clean.csv, removed, or set aside.&quot; The missing row is usually a blank line or the header being counted.</p></div></details><details class=""><summary>The import button does nothing. <span aria-hidden="true">+</span></summary><div><p>Open the page, then open your browser&#x27;s developer console (right-click the page, choose <strong>Inspect</strong>, then <strong>Console</strong>), try the import again, and screenshot any red error. Paste the screenshot into the ChatGPT app and ask what to tell Codex.</p></div></details><details class=""><summary>raw.csv imports with no rejections. <span aria-hidden="true">+</span></summary><div><p>Your rules aren&#x27;t being applied, or they&#x27;re too loose. Paste your rules and Codex&#x27;s import code into the ChatGPT app and ask: &quot;Which of these rules would reject a date written as 10/02/2026? Show me where in the code.&quot;</p></div></details><details class=""><summary>My spreadsheet app changed the data. <span aria-hidden="true">+</span></summary><div><p>Spreadsheet apps can convert values into dates or remove leading zeros, as happened with the gene names. You can view the file in a spreadsheet app, but don&#x27;t save it there. Make all edits through Codex.</p></div></details></div>
+<div class="section-bridge"><a href="#portfolio">Your deliverable →</a></div>
+</section>
+<section id="portfolio" class="chapter">
+<div class="eyebrow">08 / PORTFOLIO PIECE #4</div>
+<h2 class="chapter-title">Submit version 2 of your project.</h2>
+<div class="assignment-meta"><span>DUE NOV 11, 7:00 PM</span><span>TWO LINKS</span><span>BUILDS ON VERSION 1</span></div>
+<p class="submit-line"><a class="text-button" href="https://drive.google.com/drive/folders/1qkEHepSmy9qLz-Hu1ne3AuNzH2ivOScg?usp=drive_link" target="_blank" rel="noopener noreferrer">Submit Here</a></p>
+<p class="lead">Submit links to your repository and live site, updated with clean data and validation.</p>
+<h3 class="subheading">What to submit</h3>
+<p>Upload one document (a Google Doc, Word file, or PDF) named <code>Lastname_Firstname_Week6</code> to the submission folder, with two lines:</p>
+<ol class="practice-list"><li>The link to your repository.</li><li>The link to your live site.</li></ol>
+<h3 class="subheading">Before you submit</h3>
+<ul class="checklist"><li>Your repository has <code>data/raw.csv</code>, unchanged since you added it, and <code>data/clean.csv</code>.</li><li>On your live site, importing <code>clean.csv</code> loads every row, and importing <code>raw.csv</code> rejects the bad rows with a reason for each.</li><li>Your README&#x27;s Data section lists at least six problems, each with its rows and your decision.</li><li>Your README lists your validation rules and shows that your row counts add up.</li><li>Your test table has three data tests, each with what should happen and what did.</li><li>Your build log has an honest entry for this week.</li><li>You have at least four new commits: &quot;Add raw data,&quot; &quot;Add clean data,&quot; &quot;Add CSV import with validation,&quot; and &quot;Document data cleaning.&quot;</li><li>All the data is made up. Nothing real, nothing private.</li></ul>
+<p>These are also what we&#x27;ll look for when we review it.</p>
+<h3 class="subheading">Next week</h3>
+<p>Next week you&#x27;ll connect your project to an outside service, such as a live data source, or automate one of its steps. You&#x27;ll also plan for what happens when that service is unavailable. Your validation rules will apply there too, since data from other services can have the same problems.</p>
+<div class="section-bridge"><a href="#next">Before Week 7 →</a></div>
+</section>
+<section id="next" class="chapter closing">
+<div class="eyebrow">09 / BEFORE WEEK 7</div>
+<h2 class="chapter-title">Put the lesson to work.</h2>
+<ul class="next-list"><li><div><h3>Portfolio piece #4</h3><p>Upload a document named <code>Lastname_Firstname_Week6</code> with your repository link and your live site link. Due Wednesday, November 11, 7:00 PM.</p></div><a class="text-button" href="https://drive.google.com/drive/folders/1qkEHepSmy9qLz-Hu1ne3AuNzH2ivOScg?usp=drive_link" target="_blank" rel="noopener noreferrer">Submit Here</a></li><li><div><h3>Test your import with new mistakes</h3><p>Optional. Create a small CSV with errors your rules don&#x27;t cover yet, and import it. Any bad row that gets through shows a rule you should add.</p></div></li></ul>
+<div class="next-week"><span class="small-label">NEXT WEEK / 07</span><h3>APIs and automation</h3><p>Connect your project to a live data source or automate one of its steps, and plan for what happens when the other service fails.</p></div>
+<p class="note">Questions? Reach out to Salloni Kapoor, <a href="mailto:sk3482@cornell.edu">sk3482@cornell.edu</a></p>
+<a class="text-button back-top" href="#overview">Back to the beginning ↑</a>
+</section>

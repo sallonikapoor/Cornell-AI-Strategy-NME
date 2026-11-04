@@ -1,0 +1,62 @@
+/* Week 6 extends the shared lesson shell. */
+html:has(body.week-six){scroll-behavior:auto;scroll-padding-top:0}
+.week-six{--lesson-anchor-offset:102px}
+.week-six .chapter{scroll-margin-top:var(--lesson-anchor-offset)}
+.week-six .chapter.closing{min-height:calc(100vh - var(--lesson-anchor-offset))}
+.week-six .intro-meta,.week-six .note{color:var(--muted)}
+.week-six .plain-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:26px 0}
+.week-six .plain-grid>article{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+.week-six .plain-grid h3,.week-six .plain-grid h4{font-size:19px}
+.week-six .plain-grid p{font-size:15px;margin-top:10px}
+.week-six .plain-grid ul{padding-left:20px}
+.week-six .plain-grid li,.week-six .practice-list li{margin:12px 0}
+.week-six .callout{padding:22px 26px;margin:28px 0;background:var(--wash);border-left:3px solid var(--red)}
+.week-six .callout p{margin:10px 0 0}
+.week-six .callout p:first-child{margin-top:0}
+.week-six .table-scroll{border:1px solid var(--line)}
+.week-six .table-scroll:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+.week-six .table-heading{font-size:19px;margin:26px 0 14px}
+.week-six .step-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:24px 0;gap:24px}
+.week-six .step-strip.five-steps{grid-template-columns:repeat(5,minmax(0,1fr))}
+.week-six .step-strip>div{border-top:2px solid var(--ink);padding:16px 0;font-size:15px;position:relative}
+.week-six .step-strip>div:not(:last-child):after{content:'→';position:absolute;right:-20px;top:16px;color:var(--red)}
+.week-six .step-strip strong{display:block;font-size:19px}
+.week-six .setup-steps{list-style:none;counter-reset:setup;padding:0;margin:30px 0}
+.week-six .setup-steps>li{counter-increment:setup;position:relative;border-top:2px solid var(--ink);padding:28px 0 28px 56px;min-width:0}
+.week-six .setup-steps>li:before{content:counter(setup,decimal-leading-zero);position:absolute;left:0;top:25px;font-size:26px;line-height:1.4;font-weight:700;color:var(--red)}
+.week-six .setup-steps>li>h3{font-size:24px;line-height:1.4}
+.week-six .setup-steps ul{padding-left:20px}
+.week-six .setup-steps ul li{margin:10px 0}
+.week-six .done-when{padding:14px 18px;background:var(--wash);color:var(--ink)}
+.week-six .done-when:before{content:'✓';color:var(--red);font-weight:700;margin-right:10px}
+.week-six .prompt-text{max-width:100%;min-width:0}
+.week-six .prompt-heading h4{font-size:20px;line-height:1.4}
+.week-six .copy-prompt{flex-shrink:0;min-height:44px}
+.week-six .submit-line .text-button{font-size:21.3px}
+.week-six .checklist{list-style:none;padding:0;margin:24px 0}
+.week-six .checklist li{position:relative;padding:14px 0 14px 28px;border-bottom:1px solid var(--line)}
+.week-six .checklist li:before{content:'☐';position:absolute;left:0;color:var(--red)}
+.week-six code{overflow-wrap:anywhere}
+@media(max-width:1100px){
+.week-six .step-strip,.week-six .step-strip.five-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.week-six .step-strip>div:after{display:none}
+.week-six .prompt-heading{flex-wrap:wrap;gap:12px}
+.week-six .setup-steps>li{padding-left:44px}
+}
+@media(max-width:850px){.week-six{--lesson-anchor-offset:150px}}
+@media(max-width:600px){
+.week-six .plain-grid,.week-six .step-strip,.week-six .step-strip.five-steps{grid-template-columns:1fr;gap:18px}
+.week-six .intro-meta{display:flex;flex-wrap:wrap;gap:8px 18px;letter-spacing:.7px}
+.week-six .intro-meta span{margin:0}
+.week-six .intro-meta span+span:before{content:none}
+.week-six .setup-steps>li{padding:24px 0}
+.week-six .setup-steps>li:before{position:static;display:block;margin-bottom:8px}
+.week-six .setup-steps>li>h3{font-size:22px}
+.week-six .prompt-heading{align-items:flex-start;flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){.week-six *{transition:none!important;animation:none!important}}
+
+.week-six .table-scroll{max-width:100%;overflow-x:auto}
+.week-six .raw-data table{min-width:650px}
+.week-six .raw-data th:first-child,.week-six .raw-data td:first-child{width:48px}
+.week-six .data-blank,.week-six .data-space{color:var(--muted)}

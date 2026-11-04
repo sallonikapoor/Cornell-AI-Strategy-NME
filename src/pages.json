@@ -481,5 +481,84 @@
       "assets/js/shared.js",
       "assets/js/week-5.js"
     ]
+  },
+  {
+    "source": "weeks/week-6.html",
+    "output": "week-6/index.html",
+    "title": "Week 06 · Data Cleaning & Validation | Cornell AI Strategy",
+    "description": "Find what's wrong with a messy dataset, clean it with clear decisions, and add validation to your project so bad data gets caught.",
+    "bodyClass": "week-six",
+    "skipLabel": "Skip to lesson",
+    "brandHref": "#overview",
+    "courseLabelHtml": "NEW MEMBER EDUCATION <span>/</span> FALL 2026",
+    "actionHref": "#portfolio",
+    "actionLabel": "Your deliverable",
+    "actionArrow": "↓",
+    "sidebarLabel": "Lesson chapters",
+    "badge": "06",
+    "subtitle": "Week six",
+    "subject": "Data cleaning & validation",
+    "sidebarContextHtml": "<span class=\"small-label\">THIS WEEK’S QUESTION</span><p>Can you trust this data?</p>",
+    "chapters": [
+      {
+        "id": "overview",
+        "number": "00",
+        "label": "Overview"
+      },
+      {
+        "id": "why",
+        "number": "01",
+        "label": "Why data quality matters"
+      },
+      {
+        "id": "get",
+        "number": "02",
+        "label": "Create a practice dataset"
+      },
+      {
+        "id": "find",
+        "number": "03",
+        "label": "Find the problems"
+      },
+      {
+        "id": "clean",
+        "number": "04",
+        "label": "Clean the data"
+      },
+      {
+        "id": "validate",
+        "number": "05",
+        "label": "Add validation"
+      },
+      {
+        "id": "ship",
+        "number": "06",
+        "label": "Update and publish"
+      },
+      {
+        "id": "stuck",
+        "number": "07",
+        "label": "Common problems"
+      },
+      {
+        "id": "portfolio",
+        "number": "08",
+        "label": "Portfolio piece #4"
+      },
+      {
+        "id": "next",
+        "number": "09",
+        "label": "Before Week 7"
+      }
+    ],
+    "footerLabel": "NEW MEMBER EDUCATION / WEEK 06",
+    "styles": [
+      "assets/css/shared.css",
+      "assets/css/week-6.css"
+    ],
+    "scripts": [
+      "assets/js/shared.js",
+      "assets/js/week-6.js"
+    ]
   }
 ]
