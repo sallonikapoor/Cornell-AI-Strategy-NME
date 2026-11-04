@@ -60,3 +60,4 @@ html:has(body.week-six){scroll-behavior:auto;scroll-padding-top:0}
 .week-six .raw-data table{min-width:650px}
 .week-six .raw-data th:first-child,.week-six .raw-data td:first-child{width:48px}
 .week-six .data-blank,.week-six .data-space{color:var(--muted)}
+@media(max-width:600px){.week-six .technical-table table{min-width:38rem}}
