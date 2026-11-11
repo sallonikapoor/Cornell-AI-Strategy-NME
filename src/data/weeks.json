@@ -5,7 +5,7 @@
   {"week": 4, "date": "2026-10-21", "title": "Machine Learning Fundamentals", "link": "week-4/", "status": "available"},
   {"week": 5, "date": "2026-10-28", "title": "AI-Assisted Coding", "link": "week-5/", "status": "available"},
   {"week": 6, "date": "2026-11-04", "title": "Data Cleaning & Validation", "link": "week-6/", "status": "available"},
-  {"week": 7, "date": "2026-11-11", "title": "APIs & Automation", "link": null, "status": "coming-soon"},
+  {"week": 7, "date": "2026-11-11", "title": "APIs & Automation", "link": "week-7/", "status": "available"},
   {"week": 8, "date": "2026-11-18", "title": "Retrieval & Grounding", "link": null, "status": "coming-soon"},
   {"week": null, "date": "2026-11-25", "title": "No NME (Thanksgiving break).", "link": null, "status": "break"},
   {"week": 9, "date": "2026-12-02", "title": "Evaluation & Responsible AI", "link": null, "status": "coming-soon"},

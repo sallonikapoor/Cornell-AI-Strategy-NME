@@ -1,0 +1,269 @@
+<section id="overview" class="chapter intro">
+<a class="text-button lesson-home" href="../">← New Member Education</a>
+<div class="eyebrow">WEEK 07 / APIS &amp; AUTOMATION</div>
+<h1>APIs and automation.</h1>
+<p class="lead">Learn how software asks other software for data, how to read what comes back, and when an API is the right tool.</p>
+<div class="intro-meta"><span>About 60 minutes</span><span>Laptop helpful</span><span>Live or self-paced</span><span>Portfolio piece #5</span></div>
+<p>Most apps are built partly from other services. A weather app gets its forecast from a weather service. A checkout page sends card details to a payment company. The ChatGPT app sends your message to OpenAI&#x27;s servers and shows the reply that comes back. Each of those connections is an API.</p>
+<p>In this lesson you will:</p>
+<ul><li>Learn what an API is and the parts of a request and a response.</li><li>Send real requests to a weather API and read the responses, including errors.</li><li>See how code calls an API and what it does when the call fails.</li><li>Learn what limits which APIs a website can use: keys, rate limits, and CORS.</li><li>Decide when an API is the right tool and when it isn&#x27;t.</li></ul>
+<h3 class="subheading">Tonight&#x27;s plan</h3>
+<div class="step-strip five-steps"><div><strong>What an API is</strong> · 10 min</div><div><strong>Requests and responses</strong> · 15 min</div><div><strong>Calling an API from code</strong> · 15 min</div><div><strong>When to use an API</strong> · 10 min</div><div><strong>Your deliverable</strong> · 10 min</div></div>
+<h3 class="subheading">Tonight&#x27;s finish line</h3>
+<div class="plain-grid"><article><h4>Before you leave tonight:</h4><ul><li>You can name the parts of a request URL.</li><li>You&#x27;ve opened an API response in your browser and found one value in it.</li><li>You&#x27;ve seen a request fail and know what its status code means.</li><li>You&#x27;ve picked the API you&#x27;ll use for your project.</li></ul></article><article><h4>By November 18:</h4><ul><li>A live API feature in your project that keeps working when the API fails</li><li>Two response tests on your tests page and three API tests in your README</li><li>An API section in your README</li><li>Your submission</li></ul></article></div>
+<aside class="callout"><p><strong>You&#x27;ll build this week&#x27;s feature at home.</strong></p><p>Tonight is about how APIs work. The build steps are in <a href="#portfolio">section 09</a>, and you can start them tonight if there&#x27;s time.</p></aside>
+<div class="section-bridge"><a href="#what">What an API is →</a></div>
+</section>
+<section id="what" class="chapter">
+<div class="eyebrow">01 / WHAT AN API IS</div>
+<h2 class="chapter-title">What an API is.</h2>
+<p class="lead">An API is a set of rules for how one program asks another program for data or for an action.</p>
+<p>API stands for application programming interface. People use an app through its interface: buttons, forms, and screens. Programs use another program through its API: a fixed list of requests they can send and the responses they&#x27;ll get back.</p>
+<p>Most APIs you&#x27;ll use work over the web. One program, the <strong>client</strong>, sends a <strong>request</strong> to an address on the internet. Another program, the <strong>server</strong>, does the work and sends back a <strong>response</strong>. In this lesson the client is your web page.</p>
+<div class="step-strip"><div><strong>Request.</strong> Your code sends a message to a web address saying what it wants.</div><div><strong>Processing.</strong> The server checks the request, then looks up the data or does the action.</div><div><strong>Response.</strong> The server sends back a status code and, usually, data.</div><div><strong>Use.</strong> Your code reads the response and updates the page.</div></div>
+<h3 class="subheading">What an API gives you</h3>
+<div class="plain-grid"><article><h4>Data.</h4><p>Information someone else collects and keeps current: weather, exchange rates, sports scores, flight times.</p></article><article><h4>Actions.</h4><p>Work that takes a large system to do: charging a card, sending an email or text, translating text.</p></article><article><h4>Access to another app.</h4><p>Reading or changing your data in apps like Google Calendar, Slack, or GitHub.</p></article><article><h4>AI models.</h4><p>Sending text to a model like GPT or Claude and getting its response back. Most AI features in apps are built this way.</p></article></div>
+<h3 class="subheading">An API is a contract</h3>
+<p>Every API has documentation, usually called the docs. The docs list what you can ask for and what you&#x27;ll get back: the addresses, the options each one accepts, and the shape of each response. As long as both sides follow the docs, the client doesn&#x27;t need to know how the server works inside, and the server can change its internals without breaking any client.</p>
+<aside class="callout"><p><strong>You&#x27;ve already used several APIs.</strong></p><p>Codex sends your prompts to OpenAI&#x27;s servers through an API. GitHub Desktop uses GitHub&#x27;s API to sign you in and list your repositories. When your site deploys, the last step calls the GitHub Pages API.</p></aside>
+<div class="section-bridge"><a href="#request">The parts of a request →</a></div>
+</section>
+<section id="request" class="chapter">
+<div class="eyebrow">02 / THE PARTS OF A REQUEST</div>
+<h2 class="chapter-title">The parts of a request.</h2>
+<p class="lead">A request says where it&#x27;s going, what kind of action it is, and any details the server needs.</p>
+<h3 class="subheading">The address</h3>
+<p>Here&#x27;s a real request to <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">Open-Meteo</a>, a free weather API. It asks for the current temperature in Ithaca, in Fahrenheit:</p>
+<div class="prompt-card"><div class="prompt-heading"><h4>Request URL</h4><button type="button" class="copy-prompt" data-copy="request-url">Copy code</button></div><pre class="prompt-text" id="request-url">https://api.open-meteo.com/v1/forecast?latitude=42.44&amp;longitude=-76.50&amp;current=temperature_2m&amp;temperature_unit=fahrenheit</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<div class="table-scroll technical-table" tabindex="0"><table><thead><tr><th scope="col">Part</th><th scope="col">In this request</th><th scope="col">What it does</th></tr></thead><tbody><tr><td>Protocol</td><td><code>https://</code></td><td>How the request travels. The <code>s</code> means it&#x27;s encrypted.</td></tr><tr><td>Host</td><td><code>api.open-meteo.com</code></td><td>The server that receives the request.</td></tr><tr><td>Path</td><td><code>/v1/forecast</code></td><td>Which part of the API you&#x27;re calling. A path like this is called an endpoint. <code>v1</code> is the API&#x27;s version.</td></tr><tr><td>Query string</td><td><code>?latitude=42.44&amp;longitude=-76.50&amp;...</code></td><td>Options for the request, written as <code>name=value</code> pairs. <code>?</code> starts the list and <code>&amp;</code> separates each pair.</td></tr><tr><td>Parameters</td><td><code>latitude</code>, <code>longitude</code>, <code>current</code>, <code>temperature_unit</code></td><td>The option names. The docs list which ones each endpoint accepts.</td></tr></tbody></table></div>
+<p><strong>Try it.</strong> <a href="https://api.open-meteo.com/v1/forecast?latitude=42.44&amp;longitude=-76.50&amp;current=temperature_2m&amp;temperature_unit=fahrenheit" target="_blank" rel="noopener">Open the request in your browser</a>. The browser sends the request and shows the raw response. Then change <code>latitude</code> and <code>longitude</code> to another city&#x27;s and load it again. The endpoint is the same, the parameters are different, and so is the data.</p>
+<h3 class="subheading">The method</h3>
+<p>Every request has a method, which says what kind of action it is. Opening a link in your browser always sends a GET.</p>
+<div class="table-scroll technical-table" tabindex="0"><table><thead><tr><th scope="col">Method</th><th scope="col">What it does</th><th scope="col">Example</th></tr></thead><tbody><tr><td><code>GET</code></td><td>Reads data. Changes nothing.</td><td>Get the forecast.</td></tr><tr><td><code>POST</code></td><td>Creates something, or sends data to be processed.</td><td>Send a message to an AI model. Submit a payment.</td></tr><tr><td><code>PUT</code> or <code>PATCH</code></td><td>Updates something that exists. <code>PUT</code> replaces it, and <code>PATCH</code> changes part of it.</td><td>Change the time of a calendar event.</td></tr><tr><td><code>DELETE</code></td><td>Removes something.</td><td>Delete a calendar event.</td></tr></tbody></table></div>
+<p>This week you&#x27;ll only use GET.</p>
+<h3 class="subheading">Headers and body</h3>
+<p>A request can also carry <strong>headers</strong> and a <strong>body</strong>.</p>
+<p>Headers are labels with extra information, written as <code>name: value</code>. Two you&#x27;ll see often:</p>
+<ul><li><code>Content-Type: application/json</code> says the body is written in JSON.</li><li><code>Authorization: Bearer [key]</code> says who is sending the request. Section 05 covers keys.</li></ul>
+<p>The body is the data being sent. It&#x27;s used with POST, PUT, and PATCH. A GET request has no body, so everything it needs goes in the URL.</p>
+<div class="section-bridge"><a href="#response">Reading the response →</a></div>
+</section>
+<section id="response" class="chapter">
+<div class="eyebrow">03 / READING THE RESPONSE</div>
+<h2 class="chapter-title">Reading the response.</h2>
+<p class="lead">A response has a status code that says what happened and a body that holds the data.</p>
+<h3 class="subheading">Status codes</h3>
+<p>The status code is a three-digit number. Its first digit gives the category: 2 means it worked, 4 means something was wrong with the request, and 5 means something went wrong on the server.</p>
+<div class="table-scroll technical-table" tabindex="0"><table><thead><tr><th scope="col">Code</th><th scope="col">Meaning</th><th scope="col">What to do</th></tr></thead><tbody><tr><td><code>200 OK</code></td><td>It worked. The data is in the body.</td><td>Use the data.</td></tr><tr><td><code>400 Bad Request</code></td><td>The server couldn&#x27;t read the request, often because a parameter is missing or misspelled.</td><td>Compare the request with the docs.</td></tr><tr><td><code>401 Unauthorized</code></td><td>The key is missing or wrong.</td><td>Check the key.</td></tr><tr><td><code>403 Forbidden</code></td><td>The key works but isn&#x27;t allowed to do this.</td><td>Check your plan or permissions.</td></tr><tr><td><code>404 Not Found</code></td><td>Nothing exists at that address.</td><td>Check the path for typos.</td></tr><tr><td><code>429 Too Many Requests</code></td><td>You&#x27;ve passed the rate limit.</td><td>Wait, then send fewer requests.</td></tr><tr><td><code>500 Internal Server Error</code></td><td>Something broke on the server.</td><td>Try again later. It isn&#x27;t caused by your code.</td></tr><tr><td><code>503 Service Unavailable</code></td><td>The server is down or overloaded.</td><td>Try again later, and show a message until then.</td></tr></tbody></table></div>
+<p>A failed request can still have a body. Many APIs use it to explain what went wrong.</p>
+<h3 class="subheading">JSON</h3>
+<p>Most APIs send data as JSON (JavaScript Object Notation): plain text in a format code can read directly. The Ithaca request returns a response like this one, shortened:</p>
+<div class="prompt-card"><div class="prompt-heading"><h4>Response body</h4><button type="button" class="copy-prompt" data-copy="response-json">Copy code</button></div><pre class="prompt-text" id="response-json">{
+  &quot;latitude&quot;: 42.43,
+  &quot;longitude&quot;: -76.5,
+  &quot;timezone&quot;: &quot;GMT&quot;,
+  &quot;current_units&quot;: {
+    &quot;time&quot;: &quot;iso8601&quot;,
+    &quot;temperature_2m&quot;: &quot;°F&quot;
+  },
+  &quot;current&quot;: {
+    &quot;time&quot;: &quot;2026-11-11T19:00&quot;,
+    &quot;temperature_2m&quot;: 41.2
+  }
+}</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<div class="table-scroll technical-table" tabindex="0"><table><thead><tr><th scope="col">Part</th><th scope="col">Example</th><th scope="col">What it is</th></tr></thead><tbody><tr><td>Object</td><td><code>{ ... }</code></td><td>A group of named values, inside curly braces.</td></tr><tr><td>Key</td><td><code>&quot;temperature_2m&quot;</code></td><td>The name of a value. Always in double quotes.</td></tr><tr><td>Value</td><td><code>41.2</code></td><td>The data. It can be text (<code>&quot;°F&quot;</code>), a number (<code>41.2</code>), <code>true</code> or <code>false</code>, <code>null</code> for empty, an object, or a list.</td></tr><tr><td>Array</td><td><code>[ ... ]</code></td><td>An ordered list of values, inside square brackets.</td></tr><tr><td>Nesting</td><td><code>&quot;current&quot;: { ... }</code></td><td>An object inside another object.</td></tr></tbody></table></div>
+<p>To reach a value, follow the keys from the outside in. In code, the temperature is <code>data.current.temperature_2m</code>: start at the whole response (<code>data</code>), open <code>current</code>, then read <code>temperature_2m</code>. In an array, positions start at 0, so <code>items[0]</code> is the first item.</p>
+<p>Read the whole response before deciding what to use. This one also tells you the unit (<code>°F</code>) and the time. The time is in GMT, not Ithaca time, unless you add <code>&amp;timezone=auto</code> to the request.</p>
+<h3 class="subheading">Send a request from this page</h3>
+<p>These buttons send real requests to Open-Meteo. Compare the status code and body of each.</p>
+<div class="api-demo"
+     data-good-url="https://api.open-meteo.com/v1/forecast?latitude=42.44&amp;longitude=-76.50&amp;current=temperature_2m&amp;temperature_unit=fahrenheit"
+     data-bad-url="https://api.open-meteo.com/v1/forecast?latitude=42.44&amp;longitude=-76.50&amp;current=temperture_2m&amp;temperature_unit=fahrenheit">
+  <div class="api-demo-buttons">
+    <button type="button" class="text-button" data-demo="good">Send a good request</button>
+    <button type="button" class="text-button" data-demo="bad">Send a bad request</button>
+  </div>
+  <p class="api-demo-status" role="status" aria-live="polite">Click a button to send a request.</p>
+  <pre class="api-demo-body" tabindex="0" aria-label="Response body"></pre>
+</div>
+<noscript><p>Turn on JavaScript to send requests from this page, or open the request in your browser instead.</p></noscript>
+<p>The bad request misspells one parameter, <code>temperture_2m</code>. The server answers <code>400</code> and its body says which value it couldn&#x27;t read. When a request fails, that message is the first thing to check.</p>
+<div class="section-bridge"><a href="#code">Calling an API from code →</a></div>
+</section>
+<section id="code" class="chapter">
+<div class="eyebrow">04 / CALLING AN API FROM CODE</div>
+<h2 class="chapter-title">Calling an API from code.</h2>
+<p class="lead">In a web page, JavaScript sends requests with <code>fetch</code>. Your code has to handle the response, and the cases where no response arrives.</p>
+<p>This is the kind of code Codex writes for a GET request, shortened to the parts that matter:</p>
+<div class="prompt-card"><div class="prompt-heading"><h4>Get the temperature</h4><button type="button" class="copy-prompt" data-copy="fetch-code">Copy code</button></div><pre class="prompt-text" id="fetch-code">async function getTemperature() {
+  const url = &quot;https://api.open-meteo.com/v1/forecast?latitude=42.44&amp;longitude=-76.50&amp;current=temperature_2m&amp;temperature_unit=fahrenheit&quot;;
+
+  const response = await fetch(url, { signal: AbortSignal.timeout(8000) });
+
+  if (!response.ok) {
+    throw new Error(&quot;The weather service answered &quot; + response.status);
+  }
+
+  const data = await response.json();
+  return data.current.temperature_2m;
+}</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<div class="table-scroll technical-table" tabindex="0"><table><thead><tr><th scope="col">Code</th><th scope="col">What it does</th></tr></thead><tbody><tr><td><code>async function</code></td><td>Marks a function that waits on something. The rest of the page keeps working while it waits.</td></tr><tr><td><code>fetch(url, ...)</code></td><td>Sends the request.</td></tr><tr><td><code>await</code></td><td>Waits for the result before running the next line.</td></tr><tr><td><code>AbortSignal.timeout(8000)</code></td><td>Cancels the request after 8 seconds (8,000 milliseconds) instead of waiting forever.</td></tr><tr><td><code>response.ok</code></td><td><code>true</code> for status codes 200 to 299. Anything else means the request failed.</td></tr><tr><td><code>throw new Error(...)</code></td><td>Stops the function and reports the failure to the code that called it.</td></tr><tr><td><code>response.json()</code></td><td>Reads the body and turns the JSON text into an object your code can use.</td></tr><tr><td><code>data.current.temperature_2m</code></td><td>Follows the keys to the one value you need.</td></tr></tbody></table></div>
+<h3 class="subheading">Requests take time</h3>
+<p>A request can take a few milliseconds or several seconds, so the page needs three states:</p>
+<div class="plain-grid"><article><h4>Loading.</h4><p>Show that something is happening, such as &quot;Loading rates…&quot; Disable the button so it can&#x27;t be clicked twice.</p></article><article><h4>Success.</h4><p>Show the data.</p></article><article><h4>Failure.</h4><p>Show a short message that says what didn&#x27;t load, and keep the rest of the page working.</p></article></div>
+<h3 class="subheading">Four ways a request fails</h3>
+<div class="table-scroll technical-table" tabindex="0"><table><thead><tr><th scope="col">Failure</th><th scope="col">What your code sees</th><th scope="col">What to do</th></tr></thead><tbody><tr><td>No connection, or the server is down</td><td><code>fetch</code> throws an error, and there&#x27;s no response</td><td>Catch the error and show the failure message.</td></tr><tr><td>Too slow</td><td>The timeout cancels the request, and <code>fetch</code> throws</td><td>Same as above. Let the person try again.</td></tr><tr><td>Error status</td><td><code>response.ok</code> is <code>false</code></td><td>Show the failure message. Log the status code so you can debug it.</td></tr><tr><td>Wrong data</td><td>Status <code>200</code>, but a field is missing, empty, or the wrong type</td><td>Check each field before you use it.</td></tr></tbody></table></div>
+<p>The last row is the easiest to miss. A <code>200</code> only means the server answered. It doesn&#x27;t mean the data is what you expect. Check the response like any other data entering your project: is each field there, and is it the right type?</p>
+<div class="prompt-card"><div class="prompt-heading"><h4>Check the response</h4><button type="button" class="copy-prompt" data-copy="check-code">Copy code</button></div><pre class="prompt-text" id="check-code">function checkResponse(data) {
+  const temp = data?.current?.temperature_2m;
+  if (typeof temp !== &quot;number&quot;) {
+    return { ok: false, error: &quot;The response had no temperature.&quot; };
+  }
+  return { ok: true, value: temp };
+}</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<p><code>?.</code> reads a key only if the object before it exists. If <code>current</code> is missing, <code>temp</code> becomes <code>undefined</code> instead of crashing the page, and the check returns an error.</p>
+<h3 class="subheading">Save the last good response</h3>
+<p>Many apps save their last successful response in the browser (in <code>localStorage</code>), along with the time it was fetched. If the next request fails, the page shows the saved data and says how old it is, such as &quot;Last updated Nov 10, 9:00 PM.&quot; This is called caching. It also lets the page skip a request when the saved data is recent enough.</p>
+<div class="section-bridge"><a href="#rules">Keys, limits, and CORS →</a></div>
+</section>
+<section id="rules" class="chapter">
+<div class="eyebrow">05 / KEYS, LIMITS, AND CORS</div>
+<h2 class="chapter-title">Keys, limits, and CORS.</h2>
+<p class="lead">Three things decide which APIs your site can use: whether an API needs a secret key, how many requests it allows, and whether it accepts requests from a browser.</p>
+<h3 class="subheading">API keys</h3>
+<p>Many APIs need a key: a long string that identifies who&#x27;s sending each request. The API uses it to count your requests, apply your plan&#x27;s limits, and bill you if the API charges. A key is usually sent in a header (<code>Authorization: Bearer [key]</code>) or as a parameter (<code>?key=...</code>).</p>
+<div class="plain-grid"><article><h4>No key.</h4><p>Anyone can call it. Works on a static site. Examples: Open-Meteo, Frankfurter.</p></article><article><h4>Publishable key.</h4><p>Meant to be visible, and locked to your site&#x27;s address in the provider&#x27;s settings. Examples: a Google Maps JavaScript key, a Stripe publishable key.</p></article><article><h4>Secret key.</h4><p>Must stay on a server. Examples: OpenAI, Anthropic, and Stripe secret keys.</p></article></div>
+<aside class="callout"><p><strong>A secret key can&#x27;t go in your site.</strong></p><p>Your site is static: every file, including <code>script.js</code>, is downloaded to each visitor&#x27;s browser, where anyone can read it. Public repositories are also scanned for leaked keys, by GitHub and by people who want to use them. If a secret key is ever committed, treat it as public: revoke it in the provider&#x27;s dashboard and create a new one. Deleting the commit isn&#x27;t enough, because the history keeps it.</p></aside>
+<p>APIs with secret keys, including AI model APIs, are called from a <strong>backend</strong>: a server you control that holds the key, calls the API, and passes the result to your page. That&#x27;s outside this week&#x27;s scope. This week, use an API that needs no key.</p>
+<h3 class="subheading">Rate limits</h3>
+<p>Most APIs cap how many requests you can send per minute, hour, or day. Past the limit, you get <code>429 Too Many Requests</code>. Two habits keep you under it:</p>
+<ul><li>Request only when needed: when the page loads or when someone clicks, never in a loop.</li><li>Reuse a saved response while it&#x27;s still current. Frankfurter&#x27;s exchange rates update once each working day, so requesting them every few seconds gets you nothing new.</li></ul>
+<h3 class="subheading">CORS</h3>
+<p>Browsers block a page from reading a response from another site unless that site allows it. This rule is called CORS (cross-origin resource sharing). A server allows it by sending a header, <code>Access-Control-Allow-Origin</code>, with its response. If the header is missing, the request may still reach the server, but your code can&#x27;t read the answer, and the browser&#x27;s console shows an error that mentions &quot;blocked by CORS policy.&quot;</p>
+<p>You can&#x27;t fix CORS from your page. It&#x27;s the API&#x27;s decision. An API that doesn&#x27;t allow browser requests is meant to be called from a server, so pick a different one. Before you commit to an API, check its docs for &quot;CORS&quot; or &quot;browser,&quot; or send one request from your page.</p>
+<h3 class="subheading">Terms of use</h3>
+<p>Free APIs come with conditions, such as credit to the provider, non-commercial use only, or a daily cap. Open-Meteo, for example, is free for non-commercial use. Read the terms before you build, and link the API&#x27;s docs in your README.</p>
+<div class="section-bridge"><a href="#when">When to use an API →</a></div>
+</section>
+<section id="when" class="chapter">
+<div class="eyebrow">06 / WHEN TO USE AN API</div>
+<h2 class="chapter-title">When to use an API.</h2>
+<p class="lead">Use an API when the data or the work lives somewhere else and keeps changing. If it doesn&#x27;t, a file or your own code is simpler.</p>
+<div class="table-scroll technical-table" tabindex="0"><table><thead><tr><th scope="col">Situation</th><th scope="col">Use</th><th scope="col">Why</th></tr></thead><tbody><tr><td>The data changes often: weather, prices, exchange rates, schedules</td><td>An API</td><td>A saved file would go out of date.</td></tr><tr><td>Someone else keeps the data current</td><td>An API</td><td>Otherwise you&#x27;d have to collect it yourself.</td></tr><tr><td>You need work that takes a large system: payments, maps, email, an AI model</td><td>An API</td><td>You can&#x27;t reasonably build these yourself.</td></tr><tr><td>Your data lives in another app: a calendar, Slack, a CRM</td><td>That app&#x27;s API</td><td>It&#x27;s the supported way to read and change that data.</td></tr><tr><td>The data rarely changes: a list of states, your project&#x27;s categories</td><td>A file in your project</td><td>It&#x27;s faster, works offline, and has nothing that can fail.</td></tr><tr><td>You can calculate it yourself: a total, the days between two dates</td><td>Your own code</td><td>No request, no wait, and no limit.</td></tr><tr><td>The API needs a secret key, and your project has no server</td><td>Not yet</td><td>The key would be public.</td></tr><tr><td>You&#x27;d send personal data to a service you haven&#x27;t checked</td><td>Don&#x27;t</td><td>Read its privacy terms first.</td></tr></tbody></table></div>
+<h3 class="subheading">Before you choose an API</h3>
+<ul class="checklist"><li>Does it have the data I need? Open one response and check the fields.</li><li>Does it need a key? If so, is the key safe to make public?</li><li>Does it accept requests from a browser?</li><li>What are its limits, and will my project stay under them?</li><li>What will my project do if it goes down?</li><li>What do its terms allow?</li></ul>
+<h3 class="subheading">APIs in client work</h3>
+<p>In client projects, an AI feature is usually an API call: the client&#x27;s app sends text and instructions to a model provider and gets a response back. The same questions apply, plus a few more: who holds the key, what each request costs, how many requests the feature will send, what data leaves the client&#x27;s systems, and what the app does when the provider is slow or down.</p>
+<div class="section-bridge"><a href="#automation">Automation →</a></div>
+</section>
+<section id="automation" class="chapter">
+<div class="eyebrow">07 / AUTOMATION</div>
+<h2 class="chapter-title">Automation.</h2>
+<p class="lead">Automation means a step runs without anyone starting it by hand. Most automations work by calling APIs.</p>
+<p>An automation has a <strong>trigger</strong> and an <strong>action</strong>. The trigger decides when it runs. The action is what it does, which is often one or more API requests.</p>
+<div class="plain-grid"><article><h4>Schedule.</h4><p>Runs at set times, such as every day at 8 AM. Scheduled jobs are often called cron jobs. Example: fetch the day&#x27;s exchange rates and save them.</p></article><article><h4>Event.</h4><p>Runs when something happens, such as a push or a form submission. Example: your site&#x27;s deploy. Every push to <code>main</code> starts a GitHub Actions workflow that builds and publishes the site.</p></article><article><h4>Webhook.</h4><p>Another service sends a request to your server when something happens. It&#x27;s an API call in reverse: instead of your code asking &quot;anything new?&quot;, the service tells you. Example: a payment provider notifying a store&#x27;s server that a payment went through.</p></article></div>
+<p>Tools like GitHub Actions, Zapier, and Make connect triggers to actions without running your own server.</p>
+<p>An automation can fail with no one watching, so it needs a way to report failures, such as an email or a log. GitHub Actions emails you when a workflow fails.</p>
+<p>Your deliverable doesn&#x27;t require automation. To try it, see the optional item in <a href="#next">section 10</a>.</p>
+<div class="section-bridge"><a href="#stuck">Common problems →</a></div>
+</section>
+<section id="stuck" class="chapter">
+<div class="eyebrow">08 / COMMON PROBLEMS</div>
+<h2 class="chapter-title">Common problems and fixes.</h2>
+<div class="self-checks"><details><summary>The console says &quot;blocked by CORS policy.&quot; <span aria-hidden="true">+</span></summary><div><p>The API doesn&#x27;t allow requests from a browser, and nothing in your code can change that. Choose a different API from the list in section 09.</p></div></details><details><summary>I get 401 or 403. <span aria-hidden="true">+</span></summary><div><p>The API needs a key. Don&#x27;t put one in your site. Choose an API that needs no key.</p></div></details><details><summary>I get 429. <span aria-hidden="true">+</span></summary><div><p>Your page is sending too many requests. Ask Codex: &quot;Find every place my code calls the API, and make sure it only runs on page load or when the button is clicked.&quot;</p></div></details><details><summary>The request works, but the page shows &quot;undefined.&quot; <span aria-hidden="true">+</span></summary><div><p>The code is reading a key that isn&#x27;t in the response, or the path to it is wrong. Open the request in your browser, find the value, and compare its path with the one in your code. Keys are case-sensitive.</p></div></details><details><summary>The page goes blank when the API fails. <span aria-hidden="true">+</span></summary><div><p>The error isn&#x27;t being caught. Ask Codex: &quot;When the API request fails for any reason, show my failure message and keep the rest of the page working. Don&#x27;t let the error stop the page.&quot;</p></div></details><details><summary>It works on my laptop but not on my live site. <span aria-hidden="true">+</span></summary><div><p>Check that the request URL starts with <code>https://</code>. A page served over https can&#x27;t request an <code>http://</code> address. If it still fails, open the console on the live site and look for a red error.</p></div></details><details><summary>I can&#x27;t find an API that fits my project. <span aria-hidden="true">+</span></summary><div><p>Ask ChatGPT: &quot;My project is [your project sentence]. Suggest three free APIs that need no key and allow requests from a browser, with a docs link for each.&quot; Then check each one against the questions in section 06.</p></div></details></div>
+<h3 class="subheading">Check your understanding</h3>
+<div class="self-checks"><details><summary>A request returns 200, but your page shows &quot;undefined.&quot; Is the API broken? <span aria-hidden="true">+</span></summary><div><p>No. The request worked. Your code is reading the wrong path. Compare the path in your code with the JSON.</p></div></details><details><summary>Why can&#x27;t an OpenAI key go in <code>script.js</code>? <span aria-hidden="true">+</span></summary><div><p>Every visitor downloads <code>script.js</code> and can read the key. Anyone who copies it can send requests that you pay for. Secret keys belong on a server.</p></div></details><details><summary>A request works in the address bar but fails from your page with a CORS error. Why? <span aria-hidden="true">+</span></summary><div><p>The address bar isn&#x27;t subject to CORS, but your page is. The server doesn&#x27;t allow other sites&#x27; pages to read its responses.</p></div></details><details><summary>Exchange rates update once a day. How often should your page request them? <span aria-hidden="true">+</span></summary><div><p>At most once per visit, and less if you save the last response. Extra requests slow the page down and count against the limit.</p></div></details><details><summary>You get a 400 and then a 503. Which one comes from your request? <span aria-hidden="true">+</span></summary><div><p>The 400. It means the request itself was wrong. A 503 means the server is unavailable, so try again later.</p></div></details></div>
+<div class="section-bridge"><a href="#portfolio">Your deliverable →</a></div>
+</section>
+<section id="portfolio" class="chapter">
+<div class="eyebrow">09 / PORTFOLIO PIECE #5</div>
+<h2 class="chapter-title">Add a live API feature.</h2>
+<div class="assignment-meta"><span>DUE NOV 18, 7:00 PM</span><span>TWO LINKS</span><span>BUILDS ON VERSION 2</span></div>
+<p class="submit-line"><a class="text-button" href="https://drive.google.com/drive/folders/1qkEHepSmy9qLz-Hu1ne3AuNzH2ivOScg?usp=drive_link" target="_blank" rel="noopener">Submit Here</a></p>
+<p class="lead">Add one feature to your project that gets live data from an API, checks it, and keeps working when the API fails.</p>
+<h3 class="subheading">Requirements</h3>
+<p>The feature must:</p>
+<ul><li>Call one API that needs no key, using GET over <code>https://</code>.</li><li>Show a loading state, then the data.</li><li>Cancel the request after 8 seconds.</li><li>Check the status code and every field it uses before showing anything.</li><li>Show a clear message on any failure, while the rest of the project keeps working.</li><li>Send requests only when the page loads or when someone clicks, never in a loop.</li></ul>
+<ol class="setup-steps">
+<li><h3>Pick an API.</h3>
+<div class="table-scroll technical-table" tabindex="0"><table><thead><tr><th scope="col">API</th><th scope="col">What it gives you</th><th scope="col">Docs</th></tr></thead><tbody><tr><td>Open-Meteo</td><td>Weather and forecasts for any location</td><td><a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">open-meteo.com</a></td></tr><tr><td>Frankfurter</td><td>Currency exchange rates</td><td><a href="https://frankfurter.dev" target="_blank" rel="noopener">frankfurter.dev</a></td></tr><tr><td>Open Library</td><td>Books, authors, and covers</td><td><a href="https://openlibrary.org/developers/api" target="_blank" rel="noopener">openlibrary.org</a></td></tr><tr><td>Nager.Date</td><td>Public holidays by country and year</td><td><a href="https://date.nager.at" target="_blank" rel="noopener">date.nager.at</a></td></tr><tr><td>Free Dictionary API</td><td>Word definitions and pronunciations</td><td><a href="https://dictionaryapi.dev" target="_blank" rel="noopener">dictionaryapi.dev</a></td></tr></tbody></table></div>
+<p>If none of these fits, ask ChatGPT for options using the prompt in section 08&#x27;s last common problem, and check each against the questions in section 06.</p>
+<p class="done-when">Done when: you&#x27;ve opened one request to your API in your browser and it returned JSON.</p></li>
+<li><h3>Write down what you&#x27;ll use.</h3>
+<p>Fill in this template from a real response. You&#x27;ll paste it into Codex in the next step.</p>
+<div class="prompt-card"><div class="prompt-heading"><h4>Template: API plan</h4><button type="button" class="copy-prompt" data-copy="api-plan-template">Copy template</button></div><pre class="prompt-text" id="api-plan-template">API: [name and docs link]
+Request: [the full request URL]
+Fields I&#x27;ll use:
+- [path, like current.temperature_2m]: [type, like number]
+- [path]: [type]
+What the feature does: [one sentence]
+If it fails, the page says: [your message]</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<p class="done-when">Done when: every field in your plan appears in the response you opened.</p></li>
+<li><h3>Build it.</h3>
+<div class="prompt-card"><div class="prompt-heading"><h4>Add the API feature</h4><button type="button" class="copy-prompt" data-copy="api-build-prompt">Copy prompt</button></div><pre class="prompt-text" id="api-build-prompt">Add a feature to my project that gets live data from an API. Here&#x27;s my plan:
+
+[paste your API plan]
+
+Requirements:
+- Put the API code in api.js. Write a function, getData(), that returns { ok: true, data } or { ok: false, error }. It must never throw.
+- Use fetch with GET and a timeout of 8 seconds: AbortSignal.timeout(8000).
+- If response.ok is false, return an error that includes the status code.
+- Put the field checks in their own function, checkResponse(data), so they can be tested without calling the API. Every field in my plan must exist and have the right type. If a check fails, return an error that names the field.
+- Show &quot;Loading…&quot; while waiting, then the data. On any error, show my failure message. Everything else on the page must keep working.
+- Send requests only when the page loads or when I click a button, never in a loop.
+- Save the last good response and the time it was fetched in localStorage. If a request fails and a saved response exists, show it with &quot;Last updated [time].&quot;
+- Don&#x27;t add any API keys. Keep everything that already works. Follow AGENTS.md.
+
+When you&#x27;re done, tell me in plain English what each new or changed file does, and how to test what happens when the request fails.</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<p class="done-when">Done when: the feature works on your laptop, and you&#x27;ve read Codex&#x27;s explanation of each file.</p></li>
+<li><h3>Test it.</h3>
+<p>Add three API tests to your README&#x27;s test table. Fill in &quot;What should happen&quot; before you run them.</p>
+<div class="self-checks"><details><summary>Example: the spending tracker&#x27;s API tests <span aria-hidden="true">+</span></summary><div><div class="table-scroll technical-table" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">Kind</th><th scope="col">What I do</th><th scope="col">What should happen</th></tr></thead><tbody><tr><td>9</td><td>API</td><td>Click <strong>Convert to euros</strong></td><td>Each category total appears in euros within a few seconds, with the date of the rate</td></tr><tr><td>10</td><td>API failure</td><td>In the browser&#x27;s developer tools, open the Network tab, set throttling to <strong>Offline</strong>, then click <strong>Convert to euros</strong></td><td>The page shows &quot;Couldn&#x27;t load exchange rates. Your totals in dollars are still correct.&quot; Adding an expense still works.</td></tr><tr><td>11</td><td>API failure</td><td>In <code>api.js</code>, change <code>/latest</code> to <code>/latestt</code> in the request, then click <strong>Convert to euros</strong></td><td>The same failure message appears, and the console logs a 404. Change it back after the test.</td></tr></tbody></table></div></div></details></div>
+<p>Then add two tests for <code>checkResponse</code> to your tests page.</p>
+<div class="prompt-card"><div class="prompt-heading"><h4>Add response tests</h4><button type="button" class="copy-prompt" data-copy="api-tests-prompt">Copy prompt</button></div><pre class="prompt-text" id="api-tests-prompt">Add two tests to data/tests.html for checkResponse in api.js. Don&#x27;t call the real API in these tests.
+
+1. This saved response passes the check and returns the right values: [paste the JSON you opened in your browser]
+2. The same response with [one field from your plan] removed fails the check, and the error names that field.
+
+Embed the saved response in the test file, the same way the CSV test data is embedded.</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<p class="done-when">Done when: all three API tests pass on your live site and every test on <code>data/tests.html</code> passes.</p></li>
+<li><h3>Document and publish.</h3>
+<div class="prompt-card"><div class="prompt-heading"><h4>Update the README</h4><button type="button" class="copy-prompt" data-copy="api-readme-prompt">Copy prompt</button></div><pre class="prompt-text" id="api-readme-prompt">Update README.md. Keep everything that&#x27;s already there, and add:
+
+1. An &quot;API&quot; section with:
+   - Which API the project uses, with links to its docs and terms
+   - The request it sends and the fields it uses
+   - What the page shows when the API fails or is slow
+   - Why this data comes from an API instead of a file
+2. My three API tests, added to the Tests table: [paste tests 9 to 11]
+3. A build log entry for this week: what I asked for, what happened, and how I checked it. Keep it honest, including anything that went wrong.
+4. A line in &quot;Changes&quot; for the API feature.
+
+Keep it short and plain.</pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+<p>Review the README and correct anything that isn&#x27;t accurate. Commit with the summary <code>Add live API feature</code> and push. After a minute or two, open your live site and run all three API tests again.</p>
+<p class="done-when">Done when: your live site shows data from the API, and the failure message appears when you go offline.</p></li>
+</ol>
+<div class="self-checks"><details><summary>See the example: the spending tracker&#x27;s API plan <span aria-hidden="true">+</span></summary><div><pre class="prompt-text">API: Frankfurter, https://frankfurter.dev
+Request: https://api.frankfurter.dev/v1/latest?base=USD&amp;symbols=EUR
+Fields I&#x27;ll use:
+- rates.EUR: number
+- date: text, YYYY-MM-DD
+What the feature does: A Convert to euros button shows each category total in euros, with the date of the rate.
+If it fails, the page says: Couldn&#x27;t load exchange rates. Your totals in dollars are still correct.</pre></div></details></div>
+<h3 class="subheading">What to submit</h3>
+<p>Upload one document (a Google Doc, Word file, or PDF) named <code>Lastname_Firstname_Week7</code> to the submission folder, with two lines:</p><ol class="practice-list"><li>The link to your repository.</li><li>The link to your live site.</li></ol>
+<h3 class="subheading">Before you submit</h3>
+<ul class="checklist"><li>Your live site shows data from your API within a few seconds.</li><li>With your browser set to Offline, the page shows your failure message, and everything else still works.</li><li><code>api.js</code> has a separate <code>checkResponse</code> function, and <code>data/tests.html</code> has passing tests for a good response and a response with a missing field.</li><li>There are no API keys anywhere in your repository.</li><li>Your README has an API section and three API tests, each with what should happen and what did.</li><li>Your build log has an honest entry for this week.</li><li>You have a commit named &quot;Add live API feature.&quot;</li><li>Nothing private is sent to the API or stored anywhere in your project.</li></ul>
+<p>These are also what we&#x27;ll look for when we review it.</p>
+<h3 class="subheading">Next week</h3>
+<p>Next week covers retrieval and grounding: giving an AI model the right information to answer from, so its answers come from sources instead of guesses.</p>
+<div class="section-bridge"><a href="#next">Before Week 8 →</a></div>
+</section>
+<section id="next" class="chapter closing">
+<div class="eyebrow">10 / BEFORE WEEK 8</div>
+<h2 class="chapter-title">Put the lesson to work.</h2>
+<ul class="next-list"><li><div><h3>Portfolio piece #5</h3><p>Upload a document named <code>Lastname_Firstname_Week7</code> with your repository link and your live site link. Due Wednesday, November 18, 7:00 PM.</p></div><a class="text-button" href="https://drive.google.com/drive/folders/1qkEHepSmy9qLz-Hu1ne3AuNzH2ivOScg?usp=drive_link" target="_blank" rel="noopener">Submit Here</a></li><li><div><h3>Schedule a daily check</h3><p>Optional. Ask Codex: &quot;Add a GitHub Actions workflow that runs once a day, sends my API request, and fails if the response doesn&#x27;t pass the same checks as checkResponse.&quot; If the API goes down or changes its response, GitHub emails you.</p></div></li></ul>
+<div class="next-week"><span class="small-label">NEXT WEEK / 08</span><h3>Retrieval and grounding</h3><p>Give an AI model the right information to answer from, and check that its answers come from those sources.</p></div>
+<p class="note">Questions? Reach out to Salloni Kapoor, <a href="mailto:sk3482@cornell.edu">sk3482@cornell.edu</a></p>
+<a class="text-button back-top" href="#overview">Back to the beginning ↑</a>
+</section>
